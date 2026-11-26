@@ -249,13 +249,24 @@ button.vr-battle-actor-button{
 .vr-tactical-roster li button{padding:3px 6px;margin:0;font-size:inherit}
 .vr-tactical-number,.vr-tactical-token{display:grid;place-items:center;min-width:1.6em;height:1.6em;border-radius:50%;background:#235d74;color:white;font-weight:700}
 .vr-tactical-number.enemy,.vr-tactical-token.enemy{background:#822f3a}
-.vr-tactical-scroll{overflow:auto;padding:3px;min-inline-size:0}
-.vr-tactical-board{position:relative;display:grid;grid-template-columns:repeat(var(--map-cols),minmax(0,1fr));grid-template-rows:repeat(var(--map-rows),minmax(0,1fr));align-items:center;justify-items:center;width:min(calc(100% * var(--map-view-scale,1)),calc(64dvh * var(--map-aspect) * var(--map-view-scale,1)));min-width:calc(22px * var(--map-cols) * var(--map-view-scale,1));aspect-ratio:var(--map-cols) / var(--map-rows);margin:0 auto;padding:0;border:0;border-radius:0;background-color:#202531;background-position:center;background-repeat:no-repeat;background-size:100% 100%;overflow:hidden;isolation:isolate;cursor:crosshair}
+.vr-tactical-scroll{overflow:auto;min-inline-size:0;aspect-ratio:var(--map-aspect);max-height:64dvh;overscroll-behavior:contain;scrollbar-width:thin;border-radius:6px}
+.vr-tactical-scroll[data-tool="hand"]{touch-action:none}
+.vr-tactical-tools,.vr-tactical-zoom{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+.vr-tactical-tools{flex:1 0 100%;padding:5px;border:1px solid var(--vr-border);border-radius:6px;background:var(--vr-inset)}
+.vr-tactical-tools button{margin:0;padding:5px 9px}
+.vr-tactical-tools button[aria-pressed="true"]{background:#e2bf82;border-color:#e2bf82;color:#24180d;font-weight:700}
+.vr-tactical-zoom{border-inline-start:1px solid var(--vr-border);padding-inline-start:6px}
+.vr-tactical-zoom output{min-width:5ch;text-align:center;font-variant-numeric:tabular-nums}
+.vr-tactical-line{position:absolute;z-index:1;height:2px;background:#ffda8b;box-shadow:0 0 4px #000;transform-origin:0 50%}
+.vr-tactical-board{position:relative;display:grid;grid-template-columns:repeat(var(--map-cols),minmax(0,1fr));grid-template-rows:repeat(var(--map-rows),minmax(0,1fr));align-items:center;justify-items:center;width:calc(100% * var(--map-view-scale));min-width:calc(16px * var(--map-cols) * var(--map-view-scale));aspect-ratio:var(--map-cols) / var(--map-rows);margin:0 auto;padding:0;border:0;border-radius:0;background-color:#202531;background-position:center;background-repeat:no-repeat;background-size:100% 100%;overflow:hidden;isolation:isolate;cursor:crosshair}
 .vr-tactical-board::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(to right,#e4d9b76b 1px,transparent 1px),linear-gradient(to bottom,#e4d9b76b 1px,transparent 1px);background-size:calc(100% / var(--map-cols)) calc(100% / var(--map-rows));box-shadow:inset 0 0 0 1px #e4d9b76b}
 .vr-tactical-board:focus-visible{outline:2px solid var(--vr-accent-text)}
 .vr-tactical-board>*{pointer-events:none}
-.vr-tactical-board>.vr-tactical-token[data-drag-actor]{pointer-events:auto;touch-action:none;user-select:none;cursor:grab;z-index:3}
-.vr-tactical-board>.vr-tactical-token.is-dragging{z-index:4;transform:translate(var(--drag-x),var(--drag-y));cursor:grabbing}
+.vr-tactical-scroll[data-tool="hand"] .vr-tactical-board{cursor:grab;user-select:none}
+.vr-tactical-scroll[data-tool="hand"] .vr-tactical-token[data-drag-actor]{pointer-events:auto;z-index:3}
+.vr-tactical-scroll.is-grabbing .vr-tactical-board{cursor:grabbing}
+.vr-tactical-board>.vr-tactical-token.is-dragging{z-index:4;transform:translate(var(--drag-x),var(--drag-y))}
+.vr-tactical-token.is-selected{outline:2px solid #ffda8b;outline-offset:2px}
 .vr-tactical-token img{pointer-events:none;user-select:none}
 .vr-battle-summary{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
 .vr-battle-summary p{margin:0}
@@ -1175,21 +1186,42 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const {map,actors=[],gm,pending,status}=battle;
  if(!map){el('p','Mapa střetnutí zatím není dostupná.',panel);return;}
  const turn=actors[battle.turn||0];
- const baseModes=[['inspect','Přehled postav'],['measure','Měřit vzdálenost']];
- if(ownActor)baseModes.push(['freeMove','Volný pohyb vlastního žetonu']);
+ const baseModes=[['inspect','Přehled postav']];
  if(gm)baseModes.push(['place','Rozmístit žetony']);
  const turnToken=turn&&map.tokens[turn.id];
  const canMove=status==='running'&&!pending&&turn?.control&&turn.hp>0&&turnToken;
  if(canMove)baseModes.push(['move','Pohyb v tahu']);
- if(!baseModes.some(([key])=>key===state.mode))state.mode=baseModes[0][0];
+ if(!['hand','measure',...baseModes.map(([key])=>key)].includes(state.mode))state.mode='hand';
  if(!actors.some(a=>a.id===state.actor))state.actor=actors[0]?.id||'';
 
 
  const toolbar=el('div',undefined,panel);
  toolbar.className='vr-tactical-toolbar';
+ const tools=el('div',undefined,toolbar);
+ tools.className='vr-tactical-tools';
+ tools.setAttribute('role','group');
+ tools.setAttribute('aria-label','Nástroje mapy');
+ const hand=btn('✋︎ Ruka',tools,()=>setMode('hand'));
+ hand.className='vr-map-hand';
+ const measure=btn('↔ Metr',tools,()=>setMode('measure'));
+ measure.className='vr-map-measure';
+ const zoom=el('div',undefined,tools);
+ zoom.className='vr-tactical-zoom';
+ zoom.setAttribute('role','group');
+ zoom.setAttribute('aria-label','Lupa');
+ el('small','Lupa',zoom).setAttribute('aria-hidden','true');
+ const zoomOut=btn('−',zoom,()=>setZoom(state.viewScale-20));
+ zoomOut.className='vr-map-zoom-out';
+ zoomOut.setAttribute('aria-label','Oddálit mapu');
+ const zoomValue=el('output',undefined,zoom);
+ zoomValue.setAttribute('aria-label','Přiblížení');
+ const zoomIn=btn('+',zoom,()=>setZoom(state.viewScale+20));
+ zoomIn.className='vr-map-zoom-in';
+ zoomIn.setAttribute('aria-label','Přiblížit mapu');
  const controls=el('div',undefined,toolbar);
  controls.className='vr-tactical-controls';
- const mode=vrFxSelect(controls,'Nástroj mapy',baseModes,state.mode);
+ const mode=vrFxSelect(controls,'Další nástroje',[['','Vybrat…'],...baseModes],'');
+ mode.onchange=()=>{if(mode.value)setMode(mode.value);};
  if(ownActor){
   const edit=btn('Upravit žeton',controls,()=>editToken(ownActor.id));
   edit.className='vr-map-token-edit';
@@ -1210,8 +1242,18 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const boardWrap=el('div',undefined,panel);
  boardWrap.className='vr-tactical-scroll';
  panel.append(rosterPanel);
- boardWrap.onscroll=()=>{if(boardWrap.isConnected)state.scroll=boardWrap.scrollLeft;};
- if(state.scroll)requestAnimationFrame(()=>{if(boardWrap.isConnected)boardWrap.scrollLeft=state.scroll;});
+ boardWrap.style.setProperty('--map-aspect',map.cols/map.rows);
+ function rememberScroll(){
+  if(boardWrap.isConnected){
+   state.scrollLeft=boardWrap.scrollLeft;
+   state.scrollTop=boardWrap.scrollTop;
+  }
+ }
+ boardWrap.onscroll=rememberScroll;
+ const savedLeft=state.scrollLeft||0,savedTop=state.scrollTop||0;
+ requestAnimationFrame(()=>{
+  if(boardWrap.isConnected){boardWrap.scrollLeft=savedLeft;boardWrap.scrollTop=savedTop;}
+ });
  const board=el('div',undefined,boardWrap);
  board.className='vr-tactical-board';
  board.role='button';
@@ -1219,15 +1261,31 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  board.setAttribute('aria-label','Taktická mřížka. Šipkami vyber pole, Enter potvrdí výběr.');
  board.style.setProperty('--map-cols',map.cols);
  board.style.setProperty('--map-rows',map.rows);
- board.style.setProperty('--map-aspect',map.cols/map.rows);
- vrMapScaleInput(controls,'Velikost polí',60,180,state.viewScale??100,percent=>{
-  state.viewScale=percent;
-  board.style.setProperty('--map-view-scale',percent/100);
- });
+ const minZoom=100,maxZoom=240;
+ const limit=(value,min,max)=>Math.max(min,Math.min(max,value));
+ function applyZoom(value){
+  state.viewScale=limit(value,minZoom,maxZoom);
+  board.style.setProperty('--map-view-scale',state.viewScale/100);
+  zoomValue.value=state.viewScale+' %';
+  zoomOut.disabled=state.viewScale===minZoom;
+  zoomIn.disabled=state.viewScale===maxZoom;
+ }
+ function setZoom(value){
+  const centerX=(boardWrap.scrollLeft+boardWrap.clientWidth/2)/board.clientWidth;
+  const centerY=(boardWrap.scrollTop+boardWrap.clientHeight/2)/board.clientHeight;
+  applyZoom(value);
+  boardWrap.scrollLeft=centerX*board.clientWidth-boardWrap.clientWidth/2;
+  boardWrap.scrollTop=centerY*board.clientHeight-boardWrap.clientHeight/2;
+  rememberScroll();
+ }
+ applyZoom(state.viewScale??120);
  const cursor=el('span',undefined,board);
  cursor.className='vr-tactical-cursor';
  const marker=el('span',undefined,board);
  marker.className='vr-tactical-origin';
+ const line=el('span',undefined,board);
+ line.className='vr-tactical-line';
+ let keyboardActor=null,keyboardPoint=false;
  const maxPoint={x:map.cols-1,y:map.rows-1};
  const formatPoint=point=>['Sloupec '+(point.x+1),'řádek '+(point.y+1)].join(', ');
  function applyImage(){
@@ -1271,7 +1329,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  let difficult=null;
  function showControls(){
   options.replaceChildren();
-  if(mode.value==='place'&&actors.length){
+  difficult=null;
+  if(state.mode==='place'&&actors.length){
    const select=vrFxSelect(options,'Žeton',actors.map(a=>[a.id,a.name]),state.actor);
    select.setAttribute('aria-label','Žeton');
    const mark=vrFxSelect(options,'Značka stavu',[['','Bez značky'],...Object.entries(vrMapStatuses)],map.tokens[state.actor]?.status||'');
@@ -1286,7 +1345,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
    select.onchange=updateActor;
    updateActor();
    el('small','Klikni na pole a umísti vybraný žeton. Značky slouží k přehledu na mapě.',options);
-  }else if(mode.value==='move'){
+  }else if(state.mode==='move'){
    const label=el('label','Obtížný terén',options);
    difficult=el('input',undefined,label);
    difficult.type='checkbox';
@@ -1296,119 +1355,202 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  }
  function showPoint(point){
   state.point=point;
+  const {mode:tool,from:origin,to:endpoint}=state;
+  cursor.hidden=tool==='hand'&&!keyboardPoint&&!state.dragging;
   cursor.style.gridArea=(point.y+1)+' / '+(point.x+1);
-  const from=mode.value==='measure'?state.from:mode.value==='move'?turnToken:null;
+  const from=tool==='measure'?origin:tool==='move'?turnToken:null;
   marker.hidden=!from;
   if(from)marker.style.gridArea=(from.y+1)+' / '+(from.x+1);
+  const to=tool==='measure'&&from?(endpoint||point):null;
+  line.hidden=!to;
+  if(to){
+   const dx=to.x-from.x,dy=to.y-from.y;
+   line.style.left=(from.x+.5)/map.cols*100+'%';
+   line.style.top=(from.y+.5)/map.rows*100+'%';
+   line.style.width=Math.hypot(dx,dy)/map.cols*100+'%';
+   line.style.transform='rotate('+Math.atan2(dy,dx)+'rad)';
+  }
   const position=formatPoint(point);
-  if(from){
-   const meters=vrMapDistance(from,point,map.meters);
-   const movementCost=meters*(difficult?.checked&&mode.value==='move'?2:1);
-   const distance=position+' · vzdálenost '+meters+' m';
-   if(mode.value==='move'){
+  if(tool==='hand'){
+   describe.textContent=keyboardActor?position+' · Enter žeton položí.':state.dragging||keyboardPoint?position:'Podrž žeton a táhni. Mapu posuneš tažením za prázdné pole.';
+  }else if(from){
+   const meters=vrMapDistance(from,to||point,map.meters);
+   const movementCost=meters*(difficult?.checked?2:1);
+   const distance='Vzdálenost '+meters+' m';
+   if(tool==='move'){
     const remaining=Math.max(0,(turn.speed??6)*(turn.sprint?2:1)-(turn.moved||0));
-    describe.textContent=turn.name+' · '+distance+' · pohyb '+movementCost+' / '+remaining+' m';
-   }else describe.textContent=distance;
+    describe.textContent=turn.name+' · '+position+' · '+distance+' · pohyb '+movementCost+' / '+remaining+' m';
+   }else describe.textContent=distance+(endpoint?' · klikni pro nové měření':' · vyber koncové pole');
   }else{
-   const instruction=mode.value==='measure'?' · vyber počáteční pole':
-    mode.value==='inspect'?' · kliknutím na žeton otevřeš přehled':
-    mode.value==='freeMove'?' · vyber pole pro vlastní žeton':'';
+   const instruction=tool==='measure'?' · vyber počáteční pole':
+    tool==='inspect'?' · kliknutím na žeton otevřeš přehled':'';
    describe.textContent=position+instruction;
   }
  }
+ function actorAt(point){
+  return actors.findLast(a=>map.tokens[a.id]?.x===point.x&&map.tokens[a.id]?.y===point.y);
+ }
  function usePoint(point){
-  if(mode.value==='inspect'){
-   const actor=actors.findLast(a=>map.tokens[a.id]?.x===point.x&&map.tokens[a.id]?.y===point.y);
+  if(state.mode==='inspect'){
+   const actor=actorAt(point);
    if(actor)openOverview(actor.id,board);
-  }else if(mode.value==='measure'){
-   state.from=state.from&&state.to?null:state.from;
-   if(state.from)state.to=point;
-   else{state.from=point;state.to=null;}
-  }else if(mode.value==='freeMove'&&ownActor){
-   moveToken(ownActor.id,point);
-  }else if(mode.value==='place'&&state.actor){
+  }else if(state.mode==='measure'){
+   if(!state.from||state.to){state.from=point;state.to=null;}
+   else state.to=point;
+  }else if(state.mode==='place'&&state.actor){
    run('mapPlace',{actor:state.actor,...point});
-  }else if(mode.value==='move'&&(turnToken.x!==point.x||turnToken.y!==point.y)){
+  }else if(state.mode==='move'&&(turnToken.x!==point.x||turnToken.y!==point.y)){
    run('mapMove',{actor:turn.id,...point,difficult:!!difficult?.checked});
   }
   showPoint(point);
  }
- const clamp=(x,y)=>({x:Math.max(0,Math.min(maxPoint.x,x)),y:Math.max(0,Math.min(maxPoint.y,y))});
- const boardPoint=event=>{
+ const clamp=(x,y)=>({x:limit(x,0,maxPoint.x),y:limit(y,0,maxPoint.y)});
+ function visibleBounds(){
+  const rect=boardWrap.getBoundingClientRect();
+  return {left:rect.left,top:rect.top,right:rect.left+boardWrap.clientWidth,bottom:rect.top+boardWrap.clientHeight};
+ }
+ function boardPoint(x,y,bounds=visibleBounds()){
+  if(x<bounds.left||y<bounds.top||x>=bounds.right||y>=bounds.bottom)return null;
   const rect=board.getBoundingClientRect();
-  const x=event.clientX-rect.left,y=event.clientY-rect.top;
+  x-=rect.left;
+  y-=rect.top;
   if(x<0||y<0||x>=rect.width||y>=rect.height)return null;
   return clamp(Math.floor(x*map.cols/rect.width),Math.floor(y*map.rows/rect.height));
- };
+ }
  function moveToken(actor,point){
   const token=map.tokens[actor];
-  if(!token||token.x!==point.x||token.y!==point.y)run('mapFreeMove',{actor,...point});
+  if(token&&(token.x!==point.x||token.y!==point.y))run('mapFreeMove',{actor,...point});
  }
  function closeSettings(){
   if(!settings?.open)return;
   settings.open=false;
   state.settings=false;
  }
- let drag=null,suppressClick=false;
+ function edgeSpeed(position,min,max){
+  const edge=Math.min(45,(max-min)/3);
+  if(position<min+edge)return -14*limit((min+edge-position)/edge,0,1);
+  if(position>max-edge)return 14*limit((position-max+edge)/edge,0,1);
+  return 0;
+ }
+ let drag=null,frame=0;
+ function dragFrame(){
+  if(!drag?.cell||!boardWrap.isConnected)return;
+  const bounds=visibleBounds();
+  boardWrap.scrollLeft+=edgeSpeed(drag.x,bounds.left,bounds.right);
+  boardWrap.scrollTop+=edgeSpeed(drag.y,bounds.top,bounds.bottom);
+  drag.cell.style.setProperty('--drag-x',drag.x-drag.startX+boardWrap.scrollLeft-drag.left+'px');
+  drag.cell.style.setProperty('--drag-y',drag.y-drag.startY+boardWrap.scrollTop-drag.top+'px');
+  const point=boardPoint(drag.x,drag.y,bounds);
+  if(point&&(state.point.x!==point.x||state.point.y!==point.y||cursor.hidden))showPoint(point);
+  frame=requestAnimationFrame(dragFrame);
+ }
+ function clearKeyboardActor(){
+  keyboardActor=null;
+  board.querySelector('.is-selected')?.classList.remove('is-selected');
+ }
  board.onpointerdown=event=>{
-  const cell=event.target.closest('[data-drag-actor]');
-  if(drag||!cell||event.button!==0||!event.isPrimary)return;
-  drag={cell,id:event.pointerId,x:event.clientX,y:event.clientY,moved:false};
+  if(state.mode!=='hand'||drag||event.button!==0||!event.isPrimary)return;
+  event.preventDefault();
+  clearKeyboardActor();
+  keyboardPoint=false;
+  board.focus({preventScroll:true});
+  drag={cell:event.target.closest('[data-drag-actor]'),id:event.pointerId,startX:event.clientX,startY:event.clientY,
+   left:boardWrap.scrollLeft,top:boardWrap.scrollTop,moved:false};
   state.dragging=true;
   board.setPointerCapture(event.pointerId);
  };
  board.onpointermove=event=>{
   if(drag?.id!==event.pointerId)return;
-  const dx=event.clientX-drag.x,dy=event.clientY-drag.y;
-  if(!drag.moved&&Math.hypot(dx,dy)<5)return;
-  drag.moved=true;
-  drag.cell.classList.add('is-dragging');
-  drag.cell.style.setProperty('--drag-x',dx+'px');
-  drag.cell.style.setProperty('--drag-y',dy+'px');
-  const point=boardPoint(event);
-  if(point)showPoint(point);
+  drag.x=event.clientX;
+  drag.y=event.clientY;
+  const dx=drag.x-drag.startX,dy=drag.y-drag.startY;
+  if(!drag.moved){
+   if(Math.hypot(dx,dy)<5)return;
+   drag.moved=true;
+   boardWrap.classList.add('is-grabbing');
+   if(drag.cell){
+    drag.cell.classList.add('is-dragging');
+    frame=requestAnimationFrame(dragFrame);
+   }
+  }
+  if(!drag.cell){
+   boardWrap.scrollLeft=drag.left-dx;
+   boardWrap.scrollTop=drag.top-dy;
+  }
  };
  function endDrag(event){
-  if(drag?.id!==event.pointerId)return;
-  const {cell,moved}=drag;
+  if(!drag||(event&&drag.id!==event.pointerId))return;
+  const {cell,id,moved}=drag;
   drag=null;
   state.dragging=false;
-  cell.classList.remove('is-dragging');
-  if(!moved||event.type!=='pointerup')return;
-  closeSettings();
-  suppressClick=true;
-  setTimeout(()=>{suppressClick=false;},0);
-  const point=boardPoint(event);
-  if(point)moveToken(cell.dataset.dragActor,point);
+  if(board.hasPointerCapture(id))board.releasePointerCapture(id);
+  cancelAnimationFrame(frame);
+  boardWrap.classList.remove('is-grabbing');
+  cell?.classList.remove('is-dragging');
+  rememberScroll();
+  const point=event?.type==='pointerup'&&moved?boardPoint(event.clientX,event.clientY):null;
+  showPoint(point||state.point);
+  if(cell&&point){closeSettings();moveToken(cell.dataset.dragActor,point);}
  }
  board.onpointerup=board.onpointercancel=board.onlostpointercapture=endDrag;
  board.onclick=event=>{
-  if(suppressClick&&event.detail!==0)return;
+  if(state.mode==='hand')return;
   closeSettings();
-  const point=event.detail===0?state.point:boardPoint(event);
+  const point=event.detail===0?state.point:boardPoint(event.clientX,event.clientY);
   if(point)usePoint(point);
  };
  board.onkeydown=event=>{
+  if(event.key==='Escape'){
+   endDrag();
+   clearKeyboardActor();
+   keyboardPoint=false;
+   state.from=state.to=null;
+   showPoint(state.point);
+   return;
+  }
   if(event.key==='Enter'||event.key===' '){
    event.preventDefault();
-   if(!event.repeat){closeSettings();usePoint(state.point);}
+   if(event.repeat||state.dragging)return;
+   closeSettings();
+   if(state.mode!=='hand'){usePoint(state.point);return;}
+   if(keyboardActor){
+    moveToken(keyboardActor,state.point);
+    clearKeyboardActor();
+   }else{
+    const actor=actorAt(state.point);
+    const token=[...board.querySelectorAll('[data-drag-actor]')].find(node=>node.dataset.dragActor===actor?.id);
+    if(token){keyboardActor=actor.id;token.classList.add('is-selected');}
+   }
+   showPoint(state.point);
    return;
   }
   const arrows={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};
   const delta=arrows[event.key];
   if(!delta)return;
   event.preventDefault();
+  keyboardPoint=true;
   showPoint(clamp(state.point.x+delta[0],state.point.y+delta[1]));
+  const {x,y}=state.point;
+  const cellWidth=board.clientWidth/map.cols,cellHeight=board.clientHeight/map.rows;
+  boardWrap.scrollLeft=limit(boardWrap.scrollLeft, (x+1)*cellWidth-boardWrap.clientWidth,x*cellWidth);
+  boardWrap.scrollTop=limit(boardWrap.scrollTop, (y+1)*cellHeight-boardWrap.clientHeight,y*cellHeight);
  };
- mode.onchange=()=>{
-  state.mode=mode.value;
+ function setMode(value){
+  endDrag();
+  clearKeyboardActor();
+  keyboardPoint=false;
+  state.mode=value;
+  boardWrap.dataset.tool=value;
+  hand.setAttribute('aria-pressed',String(value==='hand'));
+  measure.setAttribute('aria-pressed',String(value==='measure'));
+  mode.value=baseModes.some(([key])=>key===value)?value:'';
   showControls();
   showPoint(state.point);
- };
- showControls();
- if(state.from&&(state.from.x>maxPoint.x||state.from.y>maxPoint.y)){state.from=null;state.to=null;}
+ }
+ if([state.from,state.to].some(p=>p&&(p.x>maxPoint.x||p.y>maxPoint.y)))state.from=state.to=null;
  const point=state.point||turnToken||{x:0,y:0};
- showPoint(clamp(point.x,point.y));
+ state.point=clamp(point.x,point.y);
+ setMode(state.mode);
  if(!gm)return;
 
  settings=el('details',undefined,toolbar);
@@ -1967,7 +2109,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
  const pick=(p,t,opts,v)=>vrFxSelect(p,t,opts,v??opts[0]?.[0]??'');
  const field=(p,t,v='',min=0)=>vrFxNumber(p,t,v,min,1000000);
  const check=(p,t,value=false)=>{let l=el('label',undefined,p);l.className='vr-b170-check';let i=el('input',undefined,l);i.type='checkbox';i.checked=value;l.append(t);return i;};
- const pollFocus=['.vr-tactical-board','.vr-blog17112 > summary'];
+ const pollFocus=['.vr-tactical-board','.vr-map-hand','.vr-map-measure','.vr-map-zoom-in','.vr-map-zoom-out','.vr-blog17112 > summary'];
  function canPoll(){
   return !formOpen&&!tactical.dragging&&(!body.contains(document.activeElement)||document.activeElement.dataset.battleActor||pollFocus.some(selector=>document.activeElement.matches(selector)));
  }
