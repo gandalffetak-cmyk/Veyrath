@@ -215,6 +215,49 @@ button.vr-tactical-board{position:relative;display:grid;grid-template-columns:re
 .vr-blog17112 [data-outcome="hit"],.vr-blog17112 [data-outcome="applied"]{color:var(--vr-good,#a5dd99)}
 .vr-blog17112 [data-outcome="miss"],.vr-blog17112 [data-outcome="avoided"]{color:var(--vr-bad,#ffacac)}
 
+.vr-player-combat{border:1px solid var(--vr-accent-border);margin:0 0 14px;padding:10px 12px;max-width:660px;background:var(--vr-inset);min-width:0}
+.vr-player-combat [hidden]{display:none!important}
+.vr-combat-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.vr-combat-head>img{width:38px;height:38px;object-fit:cover;border:1px solid var(--vr-accent-border);border-radius:6px}
+.vr-combat-identity{flex:1;min-width:120px;overflow-wrap:anywhere}
+.vr-combat-identity h3{margin:0;font-size:1.08rem}
+.vr-combat-highlight{color:var(--vr-accent-text);font-weight:700}
+.vr-combat-note{display:block;margin:7px 0;color:var(--vr-muted)}
+.vr-combat-toggle-symbol{display:none}
+.vr-combat-head>button,.vr-combat-tabs button,.vr-combat-controls button,.vr-combat-turn button{margin:0;padding:5px 9px;font-size:.85rem}
+.vr-player-combat .vr-bars1711{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px 12px;margin:8px 0}
+.vr-player-combat .vr-barline1711{grid-template-columns:auto minmax(12px,1fr) auto}
+.vr-combat-tabs,.vr-combat-turn,.vr-combat-controls{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:8px 0}
+.vr-combat-tabs button[aria-pressed="true"],.vr-combat-primary{border-color:var(--vr-accent);color:var(--vr-accent-text);background:var(--vr-accent-tint)}
+.vr-combat-action-list{display:grid;gap:4px;max-height:230px;overflow:auto;padding:2px}
+button.vr-combat-action-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);align-items:center;gap:3px 8px;margin:0;padding:6px 8px;text-align:left;font-size:.82rem;line-height:1.25;overflow-wrap:anywhere}
+.vr-combat-action-row[aria-pressed="true"]{border-color:var(--vr-accent);background:var(--vr-accent-tint)}
+.vr-combat-action-row strong,.vr-combat-action-row small{display:block}
+.vr-combat-roll{color:var(--vr-accent-text);font-weight:700}
+.vr-combat-action-meta{grid-column:1/-1}
+.vr-combat-selection{padding-top:5px}
+.vr-combat-selection label,.vr-combat-controls label{margin:4px 0}
+.vr-combat-selection select,.vr-combat-controls input[type="number"],.vr-combat-controls select{width:auto;max-width:100%;margin:0 0 0 5px;padding:4px 7px;font-size:.85rem}
+.vr-combat-controls input[type="number"]{width:65px}
+.vr-combat-check{display:inline-flex;align-items:center;gap:5px;font-size:.82rem}
+.vr-combat-check input{width:auto;margin:0}
+.vr-combat-defense-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,116px),1fr));gap:5px}
+.vr-combat-defense-stats>div,.vr-combat-incoming{padding:6px 8px;border:1px solid var(--vr-border);border-radius:var(--vr-radius)}
+.vr-combat-defense-stats small,.vr-combat-defense-stats strong,.vr-combat-incoming>small{display:block}
+.vr-combat-incoming{margin:7px 0;border-color:var(--vr-accent);background:var(--vr-accent-tint)}
+.vr-combat-incoming p,.vr-combat-selection p{margin:4px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.vr-combat-turn{margin-bottom:0}
+.vr-combat-turn>button:last-child{margin-left:auto}
+.vr-combat-movement>summary,.vr-combat-selection summary{cursor:pointer;font-size:.85rem}
+@container campaign-battle (max-width:450px){
+ .vr-combat-toggle-symbol{display:inline;font-weight:700}
+ .vr-combat-toggle-label{display:none}
+ .vr-player-combat .vr-bars1711{grid-template-columns:1fr}
+ button.vr-combat-action-row{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+ .vr-combat-value{grid-column:2;grid-row:2}
+ .vr-combat-action-meta{grid-column:1/-1}
+}
+
 /* Rule library */
 #library .categorytiles{
  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,108px),1fr));
@@ -246,7 +289,7 @@ button.vr-tactical-board{position:relative;display:grid;grid-template-columns:re
 #library .library-results.vr-compact167{align-items:stretch}
 #library .vr-library-group-cards{margin:5px 7px 8px}
 .vr-hover167.vr-library-preview{max-width:min(480px,calc(100vw - 16px))}
-</style></head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.6</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+</style></head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.7</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -1246,6 +1289,314 @@ function vrDrawBattleLog(parent,entries,open,onToggle){
  }
 }
 
+const vrCombatGroups={attacks:'Útoky',spells:'Kouzla',abilities:'Schopnosti',defense:'Obrana'};
+const vrCombatSlots={main:'Hlavní akce',bonus:'Bonusová akce',reaction:'Reakce',free:'Volná akce'};
+const vrCombatNumber=value=>Number(value)||0;
+const vrCombatRoll=(bonus=0)=>'k20 '+(bonus<0?'− ':'+ ')+Math.abs(bonus);
+const vrCombatGroup=action=>action.id.startsWith('magic:')?'spells':action.id.startsWith('abilities:')?'abilities':'attacks';
+
+function vrCombatCheck(parent,label,value){
+ const control=el('label',undefined,parent);
+ control.className='vr-combat-check';
+ const input=el('input',undefined,control);
+ input.type='checkbox';
+ input.checked=!!value;
+ el('span',label,control);
+ return input;
+}
+
+function vrCombatDefenseChoices(actor){
+ const extra=vrCombatNumber(actor.defBonus)+vrCombatNumber(actor.fatigue);
+ const attribute=name=>vrCombatNumber(actor.attrs?.[name]);
+ const choices=[['dodge','Úhyb',attribute('Obratnost')+vrCombatNumber(actor.dodgeBonus)+extra]];
+ if(actor.parry)choices.push(['parry','Vykrytí',attribute(actor.parryAttr||'Síla')+vrCombatNumber(actor.parryBonus)+extra]);
+ if(actor.shield)choices.push(['block','Blok štítem',attribute('Síla')+vrCombatNumber(actor.shieldBonus)+extra]);
+ return choices;
+}
+
+function vrDrawCombatDefense(parent,actor,actors,pending,gm,run,ui){
+ const stats=el('div',undefined,parent);
+ stats.className='vr-combat-defense-stats';
+ for(const [name,value] of [['Pasivní obrana',actor.defense??'—'],...vrCombatDefenseChoices(actor).map(([,name,bonus])=>[name,vrCombatRoll(bonus)])]){
+  const stat=el('div',undefined,stats);
+  el('small',name,stat);
+  el('strong',String(value),stat);
+ }
+ if(!pending)return;
+ const incoming=el('section',undefined,parent);
+ incoming.className='vr-combat-incoming';
+ const attacker=actors.find(a=>a.id===pending.actor)?.name||pending.actorName||'Útočník';
+ const action=pending.action||{};
+ el('strong',attacker+' · '+(action.name||'Akce'),incoming);
+ if(action.damage)el('small',(action.effect||'Účinek')+' '+action.damage,incoming);
+ const controls=el('div',undefined,incoming);
+ controls.className='vr-combat-controls';
+ if(pending.mode==='attack'){
+  const threshold=pending.roll?.total;
+  if(threshold!=null)el('p','K odvrácení potřebuješ hodit celkem alespoň '+threshold+'.',incoming).before(controls);
+  const canReact=!actor.reaction&&actor.hp>0;
+  const methods=canReact?vrCombatDefenseChoices(actor):[];
+  const choices=[['none','Přijmout zásah',null],...methods];
+  const select=vrFxSelect(controls,'Reakce',choices.map(([key,label,bonus])=>[key,bonus==null?label:label+' · '+vrCombatRoll(bonus)]),
+   choices.some(([key])=>key===ui.defenseMethod)?ui.defenseMethod:choices[0][0]);
+  select.dataset.combatFocus='defense-method';
+  const strong=vrCombatCheck(controls,'Zesílená obrana · +5 za 3 EN',ui.defenseStrong);
+  strong.dataset.combatFocus='defense-strong';
+  const roll=btn('',controls,()=>run('defend',{method:select.value,strong:strong.checked&&!strong.disabled}));
+  roll.dataset.combatFocus='defense-roll';
+  function update(){
+   const active=select.value!=='none';
+   const bonus=choices.find(([key])=>key===select.value)?.[2];
+   strong.disabled=!active||actor.en<3;
+   if(strong.disabled)strong.checked=false;
+   ui.defenseMethod=select.value;
+   ui.defenseStrong=strong.checked;
+   roll.textContent=active?'Hodit obranu · '+vrCombatRoll(bonus+(strong.checked?5:0)):'Přijmout zásah';
+  }
+  select.onchange=strong.onchange=update;
+  update();
+  if(!canReact)el('small',actor.reaction?'Reakce už byla spotřebovaná.':'Aktivní obrana není dostupná.',incoming);
+ }else if(pending.mode==='save'&&action.saveDC>0&&Object.hasOwn(actor.attrs||{},action.saveAttr)){
+  el('p',action.saveAttr+' · '+vrCombatRoll(vrCombatNumber(actor.attrs[action.saveAttr]))+' proti DC '+action.saveDC,incoming).before(controls);
+  btn('Hodit záchranu',controls,()=>run('resolve')).dataset.combatFocus='defense-roll';
+ }else if(pending.mode==='auto'){
+  btn('Potvrdit účinek',controls,()=>run('resolve')).dataset.combatFocus='defense-roll';
+ }else if(gm){
+  el('p',action.saveText||action.description||'Vyhodnocení podle PJ.',incoming).before(controls);
+  btn('Aplikovat účinek',controls,()=>run('resolve',{apply:true}));
+  btn('Bez účinku',controls,()=>run('resolve',{apply:false}));
+ }else el('small','Vyhodnotí PJ.',incoming);
+}
+
+function vrCombatActionLabels(action){
+ const costs=['HP','EN','MP'].flatMap(key=>vrCombatNumber(action['cost'+key])>0?[action['cost'+key]+' '+key]:[]);
+ const resolution=action.mode==='attack'?vrCombatRoll(vrCombatNumber(action.bonus)):
+  action.mode==='save'?(action.saveDC>0?(action.saveAttr||'Záchrana')+' · DC '+action.saveDC:action.saveText||'Záchrana dle PJ'):
+  action.mode==='auto'?'Automatický účinek':'Vyhodnotí PJ';
+ return {costs,resolution,effect:action.damage?(action.effect||'Účinek')+' '+action.damage:action.effect||''};
+}
+
+function vrCombatActionBlock(actor,action){
+ const used={main:actor.main,bonus:actor.bonusUsed,reaction:actor.reaction};
+ if(used[action.slot])return 'Akce je už spotřebovaná.';
+ if(['HP','EN','MP'].some(key=>vrCombatNumber(action['cost'+key])>vrCombatNumber(actor[key.toLowerCase()])))return 'Nedostatek zdrojů.';
+ return '';
+}
+
+function vrDrawCombatActions(parent,actor,battle,actions,canAct,ui,run,rerender){
+ if(!actions.length){
+  el('p','V této části nemáš žádné bojové akce.',parent).className='vr-combat-note';
+  return;
+ }
+ const selected=actions.find(action=>action.id===ui.action)||actions[0];
+ ui.action=selected.id;
+ const list=el('div',undefined,parent);
+ list.className='vr-combat-action-list';
+ list.setAttribute('role','group');
+ list.setAttribute('aria-label','Bojové akce');
+ for(const action of actions){
+  const labels=vrCombatActionLabels(action);
+  const row=btn('',list,()=>{
+   if(ui.action===action.id)return;
+   ui.action=action.id;
+   ui.verified=false;
+   ui.strong=false;
+   rerender();
+  });
+  row.className='vr-combat-action-row';
+  row.dataset.combatFocus='action-'+action.id;
+  row.setAttribute('aria-pressed',String(action===selected));
+  const name=el('span',undefined,row);
+  el('strong',action.name,name);
+  el('small',vrCombatSlots[action.slot]||'Akce',name);
+  el('span',labels.resolution,row).className='vr-combat-roll';
+  el('span',labels.effect||'—',row).className='vr-combat-value';
+  const meta=[action.range,...labels.costs,vrCombatActionBlock(actor,action)].filter(Boolean);
+  if(meta.length)el('small',meta.join(' · '),row).className='vr-combat-action-meta';
+ }
+ const selection=el('div',undefined,parent);
+ selection.className='vr-combat-selection';
+ if(selected.description||selected.requirements||(selected.saveText&&selected.saveDC>0)){
+  const detail=el('details',undefined,selection);
+  detail.open=!!ui.actionDetails;
+  detail.ontoggle=()=>{if(detail.isConnected)ui.actionDetails=detail.open;};
+  const summary=el('summary','Podrobnosti akce',detail);
+  summary.dataset.combatFocus='action-details';
+  for(const line of [selected.description,selected.requirements,selected.saveDC>0?selected.saveText:''].filter(Boolean))
+   el('p',line,detail);
+ }
+ if(!canAct)return;
+ const targets=battle.actors.filter(a=>a.death!=='dead'&&!a.mapDead&&!a.missing);
+ if(!targets.length)return;
+ const available=targets.find(a=>a.id===ui.target)||targets.find(a=>a.id!==actor.id&&a.side!==actor.side)||targets[0];
+ if(ui.target!==available.id){ui.target=available.id;ui.verified=false;}
+ const target=vrFxSelect(selection,'Cíl',targets.map(a=>[a.id,a.name]),ui.target);
+ target.dataset.combatFocus='target';
+ const mapInfo=el('small','',selection);
+ const controls=el('div',undefined,selection);
+ controls.className='vr-combat-controls';
+ const strong=selected.mode==='attack'?vrCombatCheck(controls,'Zesílený útok · +5 za 3 EN',ui.strong):null;
+ if(strong){
+  strong.dataset.combatFocus='strong';
+  strong.disabled=vrCombatNumber(actor.en)<vrCombatNumber(selected.costEN)+3;
+  if(strong.disabled)strong.checked=false;
+ }
+ const verified=vrCombatCheck(controls,'Dosah a podmínky ověřeny s PJ',ui.verified);
+ verified.dataset.combatFocus='verified';
+ const submit=btn('',controls,()=>{
+  const payload={actor:actor.id,action:selected.id,target:target.value,strong:!!strong?.checked,confirm:true};
+  ui.verified=false;
+  verified.checked=false;
+  update();
+  run('act',payload);
+ });
+ submit.dataset.combatFocus='roll';
+ submit.className='vr-combat-primary';
+ function update(){
+  const map=battle.map,from=map?.tokens?.[actor.id],to=map?.tokens?.[target.value];
+  const targetActor=targets.find(a=>a.id===target.value);
+  mapInfo.textContent=[from&&to?vrMapDistance(from,to,map.meters)+' m na mapě':'',
+   selected.mode==='attack'&&targetActor?.control&&targetActor.defense!=null?'Obrana cíle '+targetActor.defense:''].filter(Boolean).join(' · ');
+  ui.verified=verified.checked;
+  ui.strong=!!strong?.checked;
+  submit.textContent=selected.mode==='attack'?'Hodit na zásah · '+vrCombatRoll(vrCombatNumber(selected.bonus)+(strong?.checked?5:0)):'Provést akci';
+  submit.disabled=!verified.checked||!!vrCombatActionBlock(actor,selected);
+ }
+ target.onchange=()=>{ui.target=target.value;verified.checked=false;update();};
+ verified.onchange=update;
+ if(strong)strong.onchange=update;
+ update();
+}
+
+function vrDrawCombatTurn(parent,actor,run,ui){
+ const row=el('div',undefined,parent);
+ row.className='vr-combat-turn';
+ if(actor.hp>0){
+  for(const [label,used] of [['Hlavní',actor.main],['Bonusová',actor.bonusUsed],['Reakce',actor.reaction]]){
+   const badge=el('small',label+(used?' · využitá':' · volná'),row);
+   badge.className='chip';
+  }
+  const movement=el('details',undefined,parent);
+  movement.className='vr-combat-movement';
+  movement.open=!!ui.moveOpen;
+  movement.ontoggle=()=>{if(movement.isConnected)ui.moveOpen=movement.open;};
+  const speed=(actor.speed??6)*(actor.sprint?2:1),left=Math.max(0,speed-vrCombatNumber(actor.moved));
+  el('summary','Pohyb a jiné akce · '+left+' / '+speed+' m',movement).dataset.combatFocus='move';
+  const group=el('div',undefined,movement);
+  group.className='vr-combat-controls';
+  const meters=vrFxNumber(group,'Pohyb v metrech',ui.meters??1,1,1000000);
+  meters.dataset.combatFocus='meters';
+  meters.oninput=()=>{ui.meters=meters.value;};
+  const hard=vrCombatCheck(group,'Obtížný terén',ui.hard);
+  hard.onchange=()=>{ui.hard=hard.checked;};
+  btn('Pohnout se',group,()=>{if(meters.reportValidity()&&Number(meters.value)>0)run('move',{actor:actor.id,meters:Number(meters.value),difficult:hard.checked});}).disabled=!left;
+  btn('Sprint · 2 EN',group,()=>run('sprint',{actor:actor.id})).disabled=actor.sprint||actor.en<2;
+  const slots=[['main','Hlavní'],['bonus','Bonusová'],['reaction','Reakce']];
+  const slot=vrFxSelect(group,'Jiná akce',slots,ui.slot||'main');
+  slot.onchange=()=>{ui.slot=slot.value;};
+  btn('Spotřebovat akci ručně',group,()=>run('spend',{actor:actor.id,slot:slot.value}));
+ }else if(actor.death==='dying'&&!actor.deathRolled){
+  btn('Záchranný hod před smrtí · k20',row,()=>run('death',{actor:actor.id}));
+ }else el('small','Postava nemůže jednat.',row);
+ const end=btn('Ukončit tah',row,()=>run('next',{actor:actor.id}));
+ end.dataset.combatFocus='end-turn';
+ end.disabled=actor.death==='dying'&&!actor.deathRolled;
+}
+
+function vrSetCombatMinimized(ui,minimized){
+ ui.minimized=minimized;
+ try{sessionStorage.setItem(ui.storage,minimized?'1':'0');}catch{}
+}
+
+function vrDrawPlayerCombat(host,actor,battle,ui,run,openSheet){
+ const focus=host.contains(document.activeElement)?document.activeElement.dataset.combatFocus:null;
+ const scroll=host.querySelector('.vr-combat-action-list')?.scrollTop;
+ host.replaceChildren();
+ if(!actor){
+  el('small','Tvoje postava zatím není v tomto střetnutí.',host).className='vr-combat-note';
+  return;
+ }
+ const turn=battle.actors[battle.turn||0];
+ const pending=battle.pending?.target===actor.id?battle.pending:null;
+ const myTurn=battle.status==='running'&&turn?.id===actor.id;
+ const canAct=myTurn&&!battle.pending&&actor.hp>0;
+ if(ui.actor!==actor.id){
+  const group=(actor.actions||[]).length?vrCombatGroup(actor.actions[0]):'defense';
+  Object.assign(ui,{actor:actor.id,group,target:null,action:null,verified:false,strong:false,pending:null});
+ }
+ const pendingKey=pending?JSON.stringify([pending.actor,pending.target,pending.action?.id,pending.mode,pending.roll,battle.round]):null;
+ if(pendingKey!==ui.pending){
+  ui.pending=pendingKey;
+  ui.defenseMethod=null;
+  ui.defenseStrong=false;
+  if(pending)ui.group='defense';
+ }
+ const panel=el('section',undefined,host);
+ panel.className='vr-player-combat readcard';
+ panel.setAttribute('aria-label','Bojová karta · '+actor.name);
+ const head=el('div',undefined,panel);
+ head.className='vr-combat-head';
+ const character=state.find(c=>c.id===actor.ref);
+ const image=el('img',undefined,head);
+ image.alt='';
+ image.src=validImage(character?.portrait)?character.portrait:(character&&vrCharacterArt(character))||vrPaintedIcons.navProfile;
+ const identity=el('div',undefined,head);
+ identity.className='vr-combat-identity';
+ el('h3',actor.name,identity);
+ el('small',pending?'Čeká tvoje obrana':myTurn?'Jsi na tahu':battle.status==='running'?'Na tahu je '+(turn?.name||'jiná postava'):'Bojová karta',identity)
+  .className=pending||myTurn?'vr-combat-highlight':'';
+ const sheet=btn('Deník',head,()=>openSheet(actor));
+ sheet.dataset.combatFocus='sheet';
+ const toggleLabel=ui.minimized?'Rozbalit':'Minimalizovat';
+ const toggle=btn('',head,()=>{
+  vrSetCombatMinimized(ui,!ui.minimized);
+  render();
+ });
+ toggle.title=toggleLabel;
+ toggle.setAttribute('aria-label',toggleLabel);
+ const symbol=el('span',ui.minimized?'+':'−',toggle);
+ symbol.className='vr-combat-toggle-symbol';
+ symbol.setAttribute('aria-hidden','true');
+ el('span',toggleLabel,toggle).className='vr-combat-toggle-label';
+ toggle.dataset.combatFocus='minimize';
+ toggle.setAttribute('aria-expanded',String(!ui.minimized));
+ toggle.setAttribute('aria-controls','vr-player-combat-content');
+ function render(){vrDrawPlayerCombat(host,actor,battle,ui,run,openSheet);}
+ const content=el('div',undefined,panel);
+ content.id='vr-player-combat-content';
+ content.hidden=!!ui.minimized;
+ if(ui.minimized){
+  if(focus==='minimize')toggle.focus({preventScroll:true});
+  return;
+ }
+ vrBars1711(content,actor);
+ const tabs=el('div',undefined,content);
+ tabs.className='vr-combat-tabs';
+ tabs.setAttribute('role','group');
+ tabs.setAttribute('aria-label','Části bojové karty');
+ for(const [key,label] of Object.entries(vrCombatGroups)){
+  const tab=btn(label,tabs,()=>{
+   if(ui.group===key)return;
+   ui.group=key;
+   ui.verified=false;
+   ui.strong=false;
+   render();
+  });
+  tab.dataset.combatFocus=key;
+  tab.setAttribute('aria-pressed',String(ui.group===key));
+ }
+ if(ui.group==='defense')vrDrawCombatDefense(content,actor,battle.actors,pending,battle.gm,run,ui);
+ else{
+  const actions=(actor.actions||[]).filter(action=>vrCombatGroup(action)===ui.group);
+  vrDrawCombatActions(content,actor,battle,actions,canAct,ui,run,render);
+ }
+ if(myTurn&&!battle.pending)vrDrawCombatTurn(content,actor,run,ui);
+ const currentList=host.querySelector('.vr-combat-action-list');
+ if(currentList&&scroll)currentList.scrollTop=scroll;
+ const focused=focus&&[...host.querySelectorAll('[data-combat-focus]')].find(node=>node.dataset.combatFocus===focus);
+ focused?.focus({preventScroll:true});
+}
+
 function vrRenderBattle170(c,{section=null,owner=false}={}){
  const campaign=c.id,campaignName=c.name,view=section?'battle':'bestiary';
  const d=section||el('dialog',undefined,document.body);
@@ -1274,9 +1625,14 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
  }
  const msg=el('p','Načítám…',d);
  msg.setAttribute('role','status');
+ const characterHost=section?el('div',undefined,d):null;
+ const combatUi={storage:'veyrath.battle-card.'+uid+'.'+campaign,minimized:false};
+ if(characterHost){
+  try{combatUi.minimized=sessionStorage.getItem(combatUi.storage)==='1';}catch{}
+ }
+ let turnUi={},reactionUi={};
  const body=el('div',undefined,d);
- let data=null,busy=false,poll=null,formOpen=false,lastKey='',selectedAction='',selectedTarget='',
-  strongState=false,confirmState=false,closed=false,bestiarySearch='',bestiarySelected='',bestiaryCount=1,bestiaryGroup='';
+ let data=null,busy=false,poll=null,formOpen=false,lastKey='',closed=false,bestiarySearch='',bestiarySelected='',bestiaryCount=1,bestiaryGroup='';
  const tactical={open:false,settings:false,mode:null,actor:''};
  let logOpen=true,imageCache=null;
  function loadMapImage(imageId){
@@ -1302,7 +1658,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
  async function run(action,payload={},silent=false){
   if(busy||!active())return;
   busy=true;
-  if(!silent){body.inert=true;if(close)close.disabled=true;msg.textContent=action==='list'?'Načítám…':'Vyhodnocuji…';}
+  if(!silent){body.inert=true;if(characterHost)characterHost.inert=true;if(close)close.disabled=true;msg.textContent=action==='list'?'Načítám…':'Vyhodnocuji…';}
   try{
    if(action!=='list'&&!await flush())throw Error('Nejdříve ulož deník.');
    let {data:r,error}=await db.rpc('vr_battle170_rpc',{p_campaign:campaign,p_action:action,p_revision:action==='list'?null:data?.revision,p_payload:payload});
@@ -1323,27 +1679,79 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
   }finally{
    busy=false;
    body.inert=false;
+   if(characterHost)characterHost.inert=false;
    if(close)close.disabled=false;
   }
  }
  function action(p,label,a,payload={},disabled=false){let b=btn(label,p,()=>run(a,payload));b.disabled=disabled;return b;}
  function actorName(id){return data.actors.find(a=>a.id===id)?.name||'Bytost';}
+ function openSheet(actor){
+  if(!busy&&active())vrOpenPartySheet1711(actor.ref,actor.controller===uid,'Profil',{id:campaign,name:campaignName,battle:true});
+ }
+ function ownBattleActor(){
+  return (data.actors||[]).find(a=>a.kind==='pc'&&a.controller===uid&&a.control&&a.ref&&!a.missing);
+ }
+ function showPlayerCard(group){
+  if(group)combatUi.group=group;
+  vrSetCombatMinimized(combatUi,false);
+  vrDrawPlayerCombat(characterHost,ownBattleActor(),data,combatUi,run,openSheet);
+  characterHost.querySelector('[data-combat-focus="'+(group||'minimize')+'"]')?.focus();
+ }
  function npcForm(p){let q=el('details',undefined,p);q.className='vr-magic-panel';el('summary','+ Nový nepřítel / šablona bestiáře',q);q.ontoggle=()=>{formOpen=q.open;};let g=el('div',undefined,q);g.className='vr-magic-formgrid';let name=libraryField(g,'Název',''),group=libraryField(g,'Skupina',''),hp=field(g,'Max HP',20,1),en=field(g,'Max EN',20),mp=field(g,'Max MP',0),def=field(g,'Pasivní obrana',10),bb=field(g,'Bojový bonus',0,-1000000),speed=field(g,'Pohyb (m)',6),count=field(g,'Počet kopií',1,1);let attrs={};for(let [n] of ATTR_DEFS)attrs[n]=field(g,n,0,-1000000);let acList=el('div',undefined,q),read=[];function add(){let r=panel(acList,'Akce nepřítele'),f=el('div',undefined,r);f.className='vr-magic-formgrid';let n=libraryField(f,'Název akce','Úder'),at=pick(f,'Atribut',ATTR_DEFS.map(([a])=>[a,a]),'Síla'),mode=pick(f,'Vyhodnocení',[['attack','Hod na zásah'],['save','Záchranný hod'],['auto','Automatický efekt'],['manual','Individuální']]),kind=pick(f,'Druh účinku',[['Zranění','Zranění'],['Léčení','Léčení'],['Jiný účinek','Jiný účinek']]),damage=libraryField(f,'Zranění / léčení','1k8'),slot=pick(f,'Akce',[['main','Hlavní'],['bonus','Bonusová']]),extra=field(f,'Další bonus',0,-1000000),costHP=field(f,'Cena HP',0),costEN=field(f,'Cena EN',0),costMP=field(f,'Cena MP',0),sa=pick(f,'Záchranný atribut',ATTR_DEFS.map(([a])=>[a,a]),'Obratnost'),dc=field(f,'DC záchrany',12,1),phy=check(f,'Fyzický hod',true);let get=()=>({name:n.value.trim(),attribute:at.value,mode:mode.value,effect:kind.value,damage:damage.value.trim(),slot:slot.value,extra:Number(extra.value),costHP:Number(costHP.value),costEN:Number(costEN.value),costMP:Number(costMP.value),saveAttr:sa.value,saveDC:Number(dc.value),physical:phy.checked});read.push(get);btn('Odebrat akci',r,()=>{read=read.filter(x=>x!==get);r.remove();});}add();btn('+ Další akce',q,add);
  function submit(a){if(!name.value.trim()){msg.textContent='Zadej název nepřítele.';return;}let payload={name:name.value.trim(),group:group.value,maxhp:Number(hp.value),maxen:Number(en.value),maxmp:Number(mp.value),defense:Number(def.value),bb:Number(bb.value),speed:Number(speed.value),count:Number(count.value),attrs:Object.fromEntries(Object.entries(attrs).map(([k,v])=>[k,Number(v.value)])),actions:read.map(f=>f())};formOpen=false;run(a,payload);}
  btn('Přidat do střetnutí',q,()=>submit('npc')).disabled=data?.status!=='setup';btn('Uložit šablonu do bestiáře',q,()=>submit('template'));}
  function bestiaryPanel(p,templates,status){let q=panel(p,'Bestiář kampaně');q.classList.add('vr-best17112');if(view==='bestiary')el('small','Vyber uloženou bytost a počet. Každá nasazená kopie má vlastní životy a akce.',q);let search=libraryField(q,'Hledat monstrum',bestiarySearch),result=el('div',undefined,q);function fill(){result.replaceChildren();let rows=templates.filter(x=>(x.name+' '+(x.group||'')).toLocaleLowerCase('cs').includes(search.value.toLocaleLowerCase('cs')));if(!rows.length){el('p',templates.length?'Žádná odpovídající šablona.':'Bestiář je prázdný. Vytvoř vlastní monstrum níže nebo přidej testovací šablonu.',result);return;}let compact=el('div',undefined,result);compact.className='vr-b1711-setup';let sel=pick(compact,'Monstrum',rows.map(x=>[x.id,x.name]),rows.some(x=>x.id===bestiarySelected)?bestiarySelected:rows[0].id),count=field(compact,'Počet',bestiaryCount,1),group=libraryField(compact,'Skupina (volitelné)',bestiaryGroup),detail=el('details',undefined,result);count.max=100;count.oninput=()=>bestiaryCount=Number(count.value);group.oninput=()=>bestiaryGroup=group.value;function preview(){bestiarySelected=sel.value;let a=rows.find(x=>x.id===sel.value);detail.replaceChildren();if(!a)return;el('summary',a.name+' · HP '+a.maxhp+' · Obrana '+a.defense,detail);let box=el('section',undefined,detail);box.className='vr-b170-actor';el('strong',a.name,box);el('p','HP '+a.maxhp+' · EN '+a.maxen+' · MP '+a.maxmp+' · Obrana '+a.defense+' · Pohyb '+a.speed+' m',box);el('small',Object.entries(a.attrs||{}).map(([k,v])=>k+' '+(v>=0?'+':'')+v).join(' · '),box);for(let ac of a.actions||[])el('small',ac.name+' · '+(ac.damage||ac.effect||'individuální'),box);}sel.onchange=preview;preview();let add=btn('Nasadit do střetnutí',compact,()=>{let n=Number(count.value);if(!Number.isInteger(n)||n<1||n>100){msg.textContent='Zadej počet od 1 do 100.';return;}run('npc',{template:sel.value,count:n,group:group.value});});add.disabled=status!=='setup';if(add.disabled)el('small','Nasazení je dostupné při přípravě střetnutí.',result);if(view==='bestiary')btn('Smazat šablonu',detail,()=>{if(confirm('Smazat šablonu? Již nasazené bytosti zůstanou.'))run('removeTemplate',{id:sel.value});});}search.oninput=()=>{bestiarySearch=search.value;fill();};fill();let examples=[{name:'[TEST] Goblin',maxhp:12,maxen:15,defense:12,attrs:{Síla:0,Obratnost:2,Preciznost:2},damage:'1k6',attack:'Krátký meč',attribute:'Obratnost'},{name:'[TEST] Kostlivec',maxhp:18,maxen:20,defense:13,attrs:{Síla:2,Obratnost:1,Odolnost:1},damage:'1k8',attack:'Kostěný úder',attribute:'Síla'},{name:'[TEST] Vlk',maxhp:16,maxen:20,defense:12,attrs:{Síla:2,Obratnost:2},damage:'1k6+1',attack:'Kousnutí',attribute:'Síla'},{name:'[TEST] Orkský válečník',maxhp:30,maxen:25,defense:14,attrs:{Síla:4,Obratnost:1,Odolnost:3},damage:'1k10',attack:'Sekera',attribute:'Síla'}].filter(x=>!templates.some(t=>t.name===x.name));if(examples.length&&view==='bestiary'){let extra=el('details',undefined,q);el('summary','Volitelné testovací šablony',extra);el('small','Pouze testovací statistiky, nikoli závazná pravidla.',extra);let select=pick(extra,'Testovací monstrum',examples.map((x,i)=>[String(i),x.name]));btn('Přidat šablonu do bestiáře',extra,()=>{let x=examples[Number(select.value)];if(!x)return;run('template',{name:x.name,group:'Testovací',maxhp:x.maxhp,maxen:x.maxen,maxmp:0,defense:x.defense,bb:1,speed:6,attrs:x.attrs,actions:[{name:x.attack,attribute:x.attribute,mode:'attack',effect:'Zranění',damage:x.damage,slot:'main',physical:true}]});});}}
- function draw(){if(!data)return;body.replaceChildren();let {gm,status,actors=[],roster=[],templates=[],pending}=data,turn=actors[data.turn||0];d.dataset.vrRunning=status==='running'?'1':'0';if(view==='bestiary'){if(!gm){el('p','Bestiář je přístupný pouze PJ nebo administrátorovi.',body);return;}bestiaryPanel(body,templates,status);npcForm(body);return;}let h=panel(body,data.name||'Bojové střetnutí');h.classList.add('vr-b1711-setup-panel');el('p',status==='running'?'Kolo '+data.round+' · Na tahu: '+(turn?.name||'—'):status==='finished'?'Střetnutí ukončeno':'Příprava střetnutí',h);if(gm&&status!=='running'){let setup=el('div',undefined,h);setup.className='vr-b1711-setup';let n=libraryField(setup,'Název nového střetnutí','');btn('Nové střetnutí',setup,()=>{if(status==='finished'&&!confirm('Nové střetnutí nahradí poslední bojový záznam. Pokračovat?'))return;run('new',{name:n.value});});}
+ function draw(){if(!data)return;body.replaceChildren();let {gm,status,actors=[],roster=[],templates=[],pending}=data,turn=actors[data.turn||0];d.dataset.vrRunning=status==='running'?'1':'0';if(view==='bestiary'){if(!gm){el('p','Bestiář je přístupný pouze PJ nebo administrátorovi.',body);return;}bestiaryPanel(body,templates,status);npcForm(body);return;}
+ const myActor=ownBattleActor();
+ vrDrawPlayerCombat(characterHost,myActor,data,combatUi,run,openSheet);
+ let h=panel(body,data.name||'Bojové střetnutí');h.classList.add('vr-b1711-setup-panel');el('p',status==='running'?'Kolo '+data.round+' · Na tahu: '+(turn?.name||'—'):status==='finished'?'Střetnutí ukončeno':'Příprava střetnutí',h);if(gm&&status!=='running'){let setup=el('div',undefined,h);setup.className='vr-b1711-setup';let n=libraryField(setup,'Název nového střetnutí','');btn('Nové střetnutí',setup,()=>{if(status==='finished'&&!confirm('Nové střetnutí nahradí poslední bojový záznam. Pokračovat?'))return;run('new',{name:n.value});});}
  if(gm&&status==='setup'){
    let prep=el('div',undefined,body);prep.className='vr-bprep17112';let r=el('details',undefined,prep);r.className='vr-magic-panel';el('summary','Přidat družinu / společníky',r);let available=roster.filter(x=>!actors.some(a=>a.ref===x.ref));if(!available.length)el('small','Všichni dostupní účastníci jsou přidáni.',r);else{let s=pick(r,'Účastník',available.map(x=>[x.ref,x.name+(x.kind==='companion'?' · '+(x.group||'Společník'):' · Hráč')]));btn('Přidat',r,()=>{let x=available.find(a=>a.ref===s.value);if(x)run('add',x);});btn('Přidat celou družinu',r,()=>run('group',{entries:available.filter(x=>x.kind==='pc')}));if(available.some(x=>x.kind==='companion'))btn('Přidat všechny dostupné společníky',r,()=>run('group',{entries:available.filter(x=>x.kind==='companion')}));}
   bestiaryPanel(prep,templates,status);let controls=el('div',undefined,body);controls.className='vr-bcontrols17112';action(controls,'Zahájit boj a hodit iniciativu','start',{},!actors.length);npcForm(controls);
  }
  let initiative=el('div',undefined,body);initiative.className='vr-b1711-initiative';for(let a of actors){let s=el('span',(a.initiative??'—')+' · '+a.name,initiative);if(status==='running'&&a.id===turn?.id)s.className='active';}let grid=el('div',undefined,body);grid.className='vr-b170-layout vr-b1711-layout';let list=panel(grid,'Hrdinové a společníci'),detail=panel(grid,'Akce a reakce'),enemies=panel(grid,'Bestie a nepřátelé');detail.classList.add('vr-b1711-center');if(status!=='running')el('small',status==='setup'?'Po zahájení boje se zde zobrazí dostupné akce a reakce.':'Střetnutí není aktivní.',detail);
  if(!actors.some(a=>a.side!=='enemy'))el('small','Zatím žádní hrdinové.',list);if(!actors.some(a=>a.side==='enemy'))el('small','Zatím žádní nepřátelé.',enemies);
- for(let a of actors){let q=el('div',undefined,a.side==='enemy'?enemies:list);q.className='vr-b170-actor'+(a.id===turn?.id&&status==='running'?' vr-b170-current':'');let row=el('div',undefined,q);row.className='line';el('strong',a.initiative==null?'—':String(a.initiative),row);let icon=el('img',undefined,row);icon.className='vr-nav-art';icon.src=vrPaintedIcons[a.kind==='npc'?'navFight':a.kind==='companion'?'navJournal':'navProfile']||vrPaintedIcons.sword;let info=el('div',undefined,row);let nameEl=el('strong',a.name,info);if(a.kind==='pc'&&a.ref&&a.control){nameEl.style.cursor='pointer';nameEl.title='Otevřít kompletní deník';nameEl.tabIndex=0;let open=()=>{if(!busy&&active())vrOpenPartySheet1711(a.ref,a.controller===uid,'Profil',{id:campaign,name:campaignName,battle:true});};nameEl.onclick=open;nameEl.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();open();}};}el('small',(a.kind==='pc'?'Hráč':a.kind==='companion'?'Společník':'Nepřítel')+(a.group?' · '+a.group:''),info);if(a.id===turn?.id&&status==='running')el('span','Na tahu',row).className='chip';if(a.control){for(let [k,label] of [['hp','HP'],['en','EN'],['mp','MP']]){let l=el('div',undefined,q);l.className='vr-b170-resource';el('small',label+' '+a[k]+' / '+a['max'+k],l);let progress=el('progress',undefined,l);progress.max=Math.max(1,num(a['max'+k]));progress.value=Math.max(0,num(a[k]));progress.dataset.resource=k;}el('small','Obrana '+a.defense+' · '+({alive:'Naživu',dying:'Umírá',stable:'Stabilizován',dead:'Mrtvý'}[a.death||'alive']||a.death)+(a.death==='dying'?' · '+a.successes+'✓ / '+a.failures+'✗':''),q);if(a.missing)el('p','Zdrojová bytost již není dostupná.',q);}else el('small',a.health||'',q);
+ for(let a of actors){let q=el('div',undefined,a.side==='enemy'?enemies:list);q.className='vr-b170-actor'+(a.id===turn?.id&&status==='running'?' vr-b170-current':'');let row=el('div',undefined,q);row.className='line';el('strong',a.initiative==null?'—':String(a.initiative),row);let icon=el('img',undefined,row);icon.className='vr-nav-art';icon.src=vrPaintedIcons[a.kind==='npc'?'navFight':a.kind==='companion'?'navJournal':'navProfile']||vrPaintedIcons.sword;let info=el('div',undefined,row);let nameEl=el('strong',a.name,info);if(a.kind==='pc'&&a.ref&&a.control){nameEl.style.cursor='pointer';nameEl.title='Otevřít kompletní deník';nameEl.tabIndex=0;let open=()=>openSheet(a);nameEl.onclick=open;nameEl.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();open();}};}el('small',(a.kind==='pc'?'Hráč':a.kind==='companion'?'Společník':'Nepřítel')+(a.group?' · '+a.group:''),info);if(a.id===turn?.id&&status==='running')el('span','Na tahu',row).className='chip';if(a.control&&a.id!==myActor?.id){for(let [k,label] of [['hp','HP'],['en','EN'],['mp','MP']]){let l=el('div',undefined,q);l.className='vr-b170-resource';el('small',label+' '+a[k]+' / '+a['max'+k],l);let progress=el('progress',undefined,l);progress.max=Math.max(1,num(a['max'+k]));progress.value=Math.max(0,num(a[k]));progress.dataset.resource=k;}el('small','Obrana '+a.defense+' · '+({alive:'Naživu',dying:'Umírá',stable:'Stabilizován',dead:'Mrtvý'}[a.death||'alive']||a.death)+(a.death==='dying'?' · '+a.successes+'✓ / '+a.failures+'✗':''),q);if(a.missing)el('p','Zdrojová bytost již není dostupná.',q);}else if(!a.control)el('small',a.health||'',q);
   if(gm&&status==='setup')action(q,'Odebrat','remove',{id:a.id});if(gm&&status==='running'&&!pending){let z=el('details',undefined,q);el('summary','Zásah PJ',z);let key=pick(z,'Zdroj',[['hp','HP'],['en','EN'],['mp','MP']]),n=field(z,'Změna (záporná / kladná)',-1,-1000000);btn('Použít změnu',z,()=>run('adjust',{actor:a.id,key:key.value,amount:Number(n.value)}));}
  }
- if(status==='running'&&turn){if(pending){let p=panel(detail,'Čeká na vyhodnocení');el('strong',actorName(pending.actor)+' → '+actorName(pending.target),p);el('p',pending.action.name,p);if(gm)btn('Zrušit čekající akci',p,()=>{if(confirm('Náklady se nevrátí. Zrušit vyhodnocení?'))run('cancelPending');});if(pending.roll?.total!=null)el('p','Útok: '+pending.roll.die+' + ('+pending.roll.bonus+') + ('+pending.roll.natural+') = '+pending.roll.total,p);let target=actors.find(a=>a.id===pending.target);if(target?.control){if(pending.mode==='attack'){let choices=[['none','Přijmout zásah']];if(!target.reaction&&target.hp>0){choices.push(['dodge','Úhyb']);if(target.parry)choices.push(['parry','Vykrytí']);if(target.shield)choices.push(['block','Blok štítem']);}let s=pick(p,'Obranná reakce',choices),strong=check(p,'Zesílená obrana (+5 za 3 EN)');let pre=el('p','',p);function show(){let b=s.value==='dodge'?num(target.attrs?.Obratnost)+num(target.dodgeBonus):s.value==='block'?num(target.attrs?.Síla)+num(target.shieldBonus):num(target.attrs?.[target.parryAttr||'Síla'])+num(target.parryBonus);pre.textContent=s.value==='none'?'Bez aktivní obrany.':'1k20 + ('+(b+num(target.defBonus)+num(target.fatigue)+(strong.checked?5:0))+') proti '+pending.roll.total;}s.onchange=strong.onchange=show;show();btn('Vyhodnotit obranu',p,()=>run('defend',{method:s.value,strong:strong.checked&&s.value!=='none'}));}else if(pending.mode==='save'&&pending.action.saveDC>0){el('p','Záchrana: 1k20 + '+pending.action.saveAttr+' proti DC '+pending.action.saveDC,p);action(p,'Hodit záchranu','resolve');}else if(pending.mode==='auto'){action(p,'Potvrdit účinek','resolve');}else if(gm){el('p','Individuální pravidla: '+(pending.action.saveText||pending.action.description||'dle PJ'),p);action(p,'Aplikovat účinek','resolve',{apply:true});action(p,'Bez účinku','resolve',{apply:false});}else el('p','Vyhodnotí PJ.',p);}else el('p','Na obránci nebo PJ je vyhodnocení této akce.',p);
- }else if(turn.control){el('strong',turn.name,detail);if(turn.hp<=0){if(turn.death==='dying'&&!turn.deathRolled)action(detail,'Záchranný hod před smrtí · 1k20','death',{actor:turn.id});else el('p','Bytost nemůže jednat.',detail);}else{let statusRow=el('div',undefined,detail);statusRow.className='chips';for(let [label,used] of [['Hlavní',turn.main],['Bonusová',turn.bonusUsed],['Reakce',turn.reaction]])el('span',label+': '+(used?'vyčerpána':'volná'),statusRow).className='chip';let speed=num(turn.speed,6)*(turn.sprint?2:1),moved=num(turn.moved);el('p','Pohyb '+Math.max(0,speed-moved)+' / '+speed+' m',detail);let m=field(detail,'Pohyb v metrech',1,1),hard=check(detail,'Obtížný terén');btn('Pohyb',detail,()=>run('move',{actor:turn.id,meters:Number(m.value),difficult:hard.checked}));action(detail,'Sprint · 2 EN','sprint',{actor:turn.id},turn.sprint||turn.en<2);let aPanel=panel(detail,'Útok, kouzlo nebo schopnost'),acts=(turn.actions||[]).filter(a=>a.slot==='free'||!(a.slot==='main'?turn.main:a.slot==='bonus'?turn.bonusUsed:turn.reaction));if(acts.length){let a=pick(aPanel,'Akce',acts.map(x=>[x.id,x.name]),acts.some(x=>x.id===selectedAction)?selectedAction:acts[0].id),targets=actors.filter(x=>x.death!=='dead'),t=pick(aPanel,'Cíl',targets.map(x=>[x.id,x.name]),targets.some(x=>x.id===selectedTarget)?selectedTarget:targets.find(x=>x.id!==turn.id)?.id||turn.id),strong=check(aPanel,'Zesílený útok +5 za 3 EN',strongState),verified=check(aPanel,'Dosah, cíl a individuální podmínky ověřeny s PJ',confirmState),pre=el('p','',aPanel);function preview(){selectedAction=a.value;selectedTarget=t.value;strongState=strong.checked;confirmState=verified.checked;let x=acts.find(x=>x.id===a.value);if(!x)return;strong.disabled=x.mode!=='attack';const map=data.map,from=map?.tokens?.[turn.id],to=map?.tokens?.[t.value];pre.textContent=[x.mode==='attack'?'1k20 + ('+(num(x.bonus)+(strong.checked&&!strong.disabled?5:0))+')':x.mode==='save'?'Záchrana · '+(x.saveText||'DC '+x.saveDC):'Účinek '+x.mode,x.attribute,x.skill,x.damage,x.range,from&&to?'Vzdálenost na mapě '+vrMapDistance(from,to,map.meters)+' m':'',...['HP','EN','MP'].filter(k=>num(x['cost'+k])>0).map(k=>x['cost'+k]+' '+k)].filter(Boolean).join(' · ');}a.onchange=t.onchange=strong.onchange=verified.onchange=preview;preview();btn('Provést akci',aPanel,()=>{if(!verified.checked){msg.textContent='Potvrď individuální podmínky a dosah.';return;}confirmState=false;run('act',{actor:turn.id,action:a.value,target:t.value,strong:strong.checked&&!strong.disabled,confirm:true});});}else el('p','Žádný dostupný definovaný útok nebo kouzlo. Zbraň musí být vybavená.',aPanel);let misc=pick(detail,'Jiná akce',[['main','Hlavní'],['bonus','Bonusová'],['reaction','Reakce']]);btn('Spotřebovat akci ručně',detail,()=>run('spend',{actor:turn.id,slot:misc.value}));}action(detail,'Ukončit tah','next',{actor:turn.id},turn.death==='dying'&&!turn.deathRolled);}else el('p','Čeká se na hráče: '+turn.name,detail);if(gm)action(detail,'Ukončit střetnutí','finish',{},!!pending);}
+ if(status==='running'&&turn){
+  if(pending){
+   const waiting=panel(detail,'Čeká na vyhodnocení');
+   el('strong',actorName(pending.actor)+' → '+actorName(pending.target),waiting);
+   const target=actors.find(a=>a.id===pending.target);
+   if(target?.id===myActor?.id&&myActor){
+    btn('Otevřít obranu',waiting,()=>showPlayerCard('defense'));
+   }else if(target?.control){
+    const reactionKey=JSON.stringify([pending.actor,pending.target,pending.action?.id,pending.roll,data.round]);
+    if(reactionUi.key!==reactionKey)reactionUi={key:reactionKey};
+    vrDrawCombatDefense(waiting,target,actors,pending,gm,run,reactionUi);
+   }else{
+    el('p',pending.action.name,waiting);
+    if(pending.roll?.total!=null)el('small','Hod na zásah '+pending.roll.total,waiting);
+    el('small','Čeká se na obránce nebo PJ.',waiting);
+   }
+   if(gm)btn('Zrušit čekající akci',waiting,()=>{
+    if(confirm('Náklady se nevrátí. Zrušit vyhodnocení?'))run('cancelPending');
+   });
+  }else if(turn.id===myActor?.id){
+   btn('Přejít k bojové kartě',detail,()=>showPlayerCard());
+  }else if(turn.control){
+   el('strong',turn.name,detail);
+   if(turnUi.actor!==turn.id)turnUi={actor:turn.id};
+   if(turn.hp>0){
+    const actionsHost=el('div',undefined,detail);
+    const drawActions=()=>{
+     const focus=document.activeElement?.dataset.combatFocus;
+     actionsHost.replaceChildren();
+     vrDrawCombatActions(actionsHost,turn,data,turn.actions||[],true,turnUi,run,drawActions);
+     if(focus)[...actionsHost.querySelectorAll('[data-combat-focus]')].find(node=>node.dataset.combatFocus===focus)?.focus({preventScroll:true});
+    };
+    drawActions();
+   }
+   vrDrawCombatTurn(detail,turn,run,turnUi);
+  }else el('p','Na tahu je '+turn.name+'.',detail);
+  if(gm)action(detail,'Ukončit střetnutí','finish',{},!!pending);
+ }
  if(gm&&status==='finished'){let q=panel(body,'Odměny družiny');let eligible=actors.filter(a=>a.kind==='pc'&&!data.rewards?.some(x=>x.character===a.ref));if(!eligible.length)el('p','Všechny odměny byly přidělené.',q);else{let pc=pick(q,'Postava',eligible.map(a=>[a.ref,a.name])),xp=field(q,'Zkušenosti (XP)',0),coins=field(q,'Peníze (měďáky)',0),it=libraryField(q,'ID zveřejněného předmětu (volitelné)','');btn('Vybrat kořist z knihovny',q,async()=>{try{let {data:r,error}=await db.from('rule_library').select('id,name').eq('published',true).in('category',['Zbraně','Zbroje','Předměty']).order('name').limit(200);if(error)throw error;let s=pick(q,'Kořist',[['','Bez předmětu'],...r.map(x=>[x.id,x.name])]);s.onchange=()=>it.value=s.value;}catch(e){msg.textContent=e.message;}});btn('Přidělit odměnu',q,()=>run('reward',{character:pc.value,xp:Number(xp.value),copper:Number(coins.value),item:it.value.trim()}));}}
  vrDrawBattleLog(body,data.log||[],logOpen,value=>{logOpen=value;});
  vrDrawTacticalMap(body,data,tactical,run,loadMapImage);
