@@ -467,7 +467,40 @@ button.vr-combat-action-row{display:grid;grid-template-columns:minmax(0,1.4fr) m
 </style><style>
 /* V70 combat overview */
 .vr-summary-round70{margin-left:auto;color:var(--vr-accent-text);font-weight:600}.vr-event-card70{margin-top:7px;padding:8px 10px;background:var(--vr-inset);border:1px solid var(--vr-border);border-radius:7px;display:grid;gap:6px;min-width:0}.vr-event-header70,.vr-event-hp70{display:flex;align-items:center;justify-content:space-between;gap:8px}.vr-event-header70 strong{font-size:.8rem}.vr-event-names70{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);align-items:center;gap:8px}.vr-event-person70{display:flex;align-items:center;gap:7px;min-width:0}.vr-event-person70:last-child{justify-content:flex-end;text-align:right}.vr-event-person70 img,.vr-event-placeholder70{width:36px;height:36px;flex:0 0 36px;border-radius:5px;border:1px solid var(--vr-border);object-fit:cover}.vr-event-placeholder70{display:grid;place-items:center}.vr-event-person70 strong,.vr-event-action70 strong{overflow-wrap:anywhere;font-size:.86rem}.vr-event-action70{text-align:center;display:grid;gap:2px}.vr-event-action70 small{color:var(--vr-accent-text)}.vr-event-metrics70{display:flex;flex-wrap:wrap;gap:6px}.vr-event-metrics70>div{flex:1 1 125px;min-width:0;display:grid;gap:2px;padding:5px 8px;border-radius:5px;background:var(--vr-surface);border:1px solid var(--vr-border)}.vr-event-metrics70 strong{font-size:1rem;color:var(--vr-accent-text);overflow-wrap:anywhere}.vr-event-metrics70 small{font-size:.72rem}.vr-event-track70{flex:1;background:var(--vr-surface);height:5px;border-radius:4px;overflow:hidden}.vr-event-track70 div{height:100%;background:#b94c56}.vr-event-hp70 small{font-size:.72rem}.vr-event-wait70{color:var(--vr-accent-text);font-weight:600}.vr-event-card70 [data-outcome="hit"],.vr-event-card70 [data-outcome="applied"],.vr-history70 [data-outcome="hit"],.vr-history70 [data-outcome="applied"]{color:#8ed2a4}.vr-event-card70 [data-outcome="miss"],.vr-event-card70 [data-outcome="avoided"],.vr-history70 [data-outcome="miss"],.vr-history70 [data-outcome="avoided"]{color:#efadab}.vr-history70{margin-top:6px!important;padding:5px 8px!important}.vr-history-list70{max-height:300px;overflow:auto;display:grid;gap:3px;margin-top:5px}.vr-history-entry70{border-bottom:1px solid var(--vr-border);padding:3px 0}.vr-history-entry70>summary{cursor:pointer;display:flex;align-items:baseline;gap:6px 10px;flex-wrap:wrap;padding:4px}.vr-history-entry70>summary:before{content:'▸';color:var(--vr-accent-text)}.vr-history-entry70[open]>summary:before{content:'▾'}.vr-history-entry70>summary strong{flex:1 1 150px;font-size:.82rem;overflow-wrap:anywhere}.vr-history-details70{display:flex;flex-wrap:wrap;gap:5px 12px;padding:4px 12px 8px}.vr-b1711-initiative .vr-init-chip70{display:flex;align-items:center;gap:6px;padding:4px 7px;margin:0;text-align:left;max-width:230px;min-width:0}.vr-init-chip70 img{height:30px;width:30px;flex:0 0 30px;border-radius:4px;object-fit:cover}.vr-init-chip70 div{min-width:0;display:grid;gap:2px}.vr-init-chip70 strong{font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.vr-init-chip70 small{font-size:.68rem;white-space:nowrap}.vr-init-chip70.active{border:2px solid var(--vr-accent);background:var(--vr-accent-tint)!important}.vr-init-next70 small{color:var(--vr-accent-text)}.vr-campaign-battle-view .vr-battle-tools .vr-b1711-initiative{flex-wrap:nowrap;overflow-x:auto;padding:2px;align-items:stretch}.vr-init-chip70{flex:0 0 auto}@media(max-width:550px){.vr-event-person70{flex-direction:column;text-align:center!important}.vr-event-person70:last-child{justify-content:center}.vr-summary-round70{font-size:.7rem}.vr-event-hp70{flex-wrap:wrap}}
-</style></head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.12</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+</style><style id="vr-combat-layout71">
+/* V71: isolate compact combat cards from the journal's ornamental readcard and button margins. */
+.vr-campaign-battle-view .vr-battle-action-side{container-type:inline-size;container-name:combat-side;min-width:0;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-player-combat{box-sizing:border-box;width:100%;min-width:0;max-width:100%;margin:8px 0 0;padding:8px;border:1px solid var(--vr-border);border-radius:8px;background:var(--vr-inset);box-shadow:none;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-head{display:grid;grid-template-columns:30px minmax(0,1fr) auto 26px;align-items:center;gap:6px;min-width:0;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-head>img{width:30px;height:30px;margin:0;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-identity{min-width:0;overflow-wrap:anywhere;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-identity h3{margin:0;line-height:1.2;font-size:1rem;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-identity small{display:block;margin:2px 0 0;line-height:1.25;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-head>button{margin:0;min-width:0;min-height:28px;padding:4px 5px;display:inline-flex;align-items:center;justify-content:center;gap:4px;white-space:nowrap;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-head>button[data-combat-focus="minimize"]{width:26px;height:28px;padding:0;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-head .vr-nav-art{width:19px;height:19px;margin:0;flex:none;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-tabs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;margin:8px 0;align-items:stretch;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-tabs button{min-width:0;width:100%;margin:0;padding:5px 2px;min-height:30px;font-size:.75rem;line-height:1.2;white-space:normal;overflow-wrap:anywhere;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-list{min-width:0;padding:0;gap:5px;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-choice{min-width:0;grid-template-columns:minmax(0,1fr) 28px;gap:4px;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-choice button.vr-combat-action-row{min-width:0;margin:0;padding:7px;grid-template-columns:minmax(0,1fr) minmax(0,auto);align-items:start;gap:3px 6px;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-row>span:first-child{grid-column:1;grid-row:1 / span 2;min-width:0;overflow-wrap:anywhere;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-row .vr-combat-roll{grid-column:2;grid-row:1;text-align:right;white-space:normal;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-row .vr-combat-value{grid-column:2;grid-row:2;text-align:right;white-space:normal;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-row .vr-combat-action-meta{grid-column:1/-1;grid-row:3;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-action-choice .vr-combat-info{width:28px;min-width:0;margin:0;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-profile65{margin:8px 0 0;padding:7px 0 0;min-width:0;}
+.vr-campaign-battle-view .vr-battle-action-side .vr-combat-profile65>summary{margin:0;white-space:normal;overflow-wrap:anywhere;line-height:1.3;}
+@container combat-side (max-width:285px){
+ .vr-campaign-battle-view .vr-battle-action-side .vr-player-combat .vr-combat-tabs{grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+</style>
+<style id="vr-free-map71">
+.vr-tactical-board>.vr-tactical-token.has-portrait{position:absolute;height:auto;min-width:0;min-height:0;transform:translate(-50%,-50%);margin:0;}
+.vr-tactical-board>.vr-tactical-token.is-dragging{transform:translate(-50%,-50%);z-index:5;}
+.vr-tactical-board>.vr-tactical-cursor,.vr-tactical-board>.vr-tactical-origin{position:absolute;width:calc(100% / var(--map-cols));height:calc(100% / var(--map-rows));transform:translate(-50%,-50%);pointer-events:none;}
+</style>
+</head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.13b</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -1269,7 +1302,7 @@ async function vrOpenCampaignBattle(campaign){
 }
 const vrMapStatuses={stunned:'Omráčený',poisoned:'Otrávený',dead:'Mrtvý'};
 const vrMapDistance=(a,b,meters)=>Math.ceil(Math.hypot(a.x-b.x,a.y-b.y)*meters);
-const vrMapPosition=point=>(point.x+1)+' / '+(point.y+1);
+const vrMapPosition=point=>[point.x+1,point.y+1].map(n=>Number(n.toFixed(2)).toLocaleString('cs-CZ')).join(' / ');
 
 function vrMapScaleInput(parent,label,min,max,value,change){
  const control=el('label',label,parent);
@@ -1370,7 +1403,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  board.className='vr-tactical-board';
  board.role='button';
  board.tabIndex=0;
- board.setAttribute('aria-label','Taktická mřížka. Šipkami vyber pole, Enter potvrdí výběr.');
+ board.setAttribute('aria-label','Taktická mapa. Šipkami posouvej pozici, Enter potvrdí výběr. Shift zvětší krok.');
  board.style.setProperty('--map-cols',map.cols);
  board.style.setProperty('--map-rows',map.rows);
  const minZoom=100,maxZoom=240;
@@ -1429,8 +1462,9 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const line=el('span',undefined,board);
  line.className='vr-tactical-line';
  let keyboardActor=null,keyboardPoint=false;
- const maxPoint={x:map.cols-1,y:map.rows-1};
- const formatPoint=point=>['Sloupec '+(point.x+1),'řádek '+(point.y+1)].join(', ');
+ const maxPoint={x:map.cols-.5,y:map.rows-.5};
+ const formatPoint=point=>'Pozice '+vrMapPosition(point);
+ function positionAt(node,point){node.style.left=(point.x+.5)/map.cols*100+'%';node.style.top=(point.y+.5)/map.rows*100+'%';}
  function applyImage(){
   if(map.imageId)loadImage(map.imageId).then(image=>{
    if(board.isConnected&&validImage(image))board.style.backgroundImage='url("'+image+'")';
@@ -1464,7 +1498,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
    return other?.x===token.x&&other?.y===token.y;
   }).length;
   cell.style.setProperty('--stack',String(Math.min(inCell,7)));
-  cell.style.gridArea=(token.y+1)+' / '+(token.x+1);
+  positionAt(cell,token);
+  cell.style.width=(vrMapTokenSize(actor)/map.cols)+'%';
   cell.dataset.mapActor=actor.id;cell.dataset.targetEligible=String(actor.death!=='dead'&&!actor.mapDead&&!actor.missing);
   cell.title=name;
   cell.setAttribute('aria-hidden','true');
@@ -1488,7 +1523,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
    }
    select.onchange=updateActor;
    updateActor();
-   el('small','Klikni na pole a umísti vybraný žeton. Značky slouží k přehledu na mapě.',options);
+   el('small','Klikni kamkoli na mapu a umísti vybraný žeton. Značky slouží k přehledu na mapě.',options);
   }else if(state.mode==='move'){
    const label=el('label','Obtížný terén',options);
    difficult=el('input',undefined,label);
@@ -1501,10 +1536,10 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   state.point=point;
   const {mode:tool,from:origin,to:endpoint}=state;
   cursor.hidden=tool==='hand'&&!keyboardPoint&&!state.dragging;
-  cursor.style.gridArea=(point.y+1)+' / '+(point.x+1);
+  positionAt(cursor,point);
   const from=tool==='measure'?origin:tool==='move'?turnToken:null;
   marker.hidden=!from;
-  if(from)marker.style.gridArea=(from.y+1)+' / '+(from.x+1);
+  if(from)positionAt(marker,from);
   const to=tool==='measure'&&from?(endpoint||point):null;
   line.hidden=!to;
   if(to){
@@ -1516,7 +1551,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   }
   const position=formatPoint(point);
   if(tool==='hand'){
-   describe.textContent=keyboardActor?position+' · Enter žeton položí.':state.dragging||keyboardPoint?position:'Podrž žeton a táhni. Mapu posuneš tažením za prázdné pole.';
+   describe.textContent=keyboardActor?position+' · Enter žeton položí.':state.dragging||keyboardPoint?position:'Podrž žeton a přesuň jej kamkoli. Mřížka je pouze orientační.';
   }else if(from){
    const meters=vrMapDistance(from,to||point,map.meters);
    const movementCost=meters*(difficult?.checked?2:1);
@@ -1532,14 +1567,14 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   }
  }
  function actorAt(point){
-  return actors.findLast(a=>map.tokens[a.id]?.x===point.x&&map.tokens[a.id]?.y===point.y);
+  return actors.filter(a=>map.tokens[a.id]).map(a=>[a,Math.hypot(map.tokens[a.id].x-point.x,map.tokens[a.id].y-point.y)]).filter(([a,d])=>d<=Math.max(.25,vrMapTokenSize(a)/200)).sort((a,b)=>a[1]-b[1])[0]?.[0];
  }
  function usePoint(point,clickedActor=null){
   if(state.mode==='target'){
    const actor=actors.find(a=>a.id===clickedActor)||actorAt(point);
    if(actor&&onTarget?.(actor.id))setMode('hand');
   }else if(state.mode==='inspect'){
-   const actor=actorAt(point);
+   const actor=actors.find(a=>a.id===clickedActor)||actorAt(point);
    if(actor)openOverview(actor.id,board);
   }else if(state.mode==='measure'){
    if(!state.from||state.to){state.from=point;state.to=null;}
@@ -1551,7 +1586,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   }
   showPoint(point);
  }
- const clamp=(x,y)=>({x:limit(x,0,maxPoint.x),y:limit(y,0,maxPoint.y)});
+ const clamp=(x,y)=>({x:Number(limit(x,-.5,maxPoint.x).toFixed(4)),y:Number(limit(y,-.5,maxPoint.y).toFixed(4))});
  function visibleBounds(){
   const rect=boardWrap.getBoundingClientRect();
   return {left:rect.left,top:rect.top,right:rect.left+boardWrap.clientWidth,bottom:rect.top+boardWrap.clientHeight};
@@ -1562,7 +1597,13 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   x-=rect.left;
   y-=rect.top;
   if(x<0||y<0||x>=rect.width||y>=rect.height)return null;
-  return clamp(Math.floor(x*map.cols/rect.width),Math.floor(y*map.rows/rect.height));
+  return clamp(x*map.cols/rect.width-.5,y*map.rows/rect.height-.5);
+ }
+ function dragPoint(d,x,y){
+  const rect=board.getBoundingClientRect();
+  const token=map.tokens[d.cell?.dataset.dragActor];
+  if(!token||!rect.width||!rect.height)return null;
+  return clamp((x-rect.left)*map.cols/rect.width-.5-d.offsetX,(y-rect.top)*map.rows/rect.height-.5-d.offsetY);
  }
  function moveToken(actor,point){
   const token=map.tokens[actor];
@@ -1585,9 +1626,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   const bounds=visibleBounds();
   boardWrap.scrollLeft+=edgeSpeed(drag.x,bounds.left,bounds.right);
   boardWrap.scrollTop+=edgeSpeed(drag.y,bounds.top,bounds.bottom);
-  drag.cell.style.setProperty('--drag-x',drag.x-drag.startX+boardWrap.scrollLeft-drag.left+'px');
-  drag.cell.style.setProperty('--drag-y',drag.y-drag.startY+boardWrap.scrollTop-drag.top+'px');
-  const point=boardPoint(drag.x,drag.y,bounds);
+  const point=dragPoint(drag,drag.x,drag.y);
+  if(point)positionAt(drag.cell,point);
   if(point&&(state.point.x!==point.x||state.point.y!==point.y||cursor.hidden))showPoint(point);
   frame=requestAnimationFrame(dragFrame);
  }
@@ -1603,6 +1643,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   board.focus({preventScroll:true});
   drag={cell:event.target.closest('[data-drag-actor]'),id:event.pointerId,startX:event.clientX,startY:event.clientY,
    left:boardWrap.scrollLeft,top:boardWrap.scrollTop,moved:false};
+  if(drag.cell){const rect=board.getBoundingClientRect(),token=map.tokens[drag.cell.dataset.dragActor];drag.offsetX=(event.clientX-rect.left)*map.cols/rect.width-.5-token.x;drag.offsetY=(event.clientY-rect.top)*map.rows/rect.height-.5-token.y;}
   state.dragging=true;
   board.setPointerCapture(event.pointerId);
  };
@@ -1627,7 +1668,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  };
  function endDrag(event){
   if(!drag||(event&&drag.id!==event.pointerId))return;
-  const {cell,id,moved}=drag;
+  const ended=drag;
+  const {cell,id,moved}=ended;
   drag=null;
   state.dragging=false;
   if(board.hasPointerCapture(id))board.releasePointerCapture(id);
@@ -1635,7 +1677,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   boardWrap.classList.remove('is-grabbing');
   cell?.classList.remove('is-dragging');
   rememberScroll();
-  const point=event?.type==='pointerup'&&moved?boardPoint(event.clientX,event.clientY):null;
+  const point=event?.type==='pointerup'&&moved&&cell?dragPoint(ended,event.clientX,event.clientY):null;
+  if(cell){const original=map.tokens[cell.dataset.dragActor];if(original)positionAt(cell,original);}
   showPoint(point||state.point);
   if(cell&&point){closeSettings();moveToken(cell.dataset.dragActor,point);}
  }
@@ -1677,7 +1720,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   if(!delta)return;
   event.preventDefault();
   keyboardPoint=true;
-  showPoint(clamp(state.point.x+delta[0],state.point.y+delta[1]));
+  const step=event.shiftKey?1:0.25;
+  showPoint(clamp(state.point.x+delta[0]*step,state.point.y+delta[1]*step));
   const {x,y}=state.point;
   const cellWidth=board.clientWidth/map.cols,cellHeight=board.clientHeight/map.rows;
   if(state.viewScale>minZoom){
@@ -2162,7 +2206,7 @@ function vrDrawPlayerCombat(host,actor,battle,ui,run,openSheet){
   if(pending){ui.group='defense';ui.minimized=false;ui.cancelMap?.();}
  }
  const panel=el('section',undefined,host);
- panel.className='vr-player-combat readcard';
+ panel.className='vr-player-combat';
  panel.setAttribute('aria-label','Bojová karta · '+actor.name);
  const head=el('div',undefined,panel);
  head.className='vr-combat-head';
