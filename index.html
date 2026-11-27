@@ -558,7 +558,9 @@ html[data-inner-frame]:not([data-inner-frame="none"]) :is(.panel,.hero,.vr-board
 @keyframes vr-float-life79f3{0%{opacity:0;transform:translate(-50%,0)}12%,75%{opacity:1}100%{opacity:0;transform:translate(-50%,var(--float-rise,-14px))}}
 @media(prefers-reduced-motion:reduce){.vr-float-group79f3{animation:none;opacity:1;transform:translateX(-50%)}}
 </style>
-</head><body><div class="vr-frame-overlay76f" aria-hidden="true"></div><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.39</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+<style id="vr-spell-area79f4-style">
+.vr-spell-area79f4{z-index:1;pointer-events:none}.vr-spell-controls79f4{display:grid;gap:7px;padding:8px;border:1px solid var(--vr-accent-border);border-radius:8px}.vr-spell-controls79f4 label{display:grid;gap:4px}.vr-spell-controls79f4 input[type=range]{width:100%}.vr-spell-controls79f4 .vr-spell-tools79f4{display:flex;flex-wrap:wrap;gap:5px}.vr-spell-controls79f4 .vr-spell-tools79f4 button{flex:1}.vr-spell-warning79f4{color:#f3ad99}.vr-spell-candidate79f4{color:var(--vr-accent,#e2bf82)}
+</style></head><body><div class="vr-frame-overlay76f" aria-hidden="true"></div><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.40</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -1628,7 +1630,7 @@ function vrSceneControls76e(parent,battle,state,run){
  function update(){const a=selected();state.scenePick76e=pick.value;state.sceneName76e=name.value;save.disabled=!setup||!name.value.trim()||scenes.length>=20;load.disabled=replace.disabled=!setup||!a;remove.disabled=!a;description.textContent=a?`${a.cols} × ${a.rows} polí · ${a.meters} m/pole · ${a.npcs} NPC${a.hasImage?' · obrázek':''}`:'Vyber uloženou scénu nebo vytvoř novou.';}
  name.oninput=pick.onchange=update;update();
 }
-function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOverview,ownActor,editToken,onTarget,onContext}){
+function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOverview,ownActor,editToken,onTarget,onContext,onAreaPoint}){
  const {map,actors=[],gm,pending,status}=battle;
  if(!map){el('p','Mapa střetnutí zatím není dostupná.',panel);return;}
  const turn=actors[battle.turn||0];
@@ -1798,6 +1800,10 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const areaCfg=state.areaCfg76c??={shape:'circle',length:4,width:2,angle:90,color:'gold'};
  let areaStroke=null,areaHint=null,areaSave=null,areaClear=null;
  const areaLayer=document.createElementNS('http://www.w3.org/2000/svg','svg');areaLayer.setAttribute('class','vr-area-layer76c');areaLayer.setAttribute('viewBox',`0 0 ${map.cols} ${map.rows}`);areaLayer.setAttribute('preserveAspectRatio','none');areaLayer.setAttribute('aria-hidden','true');board.append(areaLayer);
+ const spellLayer79f4=document.createElementNS('http://www.w3.org/2000/svg','svg');spellLayer79f4.setAttribute('class','vr-area-layer76c vr-spell-area79f4');spellLayer79f4.setAttribute('viewBox',`0 0 ${map.cols} ${map.rows}`);spellLayer79f4.setAttribute('preserveAspectRatio','none');spellLayer79f4.setAttribute('aria-hidden','true');board.append(spellLayer79f4);
+ let spellPreview79f4=null;
+ state.setSpellArea79f4=a=>{spellPreview79f4=a;paintSpell79f4();};
+ function paintSpell79f4(){spellLayer79f4.replaceChildren();if(spellPreview79f4&&!state.fogPreview76)vrSpellAreaDraw79f4(spellLayer79f4,spellPreview79f4,map);}
  function areaGeometry76c(a){const l=a.length/map.meters,w=a.width/map.meters,rad=a.direction*Math.PI/180;return {l,w,rad};}
  function areaContains76c(a,p){const {l,w,rad}=areaGeometry76c(a),dx=p.x+.5-a.x,dy=p.y+.5-a.y,along=dx*Math.cos(rad)+dy*Math.sin(rad),across=-dx*Math.sin(rad)+dy*Math.cos(rad);if(a.shape==='circle')return Math.hypot(dx,dy)<=l;if(a.shape==='cone')return Math.hypot(dx,dy)<=l&&(Math.hypot(dx,dy)<1e-8||Math.abs(Math.atan2(across,along))<=a.angle*Math.PI/360);return along>=0&&along<=l&&Math.abs(across)<=w/2;}
  function areaTargets76c(a){return actors.filter(t=>{const p=map.tokens[t.id];return p&&!t.hidden76b&&!t.missing&&!t.mapDead&&t.death!=='dead'&&((gm&&!state.fogPreview76)||!covered76(p))&&areaContains76c(a,p);});}
@@ -1847,7 +1853,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   const img=fogCtx.createImageData(fogSize,fogSize),alpha=gm&&!state.fogPreview76?Math.round(255*(state.fogOpacity76??65)/100):255;
   for(let i=0;i<fogLength;i++)if(bits[i]){img.data[i*4]=8;img.data[i*4+1]=10;img.data[i*4+2]=13;img.data[i*4+3]=alpha;}
   fogCtx.putImageData(img,0,0);
-  board.dataset.playerPreview76b=String(!!state.fogPreview76);drawAreas76c();drawNotes76d();
+  board.dataset.playerPreview76b=String(!!state.fogPreview76);drawAreas76c();drawNotes76d();paintSpell79f4();
   for(const row of roster.querySelectorAll("[data-hidden76b]"))row.hidden=!!state.fogPreview76;
  }
  renderFog76();
@@ -1965,6 +1971,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   if(gm&&state.fogPreview76||fogTool)return;
   if(!gm&&clickedActor&&covered76(map.tokens[clickedActor]))clickedActor=null;
   if(state.mode==='target'){
+   if(onAreaPoint?.(point)){showPoint(point);return;}
    const actor=actors.find(a=>a.id===clickedActor&&!a.hidden76b)||actorAt(point);
    if(actor&&!actor.hidden76b){const picked=onTarget?.(actor.id);if(picked===true)setMode('hand');}
   }else if(state.mode==='inspect'){
@@ -2499,7 +2506,7 @@ function vrCombatTip65(row,button,action,labels,block){
  button.onclick=()=>{if(pinned)hide();else{show();pinned=true;}};
 }
 function vrDrawCombatActions(parent,actor,battle,actions,canAct,ui,run,rerender){
- ui.receiveMapTarget=null;
+ ui.receiveMapTarget=null;ui.receiveAreaPoint79f4=null;if(canAct)ui.previewArea79f4?.(null);
  if(!actions.length){
   el('p','V této části nemáš žádné bojové akce.',parent).className='vr-combat-note';
   return;
@@ -2514,7 +2521,7 @@ function vrDrawCombatActions(parent,actor,battle,actions,canAct,ui,run,rerender)
   const choice=el('div',undefined,list);choice.className='vr-combat-action-choice';
   const row=btn('',choice,()=>{
    if(!canAct||block||ui.action===action.id)return;
-   ui.action=action.id;ui.target=null;ui.targets79e2=[];ui.verified=false;ui.strong=false;
+   ui.action=action.id;ui.target=null;ui.targets79e2=[];ui.areaDraft79f4=null;ui.verified=false;ui.strong=false;
    ui.cancelMap?.();rerender();
   });
   row.className='vr-combat-action-row';
@@ -2635,7 +2642,7 @@ function vrDrawPlayerCombat(host,actor,battle,ui,run,openSheet){
  const pending=battle.pending?.target===actor.id?battle.pending:null;
  const myTurn=battle.status==='running'&&turn?.id===actor.id;
  const canAct=myTurn&&!battle.pending&&actor.hp>0;
- ui.receiveMapTarget=null;
+ ui.receiveMapTarget=null;ui.receiveAreaPoint79f4=null;
  if(ui.actor!==actor.id){
   const group=(actor.actions||[]).length?vrCombatGroup(actor.actions[0]):'defense';
   Object.assign(ui,{actor:actor.id,group,target:null,action:null,verified:false,strong:false,pending:null});
@@ -2763,7 +2770,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
  let data=null,busy=false,poll=null,formOpen=false,lastKey='',closed=false,bestiarySearch='',bestiarySelected='',bestiaryCount=1,bestiaryGroup='';
  let battleRequestDone=null;
  const tactical={settings:false,mode:null,actor:''};
- function linkActionMap(ui){ui.pickMap=()=>tactical.setTargetMode?.();ui.cancelMap=()=>tactical.cancelTargetMode?.();ui.highlightMap=id=>tactical.highlightTarget?.(id);}
+ function linkActionMap(ui){ui.pickMap=()=>tactical.setTargetMode?.();ui.cancelMap=()=>{ui.areaPicking79f4=false;tactical.cancelTargetMode?.();if(data?.actors?.[data.turn||0]?.id===ui.actor)tactical.setSpellArea79f4?.(null);};ui.highlightMap=id=>tactical.highlightTarget?.(id);ui.previewArea79f4=a=>{if(data?.actors?.[data.turn||0]?.id===ui.actor)tactical.setSpellArea79f4?.(a);};ui.isFogPreview79f4=()=>!!tactical.fogPreview76;}
  linkActionMap(combatUi);
  const expandedHistory70=new Set();let logOpen=false,summaryCollapsed=false,gmToolsOpen=false,imageCache=null;const resourceOpen=new Set();
  function loadMapImage(imageId){
@@ -2979,7 +2986,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
  function bestiaryPanel(p,templates,status){let q=panel(p,'Bestiář kampaně');q.classList.add('vr-best17112');if(view==='bestiary')el('small','Vyber uloženou bytost a počet. Každá nasazená kopie má vlastní životy a akce.',q);let search=libraryField(q,'Hledat monstrum',bestiarySearch),result=el('div',undefined,q);function fill(){result.replaceChildren();let rows=templates.filter(x=>(x.name+' '+(x.group||'')).toLocaleLowerCase('cs').includes(search.value.toLocaleLowerCase('cs')));if(!rows.length){el('p',templates.length?'Žádná odpovídající šablona.':'Bestiář je prázdný. Vytvoř vlastní monstrum níže nebo přidej testovací šablonu.',result);return;}let compact=el('div',undefined,result);compact.className='vr-b1711-setup';let sel=pick(compact,'Monstrum',rows.map(x=>[x.id,x.name]),rows.some(x=>x.id===bestiarySelected)?bestiarySelected:rows[0].id),count=field(compact,'Počet',bestiaryCount,1),group=libraryField(compact,'Skupina (volitelné)',bestiaryGroup),detail=el('details',undefined,result);count.max=100;count.oninput=()=>bestiaryCount=Number(count.value);group.oninput=()=>bestiaryGroup=group.value;function preview(){bestiarySelected=sel.value;let a=rows.find(x=>x.id===sel.value);detail.replaceChildren();if(!a)return;el('summary',a.name+' · HP '+a.maxhp+' · Obrana '+a.defense,detail);let box=el('section',undefined,detail);box.className='vr-b170-actor';el('strong',a.name,box);el('p','HP '+a.maxhp+' · EN '+a.maxen+' · MP '+a.maxmp+' · Obrana '+a.defense+' · Pohyb '+a.speed+' m',box);el('small',Object.entries(a.attrs||{}).map(([k,v])=>k+' '+(v>=0?'+':'')+v).join(' · '),box);for(let ac of a.actions||[])el('small',ac.name+' · '+(ac.damage||ac.effect||'individuální'),box);}sel.onchange=preview;preview();let add=btn('Nasadit do střetnutí',compact,()=>{let n=Number(count.value);if(!Number.isInteger(n)||n<1||n>100){msg.textContent='Zadej počet od 1 do 100.';return;}run('npc',{template:sel.value,count:n,group:group.value});});add.disabled=status!=='setup';if(add.disabled)el('small','Nasazení je dostupné při přípravě střetnutí.',result);if(view==='bestiary')btn('Smazat šablonu',detail,()=>{if(confirm('Smazat šablonu? Již nasazené bytosti zůstanou.'))run('removeTemplate',{id:sel.value});});}search.oninput=()=>{bestiarySearch=search.value;fill();};fill();let examples=[{name:'[TEST] Goblin',maxhp:12,maxen:15,defense:12,attrs:{Síla:0,Obratnost:2,Preciznost:2},damage:'1k6',attack:'Krátký meč',attribute:'Obratnost'},{name:'[TEST] Kostlivec',maxhp:18,maxen:20,defense:13,attrs:{Síla:2,Obratnost:1,Odolnost:1},damage:'1k8',attack:'Kostěný úder',attribute:'Síla'},{name:'[TEST] Vlk',maxhp:16,maxen:20,defense:12,attrs:{Síla:2,Obratnost:2},damage:'1k6+1',attack:'Kousnutí',attribute:'Síla'},{name:'[TEST] Orkský válečník',maxhp:30,maxen:25,defense:14,attrs:{Síla:4,Obratnost:1,Odolnost:3},damage:'1k10',attack:'Sekera',attribute:'Síla'}].filter(x=>!templates.some(t=>t.name===x.name));if(examples.length&&view==='bestiary'){let extra=el('details',undefined,q);el('summary','Volitelné testovací šablony',extra);el('small','Pouze testovací statistiky, nikoli závazná pravidla.',extra);let select=pick(extra,'Testovací monstrum',examples.map((x,i)=>[String(i),x.name]));btn('Přidat šablonu do bestiáře',extra,()=>{let x=examples[Number(select.value)];if(!x)return;run('template',{name:x.name,group:'Testovací',maxhp:x.maxhp,maxen:x.maxen,maxmp:0,defense:x.defense,bb:1,speed:6,attrs:x.attrs,actions:[{name:x.attack,attribute:x.attribute,mode:'attack',effect:'Zranění',damage:x.damage,slot:'main',physical:true}]});});}}
  function draw(){if(!data)return;if(context79f?.open){context79f.close();msg.textContent='Bojiště se změnilo. Vyber cíl znovu.';}body.replaceChildren();let {gm,status,actors=[],roster=[],templates=[],pending}=data,turn=actors[data.turn||0];d.dataset.vrRunning=status==='running'?'1':'0';if(view==='bestiary'){if(!gm){el('p','Bestiář je přístupný pouze PJ nebo administrátorovi.',body);return;}bestiaryPanel(body,templates,status);npcForm(body);return;}
  const myActor=ownBattleActor();
- combatUi.receiveMapTarget=null;turnUi.receiveMapTarget=null;
+ combatUi.receiveMapTarget=null;turnUi.receiveMapTarget=null;combatUi.receiveAreaPoint79f4=null;turnUi.receiveAreaPoint79f4=null;
  if(!myActor||status!=='running'||pending||turn?.id!==myActor.id)combatUi.verified=false;
  if(status!=='running'||pending||turn?.id!==turnUi.actor)turnUi.verified=false;
  let h=panel(body,data.name||'Bojové střetnutí');h.classList.add('vr-b1711-setup-panel');if(status!=='running')el('p',status==='finished'?'Střetnutí ukončeno':'Příprava střetnutí',h);if(gm&&status!=='running'){let setup=el('div',undefined,h);setup.className='vr-b1711-setup';let n=libraryField(setup,'Název nového střetnutí','');btn('Nové střetnutí',setup,()=>{if(status==='finished'&&!confirm('Nové střetnutí nahradí poslední bojový záznam. Pokračovat?'))return;run('new',{name:n.value});});}
@@ -3017,7 +3024,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
  mapContent.className='vr-tactical-map';
  tactical.dragging=false;
  vrDrawTacticalMap(mapContent,data,tactical,{
-  run:runMapAction,loadImage:loadMapImage,portraitFor,openOverview:openActorOverview,ownActor:myActor,editToken,onTarget:id=>(turn?.id===myActor?.id?combatUi:turnUi).receiveMapTarget?.(id),onContext:(id,opener)=>{
+  run:runMapAction,loadImage:loadMapImage,portraitFor,openOverview:openActorOverview,ownActor:myActor,editToken,onTarget:id=>(turn?.id===myActor?.id?combatUi:turnUi).receiveMapTarget?.(id),onAreaPoint:p=>(turn?.id===myActor?.id?combatUi:turnUi).receiveAreaPoint79f4?.(p),onContext:(id,opener)=>{
    if(busy||!active()||context79f?.open)return;
    const target=data.actors.find(a=>a.id===id),actor=data.actors[data.turn||0];if(!target||target.hidden76b||target.missing)return;
    const canAct=data.status==='running'&&!data.pending&&actor?.control&&actor.hp>0&&!target.mapDead&&target.death!=='dead';
@@ -3030,7 +3037,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
     Object.assign(ui,{actor:actor.id,group:action?vrCombatGroup(action):ui.group||'attacks',action:action?.id||null,target:id,verified:false,strong:false});
     if(action&&['multi','area'].includes(action.targeting79e?.mode)){
      ui.groupTargetKey79e2=actor.id+'|'+action.id+'|'+data.round;
-     ui.targets79e2=[id];ui.groupDistance79e2=null;
+     ui.targets79e2=[id];ui.groupDistance79e2=null;ui.areaDraft79f4=null;ui.areaPicking79f4=action.targeting79e.mode==='area';
     }
     draw();if(mark)tactical.highlightTarget?.(id);else tactical.setTargetMode?.();
    };
@@ -4113,7 +4120,7 @@ function vrTargetForm79e(p,old={}){
  const custom=libraryField(group,'Popis vlastní oblasti',old?.custom||'');custom.maxLength=500;
  const help=el('small','',d);help.className='muted';
  function visible(input,on){input.disabled=!on;input.closest('label').hidden=!on;input.closest('label').style.display=on?'':'none';}
- function sync(){const area=mode.value==='area',multi=mode.value==='multi';count.min=multi?'2':'0';visible(count,area||multi);visible(side,area||multi);visible(shape,area);visible(origin,area);visible(size,area&&shape.value!=='custom');visible(width,area&&shape.value==='line');visible(angle,area&&shape.value==='cone');visible(custom,area&&shape.value==='custom');group.hidden=!(area||multi);group.style.display=area||multi?'':'none';help.textContent=area?'Rozměr: kruh = poloměr, kužel/linie = délka, čtverec = strana. 0 cílů znamená bez stanoveného maxima. Dosah se stále zadává v herních parametrech. Plošné účinky zatím vyhodnocuje PJ.':multi?'Zadej nejvyšší počet zvolených bytostí (2–100). Více cílů zatím vyhodnocuje PJ.':mode.value==='self'?'Cílem je samotný sesilatel.':'Původní text Cíle / oblast zůstává zachován.';}
+ function sync(){const area=mode.value==='area',multi=mode.value==='multi';count.min=multi?'2':'0';visible(count,area||multi);visible(side,area||multi);visible(shape,area);visible(origin,area);visible(size,area&&shape.value!=='custom');visible(width,area&&shape.value==='line');visible(angle,area&&shape.value==='cone');visible(custom,area&&shape.value==='custom');group.hidden=!(area||multi);group.style.display=area||multi?'':'none';help.textContent=area?'Rozměr: kruh = poloměr, kužel/linie = délka, čtverec = strana. 0 cílů znamená bez stanoveného maxima. Dosah se stále zadává v herních parametrech. Běžné tvary lze vyznačit přímo na bojišti; vlastní oblast vyhodnocuje PJ.':multi?'Zadej nejvyšší počet zvolených bytostí (2–100). Cíle lze vybrat přímo na bojišti; podmínky potvrzuje PJ.':mode.value==='self'?'Cílem je samotný sesilatel.':'Původní text Cíle / oblast zůstává zachován.';}
  mode.onchange=()=>{if(mode.value==='multi'&&Number(count.value)<2)count.value='3';sync();};shape.onchange=sync;sync();
  return ()=>{let m=mode.value;if(m==='legacy')return null;if(!Object.hasOwn(vrTargetModes79e,m))throw Error('Neplatné cílení.');let out={mode:m};if(['multi','area'].includes(m)){out.maxTargets=vrFxInt(count);if(!Object.hasOwn(vrTargetSides79e,side.value))throw Error('Neplatná skupina cílů.');out.side=side.value;}
  if(m==='area'){if(!Object.hasOwn(vrTargetShapes79e,shape.value)||!['self','point'].includes(origin.value))throw Error('Neplatná oblast.');out.shape=shape.value;out.origin=origin.value;if(out.shape==='custom'){out.custom=custom.value.trim();if(!out.custom||out.custom.length>500)throw Error('Popiš vlastní oblast.');}else out.size=vrFxInt(size);if(out.shape==='line')out.width=vrFxInt(width);if(out.shape==='cone')out.angle=vrFxInt(angle);}return out;};
@@ -4125,6 +4132,7 @@ vrMagicDetails=function(p,s){vrPriorMagicDetails79e(p,s);const txt=vrTargetText7
 
 // V79e.2 — selected target set; authoritative server charges once, queues individual defenses.
 function vrGroupTargets79e2(parent,actor,battle,action,ui,run){
+ if(action.targeting79e?.mode==='area'&&['circle','cone','line','square'].includes(action.targeting79e.shape)&&battle.map)return vrSpellAreaTargets79f4(parent,actor,battle,action,ui,run);
  const spec=action.targeting79e,side=spec.side||'all',max=Math.max(1,Math.min(100,Number(spec.maxTargets)||100));
  const targets=battle.actors.filter(t=>!t.hidden76b&&!t.missing&&!t.mapDead&&t.death!=='dead'&&(side==='ally'?t.side===actor.side:side==='enemy'?t.side!==actor.side:true));
  const key=actor.id+'|'+action.id+'|'+battle.round;
@@ -4152,6 +4160,91 @@ function vrGroupTargets79e2(parent,actor,battle,action,ui,run){
  verified.onchange=update;update();
 }
 
+
+// V79f.4 — local geometry preview. Existing authoritative group cast remains unchanged.
+function vrSpellGeometry79f4(spec,origin,angle,meters){
+ if(!origin||!['circle','cone','line','square'].includes(spec.shape)||!Number.isFinite(origin.x)||!Number.isFinite(origin.y))return null;
+ const scale=Number(meters),size=Number(spec.size),width=Number(spec.width),aperture=Number(spec.angle);
+ if(!(scale>0&&size>0&&Number.isFinite(size))||spec.shape==='line'&&!(width>0&&Number.isFinite(width))||spec.shape==='cone'&&!(aperture>0&&aperture<=360))return null;
+ return {shape:spec.shape,x:origin.x+.5,y:origin.y+.5,size:size/scale,width:width/scale,aperture,angle:((Number(angle)||0)%360+360)%360};
+}
+function vrSpellContains79f4(g,p){
+ if(!g||!p||!Number.isFinite(p.x)||!Number.isFinite(p.y))return false;
+ const dx=p.x+.5-g.x,dy=p.y+.5-g.y,r=Math.hypot(dx,dy),eps=1e-8,rad=g.angle*Math.PI/180,u=dx*Math.cos(rad)+dy*Math.sin(rad),v=-dx*Math.sin(rad)+dy*Math.cos(rad);
+ if(g.shape==='circle')return r<=g.size+eps;
+ if(g.shape==='square')return Math.abs(u)<=g.size/2+eps&&Math.abs(v)<=g.size/2+eps;
+ if(g.shape==='line')return u>=-eps&&u<=g.size+eps&&Math.abs(v)<=g.width/2+eps;
+ return r<=g.size+eps&&(r<=eps||Math.abs(Math.atan2(v,u))<=g.aperture*Math.PI/360+eps);
+}
+function vrSpellAreaDraw79f4(layer,g,map){
+ const ns='http://www.w3.org/2000/svg';function node(tag,attrs,host=layer){const n=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));host.append(n);return n;}
+ const group=node('g',{transform:`translate(${g.x} ${g.y}) rotate(${g.angle})`});const color=g.out?'#ef7777':'#be9af7';
+ const attrs={fill:color,'fill-opacity':.25,stroke:color,'stroke-width':2,'vector-effect':'non-scaling-stroke','stroke-dasharray':'5 3'};
+ if(g.shape==='circle'||g.shape==='cone'&&g.aperture>=360)node('circle',{r:g.size,...attrs},group);
+ else if(g.shape==='square')node('rect',{x:-g.size/2,y:-g.size/2,width:g.size,height:g.size,...attrs},group);
+ else if(g.shape==='line')node('rect',{x:0,y:-g.width/2,width:g.size,height:g.width,...attrs},group);
+ else{const h=g.aperture*Math.PI/360,x=g.size*Math.cos(h),y=g.size*Math.sin(h);node('path',{d:`M 0 0 L ${x} ${-y} A ${g.size} ${g.size} 0 ${g.aperture>180?1:0} 1 ${x} ${y} Z`,...attrs},group);}
+ node('circle',{cx:g.x,cy:g.y,r:.09,fill:color});
+ if(g.castRange!=null&&g.from)node('circle',{cx:g.from.x+.5,cy:g.from.y+.5,r:g.castRange/Number(map.meters),fill:'none',stroke:'#e9c784','stroke-width':1.5,'vector-effect':'non-scaling-stroke','stroke-dasharray':'3 5'});
+}
+function vrSpellVisible79f4(battle,t,preview=false){
+ const map=battle.map,p=map?.tokens?.[t.id];if(!p||t.hidden76b||t.missing||t.mapDead||t.death==='dead'||!Number.isFinite(p.x)||!Number.isFinite(p.y))return false;
+ if(battle.gm&&!preview)return true;
+ const mask=map.fog76;if(typeof mask!=='string'||mask.length!==25600)return true;
+ const x=Math.max(0,Math.min(159,Math.floor((p.x+.5)/map.cols*160))),y=Math.max(0,Math.min(159,Math.floor((p.y+.5)/map.rows*160)));return mask[y*160+x]!=='1';
+}
+function vrSpellAreaTargets79f4(parent,actor,battle,action,ui,run){
+ const spec=action.targeting79e,map=battle.map,from=map.tokens?.[actor.id],max=Math.max(1,Math.min(100,Number(spec.maxTargets)||100)),side=spec.side||'all';
+ const key=JSON.stringify([actor.id,action.id,battle.round,spec,map.sceneLoad76e,map.imageId,map.cols,map.rows,map.meters]);
+ if(ui.areaDraft79f4?.key!==key){const seed=map.tokens?.[ui.target];ui.areaDraft79f4={key,point:spec.origin==='point'&&seed?{x:seed.x,y:seed.y}:null,angle:from&&seed?Math.atan2(seed.y-from.y,seed.x-from.x)*180/Math.PI:0,stamp:null};ui.verified=false;ui.targets79e2=[];}
+ const draft=ui.areaDraft79f4;
+ const preview=()=>!!ui.isFogPreview79f4?.();
+ const targets=battle.actors.filter(t=>vrSpellVisible79f4(battle,t,preview())&&(side==='ally'?t.side===actor.side:side==='enemy'?t.side!==actor.side:true));
+ let ids=[...new Set(ui.targets79e2||[])].filter(id=>targets.some(t=>t.id===id)).slice(0,max),candidates=[];
+ const panel=el('div',undefined,parent);panel.className='vr-spell-controls79f4';el('strong','Plošné cílení · '+action.name,panel);el('small',vrTargetText79e(spec),panel);
+ const tools=el('div',undefined,panel);tools.className='vr-spell-tools79f4';
+ const directional=['cone','line','square'].includes(spec.shape);
+ const place=btn(spec.origin==='self'?'Určit směr na mapě':'Umístit oblast na mapě',tools,()=>{ui.areaPicking79f4=true;ui.pickMap?.();hint.textContent=spec.origin==='self'?'Klikni na mapu ve směru účinku.': 'Klikni na výchozí bod oblasti na mapě.';});
+ place.disabled=(!from)||(!directional&&spec.origin==='self')||preview();
+ const adjust=btn('Ruční výběr žetonů',tools,()=>{ui.areaPicking79f4=false;ui.pickMap?.();hint.textContent='Klikáním na žetony uprav výběr. Potvrď jej s PJ.';});
+ let rotation=null,rotationOut=null;
+ if(directional){const lab=el('label','Směr oblasti (°)',panel);rotation=el('input',undefined,lab);rotation.type='range';rotation.min=0;rotation.max=360;rotation.step=1;rotation.value=String(Math.round((draft.angle%360+360)%360));rotationOut=el('output',rotation.value+'°',lab);rotation.oninput=()=>{draft.angle=Number(rotation.value);rotationOut.value=rotation.value+'°';draft.stamp=null;verified.checked=false;update();};}
+ const reset=btn('Přepočítat cíle podle oblasti',panel,()=>{draft.stamp=null;verified.checked=false;update();});
+ const hint=el('small','',panel);hint.setAttribute('role','status');const count=el('strong','',panel);const list=el('div',undefined,panel);list.style.cssText='max-height:210px;overflow:auto;display:grid;gap:4px';const checks=new Map();
+ for(const t of targets){const c=vrCombatCheck(list,t.name,false);checks.set(t.id,c);c.onchange=()=>toggle(t.id,c.checked);}
+ const controls=el('div',undefined,parent);controls.className='vr-combat-controls';
+ const strong=action.mode==='attack'?vrCombatCheck(controls,'Zesílený útok · +5 za 3 EN jednou',ui.strong):null;
+ if(strong){strong.disabled=vrCombatNumber(actor.en)<vrCombatNumber(action.costEN)+3;if(strong.disabled)strong.checked=false;strong.onchange=()=>{verified.checked=false;update();};}
+ const verified=vrCombatCheck(controls,'Dosah, oblast a všechny cíle ověřeny s PJ',ui.verified);
+ const submit=btn('Seslat',controls,()=>{update();if(submit.disabled)return;const payload={actor:actor.id,action:action.id,target:ids[0],targets:[...ids],strong:!!strong?.checked,confirm:true};ui.targets79e2=[];ui.areaDraft79f4=null;ui.verified=false;verified.checked=false;ui.cancelMap?.();ui.previewArea79f4?.(null);submit.disabled=true;run('act',payload);});submit.className='vr-combat-primary';
+ function toggle(id,want){if(!checks.has(id))return false;if(want&&!ids.includes(id)&&ids.length<max)ids.push(id);else if(!want)ids=ids.filter(x=>x!==id);verified.checked=false;update();return true;}
+ function update(){
+  const origin=spec.origin==='self'?from:draft.point,g=vrSpellGeometry79f4(spec,origin,draft.angle,map.meters),castRange=vrContextRange79f(action.range);
+  const pointValid=!!origin&&origin.x>=-.5&&origin.y>=-.5&&origin.x<=map.cols-.5&&origin.y<=map.rows-.5;
+  const out=!!(from&&origin&&spec.origin==='point'&&castRange!=null&&Math.hypot(origin.x-from.x,origin.y-from.y)*map.meters>castRange+1e-8);
+  const ready=!!(from&&g&&pointValid&&!out&&!preview());
+  candidates=ready?targets.filter(t=>vrSpellContains79f4(g,map.tokens[t.id])).map(t=>t.id):[];
+  const stamp=JSON.stringify([key,origin,draft.angle,from,castRange,targets.map(t=>[t.id,map.tokens[t.id]]),preview()]);
+  if(draft.stamp!==stamp){draft.stamp=stamp;ids=candidates.slice(0,max);verified.checked=false;}
+  if(!ready){ids=[];verified.checked=false;}
+  const manual=ids.length!==Math.min(candidates.length,max)||ids.some(id=>!candidates.includes(id));
+  ui.targets79e2=[...ids];ui.verified=verified.checked;ui.strong=!!strong?.checked;
+  for(const [id,c] of checks){c.checked=ids.includes(id);c.disabled=!ready||!c.checked&&ids.length>=max;const l=c.closest('label');if(l)l.classList.toggle('vr-spell-candidate79f4',candidates.includes(id));}
+  hint.textContent=preview()?'Ukonči hráčský náhled PJ.':!from?'Nejdřív umísti sesilatele na mapu.':!pointValid?'Umísti výchozí bod oblasti.':out?'Výchozí bod je mimo dosah kouzla.':!g?'Neplatné rozměry oblasti.':`${candidates.length} viditelných žetonů v oblasti${candidates.length>max?' · limit '+max+'; uprav výběr dle PJ':''}${manual?' · ručně upravený výběr':''}${spec.origin==='point'&&castRange==null?' · dosah dle popisu ověří PJ':''}.`;
+  hint.classList.toggle('vr-spell-warning79f4',!ready||manual||candidates.length>max);
+  count.textContent='Vybráno '+ids.length+' / '+(Number(spec.maxTargets)||'100 (technický limit)');
+  reset.disabled=!ready;adjust.disabled=!ready;verified.disabled=!ready||!ids.length;
+  submit.textContent='Seslat · '+ids.length+' cílů (jedna spotřeba)';submit.disabled=!ready||!ids.length||!verified.checked||!!vrCombatActionBlock(actor,action);
+  ui.previewArea79f4?.(g&&from&&pointValid&&!preview()?{...g,out,from,castRange:spec.origin==='point'?castRange:null}:null);ui.highlightMap?.(ids);
+ }
+ ui.receiveAreaPoint79f4=p=>{if(!parent.isConnected||!ui.areaPicking79f4||preview()||!from)return false;
+  if(spec.origin==='self'){if(directional&&Math.hypot(p.x-from.x,p.y-from.y)>1e-8)draft.angle=Math.atan2(p.y-from.y,p.x-from.x)*180/Math.PI;}
+  else draft.point={x:p.x,y:p.y};
+  if(rotation){rotation.value=String(Math.round((draft.angle%360+360)%360));rotationOut.value=rotation.value+'°';}
+  draft.stamp=null;verified.checked=false;update();return true;};
+ ui.receiveMapTarget=id=>{if(!parent.isConnected||ui.areaPicking79f4||!checks.has(id)||checks.get(id).disabled&&!ids.includes(id))return false;toggle(id,!ids.includes(id));return 'keep';};
+ verified.onchange=update;update();
+}
 
 // V79f.1: target-first action menu. It shares the existing authoritative battle RPC.
 function vrContextRange79f(value){const m=String(value??'').trim().match(/^(\d+(?:[,.]\d+)?)\s*m$/i);return m?Number(m[1].replace(',','.')):null;}
