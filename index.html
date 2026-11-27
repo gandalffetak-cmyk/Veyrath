@@ -434,7 +434,37 @@ button.vr-combat-action-row{display:grid;grid-template-columns:minmax(0,1.4fr) m
 </style>
 <style>
 .vr-summary-head67{display:flex;align-items:center;justify-content:space-between;gap:8px}.vr-summary-head67 h3{margin:0!important}.vr-summary-head67 button{margin:0;padding:4px 10px;font-size:.8rem}.vr-battle-summary-panel [hidden]{display:none!important}.vr-gm-tools67{margin-top:7px;border-top:1px solid var(--vr-border);padding-top:6px}.vr-gm-tools67>summary,.vr-resource-fold67>summary{cursor:pointer;color:var(--vr-accent-text);font-size:.82rem}.vr-resource-fold67{margin-top:6px}.vr-gm-tools67 button{margin:8px 0 0}.vr-resource-fold67 form{margin-top:6px}.vr-campaign-battle-view .vr-battle-roster-column .vr-b170-actor{padding:7px}.vr-campaign-battle-view .vr-battle-roster-column .vr-bars1711{gap:3px}.vr-quick-row1711 button{white-space:nowrap}.vr-quickbar:not(.vr-quick-preview) .vr-quick-slot{cursor:pointer}.vr-summary-head67+div{margin-top:6px}
-</style></head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.9</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+</style><style id="vr-roster-v68">
+@container campaign-battle (min-width:1151px){.vr-campaign-battle-view .vr-battle-board-layout{grid-template-columns:minmax(176px,208px) minmax(0,1fr) minmax(310px,370px)}}
+.vr-campaign-battle-view .vr-battle-roster-column{gap:7px}
+.vr-campaign-battle-view .vr-battle-roster-column>.vr-magic-panel{padding:6px}
+.vr-campaign-battle-view .vr-battle-roster-column h3{font-size:.87rem;line-height:1.2;margin:0 0 5px}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-b170-actor{padding:6px;margin:4px 0;border-radius:5px}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-battle-actor-head{flex-wrap:nowrap;align-items:center;gap:4px}
+.vr-campaign-battle-view .vr-battle-roster-column button.vr-battle-actor-button{flex:1 1 auto;gap:6px;font-size:.81rem;line-height:1.2;min-height:0;padding:0}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-battle-actor-portrait{width:30px;height:30px;border-radius:4px}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-battle-actor-button>span{display:flex;flex-direction:column;min-width:0;gap:2px}
+.vr-campaign-battle-view .vr-roster-meta68{font-size:.69rem;line-height:1.15;opacity:.85}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-battle-actor-status{margin-top:4px;gap:3px}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-bars1711{gap:2px;margin:0;width:100%}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-barline1711{grid-template-columns:20px minmax(10px,1fr) auto;gap:4px;line-height:1.1}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-barline1711 small{font-size:.69rem;line-height:1.2}
+.vr-campaign-battle-view .vr-battle-roster-column .vr-track1711{height:5px}
+.vr-roster-meta-row68{display:flex;align-items:center;flex-wrap:wrap;gap:3px 6px;width:100%;line-height:1.2}
+.vr-roster-meta-row68 small{font-size:.69rem}
+.vr-roster-turn68{color:var(--vr-accent-text);font-weight:bold}
+.vr-campaign-battle-view .vr-roster-tools68{margin-top:3px}
+.vr-campaign-battle-view .vr-roster-tools68>summary{font-size:.7rem;line-height:1.25;padding:1px 0}
+.vr-roster-menu68{display:flex;flex-wrap:wrap;gap:4px;padding-top:4px}
+.vr-roster-menu68>button{margin:0;padding:4px 6px;font-size:.75rem}
+.vr-roster-menu68>.vr-battle-resource-form{flex:1 1 100%;min-width:0}
+</style><style id="vr-map-fit69">
+.vr-campaign-battle-view .vr-tactical-scroll{--vr-map-height:clamp(340px,78dvh,1000px);scrollbar-gutter:auto;overflow:auto;}
+.vr-campaign-battle-view .vr-tactical-scroll[data-fit="true"]{overflow:hidden;}
+.vr-campaign-battle-view .vr-tactical-board{min-width:0;max-width:none;flex:none;box-sizing:border-box;}
+.vr-campaign-battle-view .vr-map-fit69{font-size:.82rem;white-space:nowrap;}
+@container campaign-battle (max-width:690px){.vr-campaign-battle-view .vr-tactical-scroll{--vr-map-height:clamp(250px,60dvh,600px)}}
+</style></head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.11</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -1295,6 +1325,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const zoomIn=btn('+',zoom,()=>setZoom(state.viewScale+20));
  zoomIn.className='vr-map-zoom-in';
  zoomIn.setAttribute('aria-label','Přiblížit mapu');
+ const fit=btn('Celá mapa',zoom,()=>setZoom(100));
+ fit.className='vr-map-fit69';fit.title='Přizpůsobit mapu dostupnému prostoru bez posouvání';
  const controls=el('div',undefined,toolbar);
  controls.className='vr-tactical-controls';
  const mode=vrFxSelect(controls,'Další nástroje',[['','Vybrat…'],...baseModes],'');
@@ -1329,7 +1361,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  boardWrap.onscroll=rememberScroll;
  const savedLeft=state.scrollLeft||0,savedTop=state.scrollTop||0;
  requestAnimationFrame(()=>{
-  if(boardWrap.isConnected){boardWrap.scrollLeft=savedLeft;boardWrap.scrollTop=savedTop;}
+  if(boardWrap.isConnected&&state.viewScale>100){boardWrap.scrollLeft=savedLeft;boardWrap.scrollTop=savedTop;}
  });
  const board=el('div',undefined,boardWrap);
  board.className='vr-tactical-board';
@@ -1340,22 +1372,53 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  board.style.setProperty('--map-rows',map.rows);
  const minZoom=100,maxZoom=240;
  const limit=(value,min,max)=>Math.max(min,Math.min(max,value));
+ function sizeBoard(){
+  const isFit=state.viewScale===minZoom;
+  boardWrap.dataset.fit=String(isFit);
+  // Measure the full viewport (not the scrollbar-reduced size) so zoom does not jump.
+  const width=Math.max(1,boardWrap.offsetWidth-boardWrap.clientLeft*2);
+  const height=Math.max(1,boardWrap.offsetHeight-boardWrap.clientTop*2);
+  const ratio=map.cols/map.rows;
+  const scale=state.viewScale/100;
+  const fitWidth=Math.min(width,height*ratio);
+  const boardWidth=Math.max(1,Math.floor(fitWidth*scale));
+  const boardHeight=Math.max(1,Math.floor(fitWidth/ratio*scale));
+  board.style.width=boardWidth+'px';board.style.height=boardHeight+'px';board.style.minWidth='0';
+  board.style.marginLeft=Math.max(0,Math.floor((boardWrap.clientWidth-boardWidth)/2))+'px';
+  board.style.marginRight='0';
+  board.style.marginTop=Math.max(0,Math.floor((boardWrap.clientHeight-boardHeight)/2))+'px';
+  if(isFit){boardWrap.scrollLeft=0;boardWrap.scrollTop=0;}
+ }
  function applyZoom(value){
   state.viewScale=limit(value,minZoom,maxZoom);
   board.style.setProperty('--map-view-scale',state.viewScale/100);
   zoomValue.value=state.viewScale+' %';
+  fit.setAttribute('aria-pressed',String(state.viewScale===minZoom));
   zoomOut.disabled=state.viewScale===minZoom;
   zoomIn.disabled=state.viewScale===maxZoom;
+  sizeBoard();
  }
  function setZoom(value){
-  const centerX=(boardWrap.scrollLeft+boardWrap.clientWidth/2)/board.clientWidth;
-  const centerY=(boardWrap.scrollTop+boardWrap.clientHeight/2)/board.clientHeight;
+  const centerX=(boardWrap.scrollLeft+boardWrap.clientWidth/2-(parseFloat(board.style.marginLeft)||0))/Math.max(1,board.clientWidth);
+  const centerY=(boardWrap.scrollTop+boardWrap.clientHeight/2-(parseFloat(board.style.marginTop)||0))/Math.max(1,board.clientHeight);
   applyZoom(value);
-  boardWrap.scrollLeft=centerX*board.clientWidth-boardWrap.clientWidth/2;
-  boardWrap.scrollTop=centerY*board.clientHeight-boardWrap.clientHeight/2;
+  boardWrap.scrollLeft=state.viewScale===minZoom?0:centerX*board.clientWidth+(parseFloat(board.style.marginLeft)||0)-boardWrap.clientWidth/2;
+  boardWrap.scrollTop=state.viewScale===minZoom?0:centerY*board.clientHeight+(parseFloat(board.style.marginTop)||0)-boardWrap.clientHeight/2;
   rememberScroll();
  }
- applyZoom(state.viewScale??120);
+ // A new battle starts in fit mode; retain deliberate zoom changes across redraws.
+ applyZoom(state.viewScale??100);
+ requestAnimationFrame(()=>{if(boardWrap.isConnected)sizeBoard();});
+ if(typeof ResizeObserver==='function'){
+  const resize=new ResizeObserver(()=>{if(boardWrap.isConnected)sizeBoard();else resize.disconnect();});
+  resize.observe(boardWrap);
+  // Disconnect when the polling renderer replaces this map.
+  const removed=new MutationObserver(()=>{if(!boardWrap.isConnected){resize.disconnect();removed.disconnect();}});
+  removed.observe(panel.parentNode||panel,{childList:true,subtree:true});
+  // Parent replacement may not trigger a subtree observer on the detached layout.
+  const root=panel.closest('.vr-campaign-battle-view');
+  if(root&&root!==panel.parentNode)removed.observe(root,{childList:true,subtree:true});
+ }
  const cursor=el('span',undefined,board);
  cursor.className='vr-tactical-cursor';
  const marker=el('span',undefined,board);
@@ -1614,8 +1677,11 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   showPoint(clamp(state.point.x+delta[0],state.point.y+delta[1]));
   const {x,y}=state.point;
   const cellWidth=board.clientWidth/map.cols,cellHeight=board.clientHeight/map.rows;
-  boardWrap.scrollLeft=limit(boardWrap.scrollLeft, (x+1)*cellWidth-boardWrap.clientWidth,x*cellWidth);
-  boardWrap.scrollTop=limit(boardWrap.scrollTop, (y+1)*cellHeight-boardWrap.clientHeight,y*cellHeight);
+  if(state.viewScale>minZoom){
+   const mx=parseFloat(board.style.marginLeft)||0,my=parseFloat(board.style.marginTop)||0;
+   boardWrap.scrollLeft=limit(boardWrap.scrollLeft, mx+(x+1)*cellWidth-boardWrap.clientWidth,mx+x*cellWidth);
+   boardWrap.scrollTop=limit(boardWrap.scrollTop, my+(y+1)*cellHeight-boardWrap.clientHeight,my+y*cellHeight);
+  }
  };
  function setMode(value){
   endDrag();
@@ -2458,24 +2524,25 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
   portrait.alt='';
   const info=el('span',undefined,button);
   el('strong',a.name,info);
-  el('small',vrBattleActorKind(a),info);
-  const initiative=el('span','Iniciativa '+(a.initiative??'—'),row);
-  initiative.className='chip';
+  el('small',vrBattleActorKind(a)+' · INI '+(a.initiative??'—'),info).className='vr-roster-meta68';
   const actorStatus=el('div',undefined,q);
   actorStatus.className='vr-battle-actor-status';
-  if(a.id===turn?.id&&status==='running')el('span','Na tahu',actorStatus).className='chip';
-  if(a.control){
-   vrBars1711(actorStatus,a);
-   if(a.defense!=null)el('small','Obrana '+a.defense,actorStatus);
-  }
-  el('small',vrBattlePublicHealth(a),actorStatus);
-  if(gm&&a.kind==='npc'&&a.control){
-   const detailButton=btn('Detail bestie',q,()=>openActorOverview(a.id,detailButton,true));
-   detailButton.setAttribute('aria-haspopup','dialog');
-  }
+  if(a.control)vrBars1711(actorStatus,a);
+  const footer=el('div',undefined,actorStatus);footer.className='vr-roster-meta-row68';
+  const health=el('small',[(a.control&&a.defense!=null?'OBR '+a.defense:''),vrBattlePublicHealth(a)].filter(Boolean).join(' · '),footer);health.title=health.textContent;
+  if(a.id===turn?.id&&status==='running')el('small','Na tahu',footer).className='vr-roster-turn68';
   if(a.control&&a.missing)el('small','Bytost už není dostupná.',q);
-  if(gm&&status==='setup')action(q,'Odebrat','remove',{id:a.id});
-  if(status==='running'&&!a.missing&&(gm||(a.kind==='pc'&&a.control&&a.controller===uid))){const controls=el('details',undefined,q);controls.className='vr-resource-fold67';controls.open=resourceOpen.has(a.id);const heading=el('summary','Upravit zdroje',controls);heading.onclick=e=>{e.preventDefault();controls.open=!controls.open;if(controls.open)resourceOpen.add(a.id);else resourceOpen.delete(a.id);};vrDrawBattleResources(controls,a,gm,run);}
+  const canDetail=gm&&a.kind==='npc'&&a.control;
+  const canRemove=gm&&status==='setup';
+  const canAdjust=status==='running'&&!a.missing&&(gm||(a.kind==='pc'&&a.control&&a.controller===uid));
+  if(canDetail||canRemove||canAdjust){
+   const controls=el('details',undefined,q);controls.className='vr-resource-fold67 vr-roster-tools68';controls.open=resourceOpen.has(a.id);
+   const heading=el('summary','Správa',controls);heading.onclick=e=>{e.preventDefault();controls.open=!controls.open;if(controls.open)resourceOpen.add(a.id);else resourceOpen.delete(a.id);};
+   const menu=el('div',undefined,controls);menu.className='vr-roster-menu68';
+   if(canDetail){const detailButton=btn('Detail bestie',menu,()=>openActorOverview(a.id,detailButton,true));detailButton.setAttribute('aria-haspopup','dialog');}
+   if(canRemove)action(menu,'Odebrat','remove',{id:a.id});
+   if(canAdjust)vrDrawBattleResources(menu,a,gm,run);
+  }
  }
  if(status==='running'&&turn){
   if(pending){
