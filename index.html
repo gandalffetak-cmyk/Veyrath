@@ -500,7 +500,14 @@ button.vr-combat-action-row{display:grid;grid-template-columns:minmax(0,1.4fr) m
 .vr-tactical-board>.vr-tactical-token.is-dragging{transform:translate(-50%,-50%);z-index:5;}
 .vr-tactical-board>.vr-tactical-cursor,.vr-tactical-board>.vr-tactical-origin{position:absolute;width:calc(100% / var(--map-cols));height:calc(100% / var(--map-rows));transform:translate(-50%,-50%);pointer-events:none;}
 </style>
-</head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.15</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+<style id="vr-status74-css">
+.vr-fx74-strip{display:flex;flex-wrap:wrap;gap:3px;align-items:center;margin:3px 0;min-width:0}
+.vr-fx74-chip{display:inline-flex;align-items:center;justify-content:center;gap:2px;box-sizing:border-box;min-width:23px;min-height:22px;border:1px solid var(--fx74-color,#b99a61);border-radius:5px;background:#1a202b;color:#f1e7d4;font-size:12px;line-height:1.1;padding:2px 4px;cursor:help;white-space:nowrap}
+.vr-fx74-chip:focus-visible{outline:2px solid #e6c77e;outline-offset:1px}
+.vr-tactical-token .vr-fx74-strip{position:absolute;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);flex-wrap:nowrap;margin:0;gap:2px;z-index:6;pointer-events:auto}
+.vr-tactical-token .vr-fx74-chip{font-size:11px;min-height:16px;min-width:16px;padding:1px 2px;pointer-events:auto;box-shadow:0 1px 3px #000}
+.vr-fx74-list{display:grid;gap:6px;margin:8px 0}.vr-fx74-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:6px;border:1px solid var(--vr-border,#555);border-radius:6px}.vr-fx74-info{flex:1;min-width:130px;overflow-wrap:anywhere}.vr-fx74-info small{display:block;white-space:pre-wrap}.vr-fx74-dialog form{display:grid;gap:8px}.vr-fx74-dialog input,.vr-fx74-dialog select,.vr-fx74-dialog textarea{width:100%;box-sizing:border-box}.vr-fx74-dialog textarea{min-height:70px}.vr-fx74-dialog label{display:block}.vr-fx74-sheet{margin-top:5px}.vr-fx74-sheet[hidden]{display:none!important}
+</style></head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.16</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -1426,6 +1433,51 @@ function vrMapTokenSize(actor){
  const size=actor.tokenStyle?.size;
  return Number.isInteger(size)&&size>=40&&size<=100?size:80;
 }
+// V74 — encounter-only markers, no automatic changes to combat mechanics.
+const vrStatusTypes74={bleed:['🩸','Krvácení','#d66666'],poison:['☠','Otrávení','#9bcb72'],stun:['⚡','Omráčení','#e1c363'],unconscious:['☾','Bezvědomí','#b2a1e2'],burn:['🔥','Hoření','#e18c46'],freeze:['❄','Zmrazení','#7dbddf'],shield:['🛡','Magická ochrana','#77a9df'],regen:['✚','Regenerace','#74c894'],dead:['✖','Smrt','#98949b'],custom:['✦','Vlastní efekt','#c8a86d']};
+function vrStatusRemaining74(e,round){return e.endRound==null?null:Math.max(0,Number(e.endRound)-Math.max(1,Number(round)||1));}
+function vrStatuses74(battle,id){return (Array.isArray(battle?.effects74)?battle.effects74:[]).filter(e=>e.actor===id&&vrStatusRemaining74(e,battle.round)!==0);}
+function vrStatusDescription74(e,round){const left=vrStatusRemaining74(e,round);return [e.name,left==null?'Do ručního ukončení':left+' kol',e.strength?'Síla: '+e.strength:'',e.note].filter(Boolean).join(' · ');}
+function vrStatusChips74(parent,effects,round,{map=false}={}){
+ if(!effects.length)return;
+ const strip=el('div',undefined,parent);strip.className='vr-fx74-strip';strip.setAttribute('aria-label','Aktivní bojové stavy');
+ const show=map?effects.slice(0,3):effects;
+ for(const e of show){const [icon,,color]=vrStatusTypes74[e.icon]||vrStatusTypes74.custom;const chip=el('span',icon,strip);chip.className='vr-fx74-chip';chip.style.setProperty('--fx74-color',color);chip.title=vrStatusDescription74(e,round);chip.setAttribute('aria-label',chip.title);if(!map)chip.tabIndex=0;const left=vrStatusRemaining74(e,round);if(left!=null)el('span',String(left),chip);}
+ if(map&&effects.length>show.length){const more=el('span','+'+(effects.length-show.length),strip);more.className='vr-fx74-chip';more.title=effects.slice(show.length).map(e=>vrStatusDescription74(e,round)).join('\n');}
+ return strip;
+}
+function vrStatusDialog74(actorId,getBattle,run){
+ if(!getBattle()?.gm||document.querySelector('.vr-fx74-dialog[open]'))return;
+ const d=el('dialog',undefined,document.body);d.className='theme-dialog vr-magic-dialog vr-fx74-dialog';
+ const actor=()=>getBattle()?.actors?.find(a=>a.id===actorId);
+ el('h2','Stavy a efekty · '+(actor()?.name||'Účastník'),d);
+ el('small','Veřejné bojové značky. Síla a popis jsou pouze informativní; PJ vyhodnocuje účinek. Po skončení střetnutí se značky odstraní.',d);
+ const msg=el('p','',d);msg.setAttribute('role','status');const list=el('div',undefined,d);list.className='vr-fx74-list';
+ const form=el('form',undefined,d);const type=vrFxSelect(form,'Typ stavu',Object.entries(vrStatusTypes74).map(([k,v])=>[k,v[0]+' '+v[1]]),'bleed');
+ const name=libraryField(form,'Název','Krvácení');name.required=true;name.maxLength=80;
+ const strength=vrFxNumber(form,'Síla (informativní)',0,-10000,10000);
+ const duration=vrFxNumber(form,'Zbývající kola (0 = ručně)',1,0,999);
+ const note=el('textarea',undefined,el('label','Popis / účinek pro PJ (veřejný)',form));note.maxLength=500;
+ const buttons=el('div',undefined,form);buttons.className='tabs';
+ const submit=btn('Přidat stav',buttons,()=>{});submit.type='submit';
+ const cancelEdit=btn('Nový stav',buttons,()=>reset());cancelEdit.type='button';cancelEdit.hidden=true;
+ const close=btn('Zavřít',d,()=>d.close());let editingId=null,busy=false;
+ type.onchange=()=>{name.value=type.value==='custom'?'':vrStatusTypes74[type.value][1];};
+ function reset(){editingId=null;type.value='bleed';name.value='Krvácení';strength.value=0;duration.value=1;note.value='';submit.textContent='Přidat stav';cancelEdit.hidden=true;}
+ function edit(e){editingId=e.id;type.value=e.icon in vrStatusTypes74?e.icon:'custom';name.value=e.name;strength.value=e.strength||0;duration.value=vrStatusRemaining74(e,getBattle().round)??0;note.value=e.note||'';submit.textContent='Uložit změny';cancelEdit.hidden=false;name.focus();}
+ function draw(){list.replaceChildren();const b=getBattle();const rows=vrStatuses74(b,actorId);if(!rows.length)el('small','Žádné aktivní bojové stavy.',list);for(const e of rows){const row=el('div',undefined,list);row.className='vr-fx74-row';vrStatusChips74(row,[e],b.round);const info=el('div',undefined,row);info.className='vr-fx74-info';el('strong',e.name,info);el('small',vrStatusDescription74(e,b.round),info);btn('Upravit',row,()=>edit(e));btn('Odebrat',row,()=>act('fxRemove74',{id:e.id}));}}
+ async function act(action,payload){if(busy||!getBattle()?.gm||!actor())return;busy=true;form.inert=list.inert=true;close.disabled=true;msg.textContent='Ukládám…';try{const ok=await run(action,{actor:actorId,...payload});if(!ok)throw Error('Změna nepotvrzena. Zkontroluj stav po obnovení bojiště.');msg.textContent='Uloženo.';reset();draw();}catch(e){msg.textContent=e.message;}finally{busy=false;form.inert=list.inert=false;close.disabled=false;}}
+ form.onsubmit=e=>{e.preventDefault();try{if(!name.value.trim())throw Error('Zadej název stavu.');act(editingId?'fxEdit74':'fxAdd74',{id:editingId,name:name.value.trim(),icon:type.value,strength:vrFxInt(strength),duration:vrFxInt(duration),note:note.value.trim()});}catch(err){msg.textContent=err.message;}};
+ let stamp='';const timer=setInterval(()=>{const b=getBattle();if(!b?.gm||!actor()||!['setup','running'].includes(b.status)){if(!busy)d.close();return;}const key=JSON.stringify([b.round,vrStatuses74(b,actorId)]);if(!busy&&key!==stamp){stamp=key;draw();}},800);
+ d.addEventListener('cancel',e=>{if(busy)e.preventDefault();});d.addEventListener('close',()=>{clearInterval(timer);d.remove();},{once:true});draw();d.showModal();return d;
+}
+// Character-sheet view is read-only and separate from the existing personal effects system.
+const vrFxHeroBase74=vrFxHero;
+vrFxHero=function(p,c){vrFxHeroBase74(p,c);const host=el('div',undefined,p);host.className='vr-fx74-sheet';host.hidden=true;const uid=user?.id;let last='',busy=false;
+ async function poll(){if(!host.isConnected||user?.id!==uid)return;if(!busy&&!document.hidden){busy=true;try{const {data,error}=await db.rpc('vr_character_battle_status74',{p_character:c.id});if(error)throw error;if(!host.isConnected||user?.id!==uid)return;const rows=Array.isArray(data)?data:[];const key=JSON.stringify(rows);if(key!==last){last=key;host.replaceChildren();host.hidden=!rows.length;for(const row of rows){el('small','Bojové stavy · '+row.campaign,host);vrStatusChips74(host,row.effects||[],row.round);}}}catch(e){if(host.isConnected&&user?.id===uid){last='';host.replaceChildren();host.hidden=false;el('small','Bojové stavy nelze načíst: '+e.message,host);}}finally{busy=false;}}if(host.isConnected&&user?.id===uid)setTimeout(poll,8000);}
+ setTimeout(poll,0);
+};
+
 function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOverview,ownActor,editToken,onTarget}){
  const {map,actors=[],gm,pending,status}=battle;
  if(!map){el('p','Mapa střetnutí zatím není dostupná.',panel);return;}
@@ -1602,7 +1654,8 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   positionAt(cell,token);
   cell.style.width=(vrMapTokenSize(actor)/map.cols)+'%';
   cell.dataset.mapActor=actor.id;cell.dataset.targetEligible=String(actor.death!=='dead'&&!actor.mapDead&&!actor.missing);
-  cell.title=name;
+  const effects=vrStatuses74(battle,actor.id);vrStatusChips74(cell,effects,battle.round,{map:true});
+  cell.title=[name,...effects.map(e=>vrStatusDescription74(e,battle.round))].join(' · ');
   cell.setAttribute('aria-hidden','true');
  }
 
@@ -2348,6 +2401,7 @@ function vrDrawPlayerCombat(host,actor,battle,ui,run,openSheet){
   return;
  }
  el('div',pending?'Braň se':canAct?'Jsi na tahu':battle.pending?'Čeká se na vyhodnocení':myTurn?'Tah nelze provést':'Čeká se',content).className='vr-combat-phase';
+ vrStatusChips74(content,vrStatuses74(battle,actor.id),battle.round);
  const tabs=el('div',undefined,content);
  tabs.className='vr-combat-tabs';
  tabs.setAttribute('role','group');
@@ -2515,7 +2569,8 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
    ['Stav',vrBattlePublicHealth(actor)],
    ...(onTurn?[['Tah','Právě na tahu']]:[])
   ];
-  const contentKey=JSON.stringify([info,dialogIsPrivate&&[actor.hp,actor.maxhp,actor.en,actor.maxen,actor.mp,actor.maxmp,actor.defense,actor.actions]]);
+  const effects=vrStatuses74(data,actor.id);
+  const contentKey=JSON.stringify([info,effects,data.round,dialogIsPrivate&&[actor.hp,actor.maxhp,actor.en,actor.maxen,actor.mp,actor.maxmp,actor.defense,actor.actions]]);
   if(parts.key===contentKey)return;
   parts.key=contentKey;
   parts.basic.replaceChildren();
@@ -2523,6 +2578,7 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
    el('dt',label,parts.basic);
    el('dd',value,parts.basic);
   }
+  if(effects.length){el('dt','Bojové stavy',parts.basic);const dd=el('dd',undefined,parts.basic);vrStatusChips74(dd,effects,data.round);for(const e of effects)el('small',vrStatusDescription74(e,data.round),dd);}
   if(dialogIsPrivate){
    parts.detail.replaceChildren();
    vrBars1711(parts.detail,actor);
@@ -2699,15 +2755,18 @@ function vrRenderBattle170(c,{section=null,owner=false}={}){
   const footer=el('div',undefined,actorStatus);footer.className='vr-roster-meta-row68';
   const health=el('small',[(a.control&&a.defense!=null?'OBR '+a.defense:''),vrBattlePublicHealth(a)].filter(Boolean).join(' · '),footer);health.title=health.textContent;
   if(a.id===turn?.id&&status==='running')el('small','Na tahu',footer).className='vr-roster-turn68';
+  vrStatusChips74(actorStatus,vrStatuses74(data,a.id),data.round);
   if(a.control&&a.missing)el('small','Bytost už není dostupná.',q);
   const canDetail=gm&&a.kind==='npc'&&a.control;
   const canRemove=gm&&status==='setup';
   const canAdjust=status==='running'&&!a.missing&&(gm||(a.kind==='pc'&&a.control&&a.controller===uid));
-  if(canDetail||canRemove||canAdjust){
+  const canStatus=data.gm&&['setup','running'].includes(status);
+  if(canDetail||canRemove||canAdjust||canStatus){
    const controls=el('details',undefined,q);controls.className='vr-resource-fold67 vr-roster-tools68';controls.open=resourceOpen.has(a.id);
    const heading=el('summary','Správa',controls);heading.onclick=e=>{e.preventDefault();controls.open=!controls.open;if(controls.open)resourceOpen.add(a.id);else resourceOpen.delete(a.id);};
    const menu=el('div',undefined,controls);menu.className='vr-roster-menu68';
    if(canDetail){const detailButton=btn('Detail bestie',menu,()=>openActorOverview(a.id,detailButton,true));detailButton.setAttribute('aria-haspopup','dialog');}
+   if(canStatus)btn('Stavy a efekty',menu,()=>vrStatusDialog74(a.id,()=>active()?data:null,run));
    if(canRemove)action(menu,'Odebrat','remove',{id:a.id});
    if(canAdjust)vrDrawBattleResources(menu,a,gm,run);
   }
@@ -3181,13 +3240,15 @@ function vrCharacterWindow1711(initial){
    if(turnNotice.textContent!==notice)turnNotice.textContent=notice;
    turnNotice.hidden=!notice;
    const resources=actor&&context.data.status==='running'?actor:{hp:c.hp,maxhp:c.maxhp,en:c.energy,maxen:c.maxenergy,mp:c.mana,maxmp:c.maxmana};
-   const summaryStamp=JSON.stringify([c.level,c.xp,...['hp','en','mp','maxhp','maxen','maxmp'].map(key=>resources[key])]);
+   const battleEffects=actor?vrStatuses74(context.data,actor.id):[];
+   const summaryStamp=JSON.stringify([c.level,c.xp,battleEffects,context?.data.round,...['hp','en','mp','maxhp','maxen','maxmp'].map(key=>resources[key])]);
    if(summaryStamp!==summaryKey){
     summaryKey=summaryStamp;
     summary.replaceChildren();
     el('strong','Úroveň '+(c.level||1),summary);
     vrLevelInfo(summary,c,{previewOnly:true});
     vrBars1711(summary,resources);
+    vrStatusChips74(summary,battleEffects,context?.data.round);
    }
    drawWeapons(c);
    const quickItems=vrQuickSlots(c).map((_,n)=>vrQuickItem(c,n));
