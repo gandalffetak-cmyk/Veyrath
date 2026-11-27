@@ -500,7 +500,7 @@ button.vr-combat-action-row{display:grid;grid-template-columns:minmax(0,1.4fr) m
 .vr-tactical-board>.vr-tactical-token.is-dragging{transform:translate(-50%,-50%);z-index:5;}
 .vr-tactical-board>.vr-tactical-cursor,.vr-tactical-board>.vr-tactical-origin{position:absolute;width:calc(100% / var(--map-cols));height:calc(100% / var(--map-rows));transform:translate(-50%,-50%);pointer-events:none;}
 </style>
-</head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.14</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+</head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.15</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -511,17 +511,118 @@ const key='veyrath-v1';const fresh=()=>ensureAttrs({id:crypto.randomUUID(),name:
 const db=window.supabase?.createClient('https://tdmwqkrilpeqmlvhgqiy.supabase.co','sb_publishable_3ey_cV_ZVh_vV3wX8laWcg_Y-HDwv3D');
 let isAdmin=false, adminMode=false, owners=new Map();
 let user=null, baseline=new Map(),timer=null,running=null,dirty=false,ready=false;
-const status=t=>{$('sync').textContent=t};
+const status=t=>{$('sync').textContent=t;const b=$('vrSyncConflictButton73');if(b)b.hidden=!vrSyncConflict73;};
 function save(){if(!ready)return;state.forEach(ensureAttrs);dirty=true;status('Neuložené změny…');clearTimeout(timer);timer=setTimeout(flush,450)}
-async function flush(){clearTimeout(timer);if(!ready)return false;if(running){const ok=await running;return ok?(dirty?flush():true):false}if(!dirty)return true;const uid=user.id;const snapshot=JSON.parse(JSON.stringify(state));dirty=false;running=(async()=>{try{const ids=new Set(snapshot.map(c=>c.id));for(const c of snapshot){const json=JSON.stringify(c);if(baseline.get(c.id)===json)continue;const payload={name:c.name,data:c,updated_at:new Date().toISOString()};const owner=owners.get(c.id);let result;if(owner&&adminMode){let raw=vrManagedRaw172.get(c.id);if(!raw)throw Error('Chybí původní deník. Obnov přehled.');result=await db.rpc('vr_manage172',{p_action:'save',p_character:c.id,p_before:raw,p_after:c});if(!result.error){let saved=result.data.data;vrManagedRaw172.set(c.id,structuredClone(saved));let local=state.find(x=>x.id===c.id);if(local&&saved.vrBattleStamp)local.vrBattleStamp=saved.vrBattleStamp;c.vrBattleStamp=saved.vrBattleStamp;}}else if(owner){result=await db.from('characters').update(payload).eq('id',c.id).eq('owner_id',owner).select('id').single()}else{if(adminMode)throw Error('V režimu PJ nelze vytvářet postavy.');result=await db.from('characters').insert({id:c.id,owner_id:uid,...payload}).select('id').single()}if(result.error)throw result.error;owners.set(c.id,owner||uid);baseline.set(c.id,JSON.stringify(c))}for(const id of [...baseline.keys()]){if(ids.has(id))continue;if(adminMode||owners.get(id)!==uid)throw Error('Mazání v režimu PJ není povoleno.');const {error}=await db.from('characters').delete().eq('id',id).eq('owner_id',uid).select('id').single();if(error)throw error;baseline.delete(id);owners.delete(id)}status(dirty?'Neuložené změny…':'Uloženo online');return true}catch(e){dirty=true;status('Uložení selhalo: '+e.message+' – zkus znovu nebo exportuj zálohu.');return false}})();const ok=await running;running=null;if(ok&&dirty)return flush();return ok}
+// V73 — conflict-aware synchronization of a character sheet.
+let vrSyncConflict73=false,vrSyncPolling73=false,vrSyncRenderPending73=false,vrSyncLastManaged73=0;
+function vrSyncStable73(v){if(v===undefined)return undefined;if(v===null||typeof v!=='object')return JSON.stringify(v);if(Array.isArray(v))return '['+v.map(x=>vrSyncStable73(x)??'null').join(',')+']';return '{'+Object.keys(v).filter(k=>v[k]!==undefined).sort().map(k=>JSON.stringify(k)+':'+vrSyncStable73(v[k])).join(',')+'}';}
+function vrSyncEqual73(a,b){return vrSyncStable73(a)===vrSyncStable73(b)}
+const vrSyncGroups73=[['items','attrs','vrQuick','vrWeapons','vrArmor','vrQuickHistory'],['hp','maxhp','deathState','deathSuccesses','deathFailures'],['energy','maxenergy'],['mana','maxmana']];
+const vrSyncNames73={items:'inventář a vybavení',attrs:'atributy',vrQuick:'rychlá výbava',hp:'životy',maxhp:'maximum životů',energy:'energie',mana:'mana',name:'jméno',magic:'kouzla',abilities:'schopnosti',notes:'poznámky'};
+function vrSyncChanges73(base,local){return [...new Set([...Object.keys(base),...Object.keys(local)])].filter(k=>k!=='id'&&k!=='vrBattleStamp'&&!vrSyncEqual73(base[k],local[k]));}
+function vrSyncConflictError73(c,keys){vrSyncConflict73=true;return Error('Současná změna deníku '+c.name+' ('+keys.map(k=>vrSyncNames73[k]||k).join(', ')+'). Rozpracované údaje zůstaly v tomto okně. Použij Načíst online pro řešení konfliktu.');}
+function vrSyncPlan73(base,local,row){
+ const remote=normalize({...structuredClone(row.data||{}),id:row.id,name:row.name});
+ const changes=vrSyncChanges73(base,local),others=vrSyncChanges73(base,remote);
+ const conflict=changes.filter(k=>others.some(r=>r===k?!vrSyncEqual73(local[k],remote[k]):vrSyncGroups73.some(g=>g.includes(k)&&g.includes(r)&&!vrSyncEqual73(local[r],remote[r]))));
+ if(conflict.length)throw vrSyncConflictError73(local,conflict);
+ const payload=structuredClone(row.data||{});
+ for(const k of changes){if(k==='name')continue;if(Object.hasOwn(local,k))payload[k]=structuredClone(local[k]);else delete payload[k];}
+ // Preserve server-only keys and its current battle stamp. Keep embedded identity consistent.
+ if(changes.includes('name'))payload.name=local.name;
+ return {changes,remote,payload,name:changes.includes('name')?local.name:row.name};
+}
+function vrSyncCanPaint73(){return !editing&&!document.querySelector('dialog[open]')&&!document.activeElement?.matches('input,textarea,select,[contenteditable=true]')&&!document.querySelector('.vr-quick-drag');}
+function vrSyncPaint73(){if(!vrSyncRenderPending73||!vrSyncCanPaint73()||dirty||running||!ready)return;vrSyncRenderPending73=false;const scroll=window.scrollY;render();window.scrollTo(0,scroll);}
+// Do not invalidate an active editor or modal's references. Remote-only changes are
+// left at the old baseline until a safe poll; a later edit to that field then conflicts.
+function vrSyncApplySaved73(id,snapshot,saved,changes,base){
+ const live=state.find(x=>x.id===id);if(!live)return;
+ const next=structuredClone(base);const safe=vrSyncCanPaint73();
+ for(const k of new Set([...Object.keys(base),...Object.keys(saved)])){
+  const wrote=changes.includes(k),localSame=vrSyncEqual73(live[k],snapshot[k]);
+  if(!wrote&&(!safe||!localSame))continue;
+  if(wrote&&(!localSame||(!safe&&!vrSyncEqual73(live[k],saved[k])))){
+   // Track the actual value seen by this editor. If a trigger transformed it,
+   // the next edit to the same field must conflict rather than overwrite it.
+   if(Object.hasOwn(snapshot,k))next[k]=structuredClone(snapshot[k]);else delete next[k];continue;
+  }
+  if(!vrSyncEqual73(live[k],saved[k])){if(Object.hasOwn(saved,k))live[k]=structuredClone(saved[k]);else delete live[k];vrSyncRenderPending73=true;}
+  if(Object.hasOwn(saved,k))next[k]=structuredClone(saved[k]);else delete next[k];
+ }
+ baseline.set(id,JSON.stringify(next));
+}
+async function vrSyncOwnerRow73(id,uid){const r=await db.from('characters').select('id,owner_id,name,data').eq('id',id).eq('owner_id',uid).maybeSingle();if(r.error)throw r.error;return r.data;}
+async function vrSyncManagedRows73(){const r=await db.rpc('vr_manage172',{p_action:'list'});if(r.error)throw r.error;if(!Array.isArray(r.data?.characters))throw Error('Chybí seznam deníků.');return r.data.characters;}
+async function vrSyncCas73(row,plan,remove=false){const r=await db.rpc('vr_character_cas73',{p_character:row.id,p_before:row.data,p_before_name:row.name,p_after:remove?null:plan.payload,p_name:remove?null:plan.name,p_delete:remove});if(r.error)throw r.error;return r.data;}
+async function flush(){
+ clearTimeout(timer);if(!ready||!user)return false;if(running){const ok=await running;return ok?(dirty?flush():true):false}if(!dirty)return true;
+ const uid=user.id,managed=adminMode,snapshot=structuredClone(state);dirty=false;
+ running=(async()=>{try{
+  const ids=new Set(snapshot.map(c=>c.id));let managedRows=null;
+  for(const c of snapshot){const base=JSON.parse(baseline.get(c.id)||'{}');if(vrSyncEqual73(base,c))continue;
+   const owner=owners.get(c.id);
+   if(owner){
+    const changes=vrSyncChanges73(base,c);if(!changes.length)continue;
+    if(managed&&!managedRows)managedRows=await vrSyncManagedRows73();
+    const row=managed?managedRows.find(x=>x.id===c.id):await vrSyncOwnerRow73(c.id,uid);
+    if(!row)throw vrSyncConflictError73(c,['postava již není dostupná']);
+    const plan=vrSyncPlan73(base,c,row);let saved;
+    if(managed){const after={...plan.payload,id:c.id,name:plan.name};const r=await db.rpc('vr_manage172',{p_action:'save',p_character:c.id,p_before:row.data,p_after:after});if(r.error)throw r.error;if(!r.data?.data)throw Error('Server nepotvrdil deník.');saved={id:c.id,name:r.data.name??plan.name,data:r.data.data};vrManagedRaw172.set(c.id,structuredClone(saved.data));}
+    else{saved=await vrSyncCas73(row,plan);if(!saved)throw vrSyncConflictError73(c,['serverová verze se mezitím změnila']);}
+    if(user?.id!==uid||adminMode!==managed)throw Error('Režim deníku se změnil.');
+    vrSyncApplySaved73(c.id,c,normalize({...structuredClone(saved.data),id:c.id,name:saved.name}),changes,base);
+   }else{
+    if(managed)throw Error('V režimu PJ nelze vytvářet postavy.');
+    const r=await db.from('characters').insert({id:c.id,owner_id:uid,name:c.name,data:c,updated_at:new Date().toISOString()}).select('id').single();if(r.error)throw r.error;
+    owners.set(c.id,uid);baseline.set(c.id,JSON.stringify(c));
+   }
+  }
+  for(const id of [...baseline.keys()]){if(ids.has(id))continue;if(managed||owners.get(id)!==uid)throw Error('Mazání v režimu PJ není povoleno.');
+   const base=JSON.parse(baseline.get(id)),row=await vrSyncOwnerRow73(id,uid);
+   if(row){const remote=normalize({...structuredClone(row.data),id,name:row.name});if(!vrSyncEqual73(base,remote))throw vrSyncConflictError73(base,['mazání změněné postavy']);if(!await vrSyncCas73(row,null,true))throw vrSyncConflictError73(base,['mazání změněné postavy']);}
+   baseline.delete(id);owners.delete(id);
+  }
+  vrSyncConflict73=false;status(dirty?'Neuložené změny…':'Uloženo online');return true;
+ }catch(e){dirty=true;status('Uložení selhalo: '+e.message);return false}})();
+ const ok=await running;running=null;if(ok&&dirty)return flush();vrSyncPaint73();return ok;
+}
+async function vrSyncPoll73(){
+ vrSyncPaint73();
+ if(vrSyncPolling73||!ready||!user||dirty||running||vrResourceBusy||document.hidden||!vrSyncCanPaint73())return;
+ const uid=user.id,managed=adminMode,id=selected,c=state.find(x=>x.id===id);if(!c||!owners.has(id)||!baseline.has(id))return;
+ if(managed&&Date.now()-vrSyncLastManaged73<10000)return;
+ const before=baseline.get(id),localStamp=vrSyncStable73(c);if(vrSyncChanges73(JSON.parse(before),c).length)return;
+ vrSyncPolling73=true;if(managed)vrSyncLastManaged73=Date.now();
+ try{
+  const row=managed?(await vrSyncManagedRows73()).find(x=>x.id===id):await vrSyncOwnerRow73(id,uid);
+  if(!ready||user?.id!==uid||adminMode!==managed||selected!==id||!state.includes(c)||dirty||running||vrResourceBusy||baseline.get(id)!==before||localStamp!==vrSyncStable73(c)||!vrSyncCanPaint73())return;
+  if(!row){status('Postava již není dostupná. Načti online.');return;}
+  const remote=normalize({...structuredClone(row.data||{}),id:row.id,name:row.name});
+  if(managed)vrManagedRaw172.set(id,structuredClone(row.data||{}));
+  if(vrSyncEqual73(c,remote))return;
+  // Retain character identity so existing floating windows keep working.
+  for(const k of new Set([...Object.keys(c),...Object.keys(remote)])){
+   if(vrSyncEqual73(c[k],remote[k]))continue;
+   if(Object.hasOwn(remote,k))c[k]=structuredClone(remote[k]);else delete c[k];
+  }
+  baseline.set(id,JSON.stringify(c));vrSyncRenderPending73=true;vrSyncPaint73();status('Synchronizováno · změny ze serveru');
+ }catch(e){if(ready&&user?.id===uid&&!dirty&&!running)status('Synchronizace dočasně nedostupná: '+e.message);}finally{vrSyncPolling73=false;}
+}
+function vrSyncConflictDialog73(){
+ const d=el('dialog',undefined,document.body);d.className='theme-dialog';el('h2','Konflikt změn deníku',d);el('p','Server má novější údaje ve stejné části deníku. Automatické uložení je zastavené, aby se nic nepřepsalo. Můžeš si stáhnout rozpracovanou kopii a potom načíst serverovou verzi. Načtení zahodí všechny dosud neuložené místní změny.',d);
+ const row=el('div',undefined,d);row.className='tabs';btn('Stáhnout místní zálohu',row,()=>{const a=el('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='veyrath-konflikt-zaloha.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);});
+ btn('Načíst serverovou verzi',row,async()=>{if(running||vrResourceBusy||!confirm('Zahodit neuložené místní změny a načíst serverový deník?'))return;clearTimeout(timer);dirty=false;vrSyncConflict73=false;d.close();editing=false;await load();});btn('Zpět',row,()=>d.close());d.addEventListener('close',()=>d.remove(),{once:true});d.showModal();
+}
+
 function normalize(c){const o={...fresh(),...c};o.maxmana=Number.isSafeInteger(o.maxmana)&&o.maxmana>=0?o.maxmana:0;o.mana=Number.isSafeInteger(o.mana)?Math.max(0,Math.min(o.maxmana,o.mana)):0;for(const k of ['attrs','skills','abilities','magic','jobs','items'])if(!Array.isArray(o[k]))o[k]=[];return ensureAttrs(o)}
-async function load(){ready=false;$('workspace').inert=true;status('Načítám…');try{let data;if(adminMode){let result=await db.rpc('vr_manage172',{p_action:'list'});if(result.error)throw result.error;data=result.data.characters||[];vrManagedCampaigns172=result.data.campaigns||[];vrManagedRaw172=new Map(data.map(r=>[r.id,structuredClone(r.data||{})]));vrManagedScope172=new Map(data.map(r=>[r.id,r.campaign_id||null]));}else{const result=await db.from('characters').select('id,owner_id,name,data').eq('owner_id',user.id).order('name');if(result.error)throw result.error;data=result.data;vrManagedRaw172.clear();vrManagedScope172.clear();vrManagedCampaigns172=[];}owners=new Map(data.map(r=>[r.id,r.owner_id]));let repairs=new Map();state=data.map(r=>{let raw=JSON.parse(JSON.stringify(r.data||{})),before=JSON.stringify(raw.items||[]),c=normalize({...raw,id:r.id,name:r.name});if(before!==JSON.stringify(c.items))repairs.set(c.id,before);return c});baseline=new Map(state.map(c=>[c.id,!adminMode&&repairs.has(c.id)?JSON.stringify({...c,items:JSON.parse(repairs.get(c.id))}):JSON.stringify(c)]));dirty=false;selected=state.find(c=>c.id===selected)?.id||state[0]?.id;render();ready=true;status('Uloženo online');if(repairs.size&&!adminMode)save();return true}catch(e){state=[];selected=null;baseline.clear();owners.clear();render();status('Načtení selhalo: '+e.message);return false}finally{$('workspace').inert=false}}
+async function load(){vrSyncConflict73=false;vrSyncRenderPending73=false;ready=false;$('workspace').inert=true;status('Načítám…');try{let data;if(adminMode){let result=await db.rpc('vr_manage172',{p_action:'list'});if(result.error)throw result.error;data=result.data.characters||[];vrManagedCampaigns172=result.data.campaigns||[];vrManagedRaw172=new Map(data.map(r=>[r.id,structuredClone(r.data||{})]));vrManagedScope172=new Map(data.map(r=>[r.id,r.campaign_id||null]));}else{const result=await db.from('characters').select('id,owner_id,name,data').eq('owner_id',user.id).order('name');if(result.error)throw result.error;data=result.data;vrManagedRaw172.clear();vrManagedScope172.clear();vrManagedCampaigns172=[];}owners=new Map(data.map(r=>[r.id,r.owner_id]));let repairs=new Map();state=data.map(r=>{let raw=JSON.parse(JSON.stringify(r.data||{})),before=JSON.stringify(raw.items||[]),c=normalize({...raw,id:r.id,name:r.name});if(before!==JSON.stringify(c.items))repairs.set(c.id,before);return c});baseline=new Map(state.map(c=>[c.id,!adminMode&&repairs.has(c.id)?JSON.stringify({...c,items:JSON.parse(repairs.get(c.id))}):JSON.stringify(c)]));dirty=false;selected=state.find(c=>c.id===selected)?.id||state[0]?.id;render();ready=true;status('Uloženo online');if(repairs.size&&!adminMode)save();return true}catch(e){state=[];selected=null;baseline.clear();owners.clear();render();status('Načtení selhalo: '+e.message);return false}finally{$('workspace').inert=false}}
 function modeUI(){ $('vrCreationControls').hidden=!['admin','gm'].includes(vrAccountRole); $('vrUserControls').hidden=!isAdmin; $('adminControls').hidden=!['admin','gm'].includes(vrAccountRole);$('adminInfo').hidden=!adminMode;$('adminToggle').textContent=adminMode?'Zpět na moje postavy':'Správa postav PJ / admin';$('sideTitle').textContent='VEYRATH';$('vrNavCharacters').textContent=adminMode?(isAdmin?'Všechny postavy':'Postavy mých kampaní'):'Moje postavy';$('vrNavAdmin').hidden=!['admin','gm'].includes(vrAccountRole);for(const id of ['add','migrate','backup','import'])$(''+id).hidden=adminMode;$('import').parentElement.hidden=adminMode; }
 async function enter(u){closeLibrary();user=u;vrLoadTheme(u);isAdmin=false;adminMode=false;ready=false;$('workspace').hidden=true;try{const {data,error}=await db.rpc('vr_my_account');if(error)throw error;if(data?.status!=='active'){await db.auth.signOut();user=null;vrLoadTheme(null);$('auth').hidden=false;$('authmsg').textContent=data?.status==='blocked'?'Tento účet je blokovaný. Kontaktuj administrátora.':'Účet čeká na schválení administrátorem.';return}vrActualRole179=data.role;vrPreview179=false;vrAccountRole=data.role;isAdmin=data.role==='admin';$('auth').hidden=true;$('workspace').hidden=false;$('account').textContent=u.email+' · '+({player:'Hráč',gm:'PJ',admin:'Administrátor'}[vrAccountRole]||'Hráč');modeUI();await load()}catch(e){await db.auth.signOut();user=null;vrLoadTheme(null);$('auth').hidden=false;$('workspace').hidden=true;$('authmsg').textContent='Přístup nelze ověřit: '+e.message}}
 $('adminToggle').onclick=()=>vrOpenManaged172(null,!adminMode);
 async function authAction(register){if(!$('loginform').reportValidity())return;$('login').disabled=$('register').disabled=true;$('authmsg').textContent='Připojuji…';try{const email=$('email').value.trim(),password=$('password').value;const result=register?await db.auth.signUp({email,password,options:{emailRedirectTo:location.origin+location.pathname}}):await db.auth.signInWithPassword({email,password});if(result.error)throw result.error;$('password').value='';if(result.data.session)await enter(result.data.session.user);else $('authmsg').textContent='Zkontroluj e-mail a potvrď registraci. Nový účet následně musí schválit administrátor.'}catch(e){$('authmsg').textContent=e.message}finally{$('login').disabled=$('register').disabled=false}}
 $('loginform').onsubmit=e=>{e.preventDefault();authAction(false)};$('register').onclick=()=>authAction(true);
-$('retry').onclick=()=>ready?flush():load();$('refresh').onclick=async()=>{if(ready&&!await flush())return;await load()};
+$('retry').onclick=()=>ready?flush():load();$('refresh').onclick=async()=>{if(vrSyncConflict73){vrSyncConflictDialog73();return;}if(ready&&!await flush()){if(vrSyncConflict73)vrSyncConflictDialog73();return;}await load()};
 $('logout').onclick=async()=>{if(ready&&!await flush())return;const {error}=await db.auth.signOut();if(error){status(error.message);return}closeLibrary();ready=false;user=null;vrLoadTheme(null);isAdmin=false;adminMode=false;vrPreview179=false;vrActualRole179=vrAccountRole='player';owners.clear();modeUI();state=[];baseline.clear();selected=null;$('detail').replaceChildren();$('people').replaceChildren();$('workspace').hidden=true;$('auth').hidden=false;$('authmsg').textContent='Odhlášeno.'};
 $('migrate').onclick=()=>{if(!ready||adminMode)return;try{const old=JSON.parse(localStorage.getItem(key));if(!Array.isArray(old)||!old.length){alert('Žádné původní lokální postavy nebyly nalezeny.');return}if(!confirm('Přidat kopie '+old.length+' lokálních postav k tomuto účtu? Opakování vytvoří další kopie.'))return;state.push(...old.map(c=>normalize({...c,id:crypto.randomUUID()})));selected=state.at(-1)?.id;save();render()}catch{alert('Lokální data nelze načíst.')}};
 window.addEventListener('beforeunload',e=>{if(dirty||running){e.preventDefault();e.returnValue=''}});
@@ -3111,7 +3212,7 @@ async function vrCharacterEquipSet1711(c,number){
  vrResourceBusy=true;
  try{
   if(!await flush()||!vrQuickLive(c)||user?.id!==uid)throw Error('Nejdřív ulož deník.');
-  const row=campCheck(await db.from('characters').select('data,updated_at').eq('id',c.id).eq('owner_id',uid).single());
+  const row=await vrSyncOwnerRow73(c.id,uid);if(!row)throw Error('Postava již není dostupná.');
   if(!vrQuickLive(c)||user?.id!==uid||dirty||running)throw Error('Deník se mezitím změnil. Zkus přepnout znovu.');
   const before=JSON.parse(JSON.stringify(c));
   const next=normalize({...row.data,id:c.id,name:c.name,vrWeapons:number});
@@ -3119,19 +3220,12 @@ async function vrCharacterEquipSet1711(c,number){
    throw Error('Tato sestava už neobsahuje použitelnou zbraň.');
   vrSyncEquipment(next);
   const payload={...row.data,vrWeapons:number,items:next.items,attrs:next.attrs};
-  const query=db.from('characters').update({data:payload,updated_at:new Date().toISOString()}).eq('id',c.id).eq('owner_id',uid);
-  const saved=campCheck(await (row.updated_at==null?query.is('updated_at',null):query.eq('updated_at',row.updated_at)).select('id').maybeSingle());
+  const saved=await vrSyncCas73(row,{payload,name:row.name});
   if(!saved)throw Error('Deník se mezitím změnil. Zkus přepnout znovu.');
   if(user?.id!==uid||!state.includes(c))return;
   const base=JSON.parse(baseline.get(c.id)||JSON.stringify(before));
-  for(const key of new Set([...Object.keys(row.data),...Object.keys(payload)])){
-   if(key==='id'||key==='name')continue;
-   base[key]=Object.hasOwn(payload,key)?payload[key]:undefined;
-   if(JSON.stringify(c[key])===JSON.stringify(before[key]))c[key]=base[key];
-  }
-  baseline.set(c.id,JSON.stringify(base));
-  ensureAttrs(c);
-  if(!editing&&document.activeElement?.closest('.vr-character-window'))render();
+  vrSyncApplySaved73(c.id,before,normalize({...structuredClone(saved.data),id:c.id,name:saved.name}),['vrWeapons','items','attrs'],base);
+  vrSyncPaint73();
  }finally{
   vrResourceBusy=false;
  }
@@ -3253,4 +3347,9 @@ function vrLibraryGrant72(rule){
  }
  init();
 }
+
+$('vrSyncConflictButton73').onclick=vrSyncConflictDialog73;
+setInterval(vrSyncPoll73,5000);
+window.addEventListener('focus',vrSyncPoll73);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)vrSyncPoll73();});
 </script></body></html>
