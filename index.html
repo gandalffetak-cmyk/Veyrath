@@ -513,11 +513,12 @@ button.vr-combat-action-row{display:grid;grid-template-columns:minmax(0,1.4fr) m
 .vr-tactical-board[data-grid76="off"]::before{display:none!important}
 .vr-grid-tools76{display:flex;align-items:center;gap:4px;flex-wrap:wrap}.vr-grid-tools76 input{width:72px;margin:0}
 .vr-hidden76b{opacity:.55!important;border-style:dashed!important}.vr-hidden76b-label{color:var(--muted,#c6ac80);font-size:.72rem}.vr-tactical-board[data-player-preview76b="true"] .vr-hidden76b{display:none!important}.vr-hide-tools76b{display:grid;gap:6px;border:1px solid #6a583b;border-radius:6px;padding:8px;margin-bottom:8px}.vr-hide-tools76b button{justify-self:start}
+.vr-area-layer76c{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden}.vr-area-tools76c{display:flex;flex-wrap:wrap;align-items:end;gap:6px;padding:6px;border:1px solid #6a583b;border-radius:6px}.vr-area-tools76c label{display:grid;gap:2px;font-size:.75rem}.vr-area-tools76c input[type=number]{width:75px}.vr-area-tools76c small{flex-basis:100%}.vr-tactical-board.vr-area-edit76c,.vr-tactical-board.vr-area-edit76c *{cursor:crosshair!important;touch-action:none}
 .vr-fog76{position:absolute;inset:0;width:100%;height:100%;z-index:20;pointer-events:none;image-rendering:pixelated}
 .vr-tactical-board.vr-fog-edit76,.vr-tactical-board.vr-fog-edit76 *{cursor:crosshair!important;touch-action:none}
 .vr-fog-tools76{display:grid;gap:8px;padding:8px;border:1px solid #6a583b;border-radius:6px;margin-bottom:8px}.vr-fog-tools76 label{display:flex;align-items:center;gap:5px;flex-wrap:wrap}.vr-fog-tools76 input[type=range]{width:100px}
 </style>
-</head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.21</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+</head><body><header><h1><svg class="vr-brand-gem" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 1L25 15L39 24L25 33L20 47L15 33L1 24L15 15Z" fill="currentColor" opacity=".18" stroke="currentColor"/><path d="M20 5L31 24L20 43L9 24Z" fill="#110e20" stroke="currentColor" stroke-width="1.5"/><path d="M20 5L20 24L31 24Z M20 24L9 24L20 43Z" fill="currentColor" opacity=".8"/><path d="M20 9L23 24L20 39L17 24Z" fill="white" opacity=".9"/><path d="M4 24H36M20 2V46" stroke="currentColor" stroke-width=".5"/></svg>VEYRATH</h1><small>Digitální deník postav · verze 0.17.11.22</small><button type="button" id="themeOpen" class="theme-open">⚙ Vzhled</button></header><section id="auth" class="panel" style="max-width:460px;margin:24px auto"><h2>Přihlášení do Veyrath</h2><form id="loginform"><label>E-mail<input id="email" type="email" required autocomplete="email"></label><label>Heslo<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><div class="tabs"><button id="login" type="submit">Přihlásit se</button><button id="register" type="button">Registrovat se</button></div></form><p id="authmsg" role="status"></p></section><main id="workspace" hidden><button id="mobileNav" type="button" aria-expanded="true">☰ Navigace</button><aside><h2 id="sideTitle">VEYRATH</h2><small>Správce dobrodružství</small><div class="vr-nav-label">Hlavní menu</div><p><button id="libraryToggle">Knihovna pravidel</button></p><p><button id="worldToggle">Svět Veyrath</button></p><p><button id="campaignToggle">Kampaně a družiny</button></p><div id="vrNavAdmin" hidden><div class="vr-nav-label">Administrace</div><p id="vrCreationControls" hidden><button id="vrReviewCreation">Schvalování postav</button></p><p id="vrUserControls" hidden><button id="vrUsers">Správa uživatelů</button></p><p id="vrInboxControls176"><button id="vrInbox176" type="button">Schránka PJ</button></p><p id="adminControls" hidden><button id="adminToggle">Administrace PJ</button></p><small id="adminInfo" hidden>Režim správy: upravuješ skutečné deníky. PJ pouze ve svých kampaních; admin všechny. Mazání není dostupné.</small></div><div class="vr-nav-label" id="vrNavCharacters">Moje postavy</div><button id="add">+ Nová postava</button><div id="people"></div><hr><small><span id="account"></span><br><span id="sync" role="status"></span><button type="button" id="vrSyncConflictButton73" hidden>Vyřešit konflikt</button></small><div class="vr-nav-label">Osobní</div><p id="vrPreviewControls179" hidden><button id="vrPreview179" type="button" aria-pressed="false">Testovat jako hráč</button><small id="vrPreviewHint179" hidden>Náhled hráče · skutečná role účtu se nemění.</small></p><details class="utility"><summary>Ukládání a zálohy</summary><p><button id="retry">Uložit / opakovat</button> <button id="refresh">Načíst online</button></p><p><button id="migrate">Přenést staré lokální postavy</button></p><p><button id="backup">Export zálohy</button></p><label>Obnovit ze zálohy<input type="file" id="import" accept=".json,application/json"></label></details><p><button id="logout">Odhlásit se</button></p></aside><article id="detail"></article><article id="library" hidden></article><article id="campaignPanel" hidden></article></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const ATTR_DEFS=[["Síla", "⚔", "Vyjadřuje fyzickou sílu a schopnost překonat odpor. Používá se při útocích silovými a těžkými zbraněmi, zápasení, vyrážení dveří, zvedání předmětů a přenášení nákladu."], ["Obratnost", "↗", "Vyjadřuje pohyblivost, rychlost a koordinaci celého těla. Používá se při úhybech, plížení, akrobacii, skákání, udržování rovnováhy a boji lehkými zbraněmi zblízka."], ["Preciznost", "◎", "Vyjadřuje přesnost, jemnou motoriku a jistotu ruky. Používá se při střelbě, vrhání zbraní, kapsářství, otevírání zámků, zneškodňování mechanických pastí a jemné řemeslné práci.\n\nObratnost určuje, jak dobře se postava pohybuje. Preciznost určuje, jak přesně dokáže provést určitý úkon."], ["Odolnost", "⛨", "Vyjadřuje tělesnou výdrž a houževnatost. Určuje základní počet životů a používá se při odolávání jedům, nemocem, únavě a nepříznivým přírodním podmínkám."], ["Inteligence", "◇", "Vyjadřuje schopnost uvažovat, učit se, pamatovat si a chápat složité souvislosti. Používá se při učené magii, alchymii, luštění šifer, pochopení mechanismů, vybavování znalostí a vyhodnocování nalezených stop."], ["Vůle", "✦", "Vyjadřuje duševní sílu, soustředění a spojení s duchovní mocí. Používá se při odolávání strachu, posednutí a ovládání mysli, při zaměřování pozornosti a při sesílání kněžské a druidské magie."], ["Charisma", "♧", "Vyjadřuje osobní působení, sebejistotu a schopnost ovlivňovat ostatní. Používá se při přesvědčování, lhaní, vyjednávání, vystupování, velení a sesílání bardovy magie.\n\nCharisma neznamená krásu. I zjizvená nebo nezvykle vyhlížející postava může působit přesvědčivě, vzbuzovat respekt a strhnout ostatní."]];
 const attrKey=s=>String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim().toLowerCase();
 function attrNum(v){return String(v??'').trim()!==''&&Number.isSafeInteger(Number(v))?Number(v):0}
@@ -1493,7 +1494,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const {map,actors=[],gm,pending,status}=battle;
  if(!map){el('p','Mapa střetnutí zatím není dostupná.',panel);return;}
  const turn=actors[battle.turn||0];
- const baseModes=[['inspect','Přehled postav']];
+ const baseModes=[['inspect','Přehled postav'],['area76c','Plošné efekty']];
  if(gm)baseModes.push(['place','Rozmístit žetony']);
  const turnToken=turn&&map.tokens[turn.id];
  const canMove=status==='running'&&!pending&&turn?.control&&turn.hp>0&&turnToken;
@@ -1519,6 +1520,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  hand.className='vr-map-hand';
  const measure=btn('↔ Metr',tools,()=>setMode('measure'));
  measure.className='vr-map-measure';
+ const areaButton=btn('◉ Plocha',tools,()=>{if(!state.fogPreview76)setMode(state.mode==='area76c'?'hand':'area76c');});areaButton.title='Náhled plošných účinků v metrech';
  const zoom=el('div',undefined,tools);
  zoom.className='vr-tactical-zoom';
  zoom.setAttribute('role','group');
@@ -1647,13 +1649,39 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   });
  }
  applyImage();
+ // Areas use map units (one unit = one grid interval), independent of visual grid.
+ const areaScene=JSON.stringify([map.imageId||'',map.cols,map.rows,map.meters]);
+ if(state.areaScene76c!==areaScene){state.areaScene76c=areaScene;state.areaDraft76c=null;}
+ const areaColors={gold:'#e1b45e',red:'#f07171',blue:'#6ba8e8',green:'#70c899',purple:'#b699e8'};
+ const areaNames={circle:'Kruh',cone:'Kužel',line:'Paprsek',rect:'Obdélník'};
+ const areaCfg=state.areaCfg76c??={shape:'circle',length:4,width:2,angle:90,color:'gold'};
+ let areaStroke=null,areaHint=null,areaSave=null,areaClear=null;
+ const areaLayer=document.createElementNS('http://www.w3.org/2000/svg','svg');areaLayer.setAttribute('class','vr-area-layer76c');areaLayer.setAttribute('viewBox',`0 0 ${map.cols} ${map.rows}`);areaLayer.setAttribute('preserveAspectRatio','none');areaLayer.setAttribute('aria-hidden','true');board.append(areaLayer);
+ function areaGeometry76c(a){const l=a.length/map.meters,w=a.width/map.meters,rad=a.direction*Math.PI/180;return {l,w,rad};}
+ function areaContains76c(a,p){const {l,w,rad}=areaGeometry76c(a),dx=p.x+.5-a.x,dy=p.y+.5-a.y,along=dx*Math.cos(rad)+dy*Math.sin(rad),across=-dx*Math.sin(rad)+dy*Math.cos(rad);if(a.shape==='circle')return Math.hypot(dx,dy)<=l;if(a.shape==='cone')return Math.hypot(dx,dy)<=l&&(Math.hypot(dx,dy)<1e-8||Math.abs(Math.atan2(across,along))<=a.angle*Math.PI/360);return along>=0&&along<=l&&Math.abs(across)<=w/2;}
+ function areaTargets76c(a){return actors.filter(t=>{const p=map.tokens[t.id];return p&&!t.hidden76b&&!t.missing&&!t.mapDead&&t.death!=='dead'&&((gm&&!state.fogPreview76)||!covered76(p))&&areaContains76c(a,p);});}
+ function areaShape76c(a,draft){const {l,w}=areaGeometry76c(a),ns='http://www.w3.org/2000/svg',g=document.createElementNS(ns,'g');g.setAttribute('transform',`translate(${a.x} ${a.y}) rotate(${a.direction})`);let node;
+  if(a.shape==='circle'){node=document.createElementNS(ns,'circle');node.setAttribute('r',l);}
+  else if(a.shape==='cone'){node=document.createElementNS(ns,'path');const theta=a.angle*Math.PI/360,x=l*Math.cos(theta),y=l*Math.sin(theta);node.setAttribute('d',`M 0 0 L ${x} ${-y} A ${l} ${l} 0 0 1 ${x} ${y} Z`);}
+  else{node=document.createElementNS(ns,'rect');node.setAttribute('x',0);node.setAttribute('y',-w/2);node.setAttribute('width',l);node.setAttribute('height',w);}
+  const color=areaColors[a.color]||areaColors.gold;node.setAttribute('fill',color);node.setAttribute('fill-opacity',draft?'.25':'.19');node.setAttribute('stroke',color);node.setAttribute('stroke-width',draft?'2':'1.5');node.setAttribute('vector-effect','non-scaling-stroke');if(draft)node.setAttribute('stroke-dasharray','5 3');g.append(node);areaLayer.append(g);}
+ function drawAreas76c(){areaLayer.replaceChildren();for(const a of map.areas76c||[])areaShape76c(a,false);const draft=state.mode==='area76c'&&!state.fogPreview76?state.areaDraft76c:null;if(draft)areaShape76c(draft,true);if(areaHint)areaHint.textContent=draft?'Žetony v ploše (střed): '+(areaTargets76c(draft).map(a=>a.name).join(', ')||'žádné'):'Klikni na střed kruhu nebo táhni pro směr ostatních ploch.';if(areaSave)areaSave.disabled=!draft||!gm||!!state.fogPreview76||(map.areas76c||[]).length>=24;if(areaClear)areaClear.disabled=!draft;}
+ function areaPoint76c(e){const r=board.getBoundingClientRect();return {x:Number(limit((e.clientX-r.left)*map.cols/r.width,0,map.cols).toFixed(4)),y:Number(limit((e.clientY-r.top)*map.rows/r.height,0,map.rows).toFixed(4))};}
+ function updateArea76c(e){if(!areaStroke)return;const p=areaPoint76c(e),dx=p.x-areaStroke.start.x,dy=p.y-areaStroke.start.y;const direction=Math.hypot(dx,dy)<.005?0:Number((Math.atan2(dy,dx)*180/Math.PI+360).toFixed(3))%360;state.areaDraft76c={...areaCfg,...areaStroke.start,direction};drawAreas76c();}
+ function endArea76c(e,commit){if(!areaStroke||areaStroke.id!==e.pointerId)return;const f=areaStroke;if(commit)updateArea76c(e);areaStroke=null;state.dragging=false;if(board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);if(!commit)state.areaDraft76c=f.before;drawAreas76c();}
+ function areaControls76c(){const host=el('div',undefined,options);host.className='vr-area-tools76c';const shape=vrFxSelect(host,'Tvar',Object.entries(areaNames),areaCfg.shape);const length=vrFxNumber(host,'Dosah / poloměr (m)',areaCfg.length,.5,360);length.step='.5';const width=vrFxNumber(host,'Šířka (m)',areaCfg.width,.5,360);width.step='.5';const angle=vrFxNumber(host,'Úhel kužele (°)',areaCfg.angle,10,180);angle.step='1';const color=vrFxSelect(host,'Barva',[['gold','Zlatá'],['red','Červená'],['blue','Modrá'],['green','Zelená'],['purple','Fialová']],areaCfg.color);
+  function update(){areaCfg.shape=shape.value;areaCfg.color=color.value;for(const [k,f] of [['length',length],['width',width],['angle',angle]])if(f.checkValidity()&&f.value!=='')areaCfg[k]=Number(f.value);width.disabled=!['rect','line'].includes(areaCfg.shape);angle.disabled=areaCfg.shape!=='cone';if(state.areaDraft76c)Object.assign(state.areaDraft76c,areaCfg);drawAreas76c();}for(const f of [shape,length,width,angle,color])f.onchange=update;
+  areaClear=btn('Smazat náhled',host,()=>{state.areaDraft76c=null;drawAreas76c();});
+  if(gm){areaSave=btn('Sdílet plochu',host,async()=>{const a=state.areaDraft76c;if(!a||state.fogPreview76||[length,width,angle].some(f=>!f.disabled&&!f.reportValidity()))return;state.areaDraft76c=null;drawAreas76c();if(!await run('mapAreaAdd76c',a)){state.areaDraft76c=a;if(board.isConnected)drawAreas76c();}});const shared=map.areas76c||[];if(shared.length){const chosen=vrFxSelect(host,'Sdílené plochy',shared.map((a,i)=>[a.id,`${i+1}. ${areaNames[a.shape]} · ${a.length} m`]),shared[0].id);btn('Odebrat plochu',host,()=>run('mapAreaRemove76c',{id:chosen.value}));btn('Smazat všechny',host,()=>{if(confirm('Odebrat všechny sdílené plochy?'))run('mapAreaClear76c');});}}
+  areaHint=el('small','',host);areaHint.setAttribute('role','status');el('small',gm?'Náhled je soukromý, sdílená plocha je viditelná všem. Účinek vyhodnotí PJ.':'Soukromý náhled · bez automatického zásahu nebo poškození.',host);update();
+ }
  fogCanvas=el('canvas',undefined,board);fogCanvas.className='vr-fog76';fogCanvas.width=fogCanvas.height=fogSize;fogCanvas.setAttribute('aria-hidden','true');
  const fogCtx=fogCanvas.getContext('2d');
  function renderFog76(bits=fogBits){
   const img=fogCtx.createImageData(fogSize,fogSize),alpha=gm&&!state.fogPreview76?Math.round(255*(state.fogOpacity76??65)/100):255;
   for(let i=0;i<fogLength;i++)if(bits[i]){img.data[i*4]=8;img.data[i*4+1]=10;img.data[i*4+2]=13;img.data[i*4+3]=alpha;}
   fogCtx.putImageData(img,0,0);
-  board.dataset.playerPreview76b=String(!!state.fogPreview76);
+  board.dataset.playerPreview76b=String(!!state.fogPreview76);drawAreas76c();
   for(const row of roster.querySelectorAll("[data-hidden76b]"))row.hidden=!!state.fogPreview76;
  }
  renderFog76();
@@ -1702,8 +1730,9 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
 
  let difficult=null;
  function showControls(){
-  options.replaceChildren();
+  options.replaceChildren();areaHint=areaSave=areaClear=null;
   difficult=null;
+  if(state.mode==='area76c'){areaControls76c();return;}
   if(state.mode==='place'&&actors.length){
    const select=vrFxSelect(options,'Žeton',actors.map(a=>[a.id,a.name]),state.actor);
    select.setAttribute('aria-label','Žeton');
@@ -1834,6 +1863,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   board.querySelector('.is-selected')?.classList.remove('is-selected');
  }
  board.onpointerdown=event=>{
+  if(state.mode==='area76c'&&!state.fogPreview76&&event.button===0&&event.isPrimary&&!areaStroke){event.preventDefault();board.focus({preventScroll:true});areaStroke={id:event.pointerId,start:areaPoint76c(event),before:state.areaDraft76c};state.dragging=true;board.setPointerCapture(event.pointerId);updateArea76c(event);return;}
   if(gm&&fogTool&&event.button===0&&event.isPrimary){event.preventDefault();const p=fogPoint76(event);fogStroke={id:event.pointerId,tool:fogTool,start:p,last:p,base:fogBits.slice(),bits:fogBits.slice()};state.dragging=true;board.setPointerCapture(event.pointerId);updateFogStroke76(p);return;}
   if(state.mode!=='hand'||drag||event.button!==0||!event.isPrimary||gm&&state.fogPreview76)return;
   event.preventDefault();
@@ -1847,6 +1877,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   board.setPointerCapture(event.pointerId);
  };
  board.onpointermove=event=>{
+  if(areaStroke?.id===event.pointerId){updateArea76c(event);return;}
   if(fogStroke?.id===event.pointerId){updateFogStroke76(fogPoint76(event));return;}
   if(drag?.id!==event.pointerId)return;
   drag.x=event.clientX;
@@ -1882,16 +1913,17 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   showPoint(point||state.point);
   if(cell&&point){closeSettings();moveToken(cell.dataset.dragActor,point);}
  }
- board.onpointerup=e=>{if(fogStroke)endFog76(e,true);else endDrag(e);};
- board.onpointercancel=board.onlostpointercapture=e=>{if(fogStroke)endFog76(e,false);else endDrag(e);};
+ board.onpointerup=e=>{if(areaStroke)endArea76c(e,true);else if(fogStroke)endFog76(e,true);else endDrag(e);};
+ board.onpointercancel=board.onlostpointercapture=e=>{if(areaStroke)endArea76c(e,false);else if(fogStroke)endFog76(e,false);else endDrag(e);};
  board.onclick=event=>{
-  if(state.mode==='hand'||fogTool||gm&&state.fogPreview76)return;
+  if(state.mode==='hand'||state.mode==='area76c'||fogTool||gm&&state.fogPreview76)return;
   closeSettings();
   const point=event.detail===0?state.point:boardPoint(event.clientX,event.clientY);
   if(point)usePoint(point,event.target.closest('[data-map-actor]')?.dataset.mapActor);
  };
  board.onkeydown=event=>{
   if(gm&&state.fogPreview76)return;
+  if(state.mode==='area76c'){if(event.key==='Escape'){event.preventDefault();setMode('hand');}return;}
   if(fogTool&&event.key!=='Escape')return;
   if(event.key==='Escape'){
    if(fogTool){if(fogStroke){const id=fogStroke.id;endFog76({pointerId:id},false);}setMode('hand');return;}
@@ -1935,18 +1967,21 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
   }
  };
  function setMode(value){
+  if(value==='area76c'&&state.fogPreview76)value='hand';
+  if(areaStroke)endArea76c({pointerId:areaStroke.id},false);
   fogTool='';state.fogTool76='';board.classList.remove('vr-fog-edit76');
   if(fogPreview)fogPreview.value='';
   endDrag();
   clearKeyboardActor();
   keyboardPoint=false;
   state.mode=value;
+  board.classList.toggle('vr-area-edit76c',value==='area76c'&&!state.fogPreview76);areaButton.setAttribute('aria-pressed',String(value==='area76c'));
   boardWrap.dataset.tool=value;
   hand.setAttribute('aria-pressed',String(value==='hand'));
   measure.setAttribute('aria-pressed',String(value==='measure'));
   mode.value=baseModes.some(([key])=>key===value)?value:'';
   showControls();
-  showPoint(state.point);
+  showPoint(state.point);drawAreas76c();if(value==='area76c')describe.textContent='Plošný efekt · klikni nebo táhni po mapě · Esc ukončí nástroj.';
  }
  if([state.from,state.to].some(p=>p&&(p.x>maxPoint.x||p.y>maxPoint.y)))state.from=state.to=null;
  const point=state.point||turnToken||{x:0,y:0};
@@ -1981,6 +2016,7 @@ function vrDrawTacticalMap(panel,battle,state,{run,loadImage,portraitFor,openOve
  const previewLabel=el('label',undefined,fogControls);const preview=el('input',undefined,previewLabel);preview.type='checkbox';preview.checked=!!state.fogPreview76;previewLabel.append(' Náhled hráčské mapy');preview.onchange=()=>{state.fogPreview76=preview.checked;setMode('hand');renderFog76();};
  const fogOpacity=el('label',undefined,fogControls);fogOpacity.append(' Průhlednost mlhy pro PJ ');const op=el('input',undefined,fogOpacity);op.type='range';op.min=15;op.max=90;op.step=5;op.value=state.fogOpacity76??65;op.oninput=()=>{state.fogOpacity76=Number(op.value);renderFog76();};
  el('small','Mlha je vizuální maska. Pro skutečné skrytí nepřátel použij samostatný nástroj níže. Původní obrázek mapy zůstává dostupný klientovi.',fogControls);
+ btn('Plošné efekty',settingsContent,()=>{if(state.fogPreview76){state.fogPreview76=false;preview.checked=false;renderFog76();}closeSettings();setMode('area76c');});
  const hideTools=el('div',undefined,settingsContent);hideTools.className='vr-hide-tools76b';el('strong','Skryté žetony',hideTools);
  const enemies=actors.filter(a=>a.kind==='npc'&&a.side==='enemy');
  if(enemies.length&&['setup','running'].includes(status)){
